@@ -60,8 +60,8 @@ public class PaymentActivity  extends AppCompatActivity {
     private void sendRequest() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = firebaseDatabase.getReference("payments");
-        UserProfile userProfile = new UserProfile(phoneNumber, amount);
-        myRef.setValue(userProfile);
+        PaymentRequest paymentRequest = new PaymentRequest(phoneNumber, amount);
+        myRef.setValue(paymentRequest);
         updateUserBalance();
         Toast.makeText(PaymentActivity.this.getApplicationContext(), "Successfully requested for payment!", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(PaymentActivity.this, MainActivity.class);
