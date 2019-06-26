@@ -1,0 +1,31 @@
+[ {
+  "choice1" : "Poor",
+  "choice2" : "Average",
+  "choice3" : "Good",
+  "choice4" : "Nothing else compares",
+  "question" : "How would you rate the value of our shirts?"
+}, {
+  "choice1" : "Very difficult",
+  "choice2" : "Difficult",
+  "choice3" : "Easy",
+  "choice4" : "Extremely easy",
+  "question" : "How easy was it to navigate the Uniqlo website to shop online?"
+}, {
+  "choice1" : "Better",
+  "choice2" : "Worse",
+  "choice3" : "The same",
+  "choice4" : "Placeholder",
+  "question" : "Compared to our competitors, is our product quality of our shirts better, worse or the same?"
+}, {
+  "choice1" : "Not likely at all",
+  "choice2" : "Not likely",
+  "choice3" : "Likely",
+  "choice4" : "Very likely",
+  "question" : "How likely are you to buy from us again?"
+}, {
+  "choice1" : "Not likely at all",
+  "choice2" : "Not likely",
+  "choice3" : "Likely",
+  "choice4" : "Very likely",
+  "question" : "How likely are you to recommend our shirts to a friend?"
+} ]

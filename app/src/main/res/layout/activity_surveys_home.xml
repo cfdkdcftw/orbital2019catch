@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".survey.SurveysHomeActivity">
+
+    <!-- for header area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- survey header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Surveys"
+            android:textColor="@color/themeBlue"
+            android:textSize="18pt"
+            android:textAlignment="center"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <!-- to be replaced by scrolling banners -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/lightBlue"
+        android:layout_marginTop="15dp"/>
+
+    <!-- heading for app functionality menu -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start earning!"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        />
+
+    <!-- app functionality menu -->
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/surveysCard1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/survey_description"
+                    android:layout_width="210dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="60dp"
+                    android:text="Spotify consumer Patterns survey"
+                    android:textAlignment="gravity"
+                    android:gravity="center_vertical"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/start_feedback_btn1"
+                    android:layout_width="85dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="270dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:clickable="true"
+                    android:text="Earn $1.00 now!"
+                    />
+
+                <ImageView
+                    android:id="@+id/survey_company_icon"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:padding="5dp"
+                    android:src="@drawable/spotify_logo" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/surveysCard2"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/survey_description2"
+                android:layout_width="210dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="60dp"
+                android:text="Nike consumers survey on shoes"
+                android:textAlignment="gravity"
+                android:gravity="center_vertical"
+                android:textSize="12dp" />
+
+            <Button
+                android:id="@+id/survey_btn2"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="270dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:clickable="true"
+                android:text="Earn  $0.80 now!"
+                />
+
+            <ImageView
+                android:id="@+id/survey_company_icon2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:padding="5dp"
+                android:src="@drawable/nike_logo" />
+
+        </android.support.v7.widget.CardView>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/survey_list_view"></ListView>
+</LinearLayout>
+</ScrollView>

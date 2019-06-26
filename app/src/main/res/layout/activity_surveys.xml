@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feedback.FeedbackHomeActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/survey"
+            android:id="@+id/survey_company_logo"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/survey_company_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toEndOf="@+id/survey_company_logo"
+            android:layout_toRightOf="@+id/survey_company_logo"
+            android:gravity="center_vertical"
+            android:text="Placeholder Company Name"
+            android:textColor="@color/themeBlue"
+            android:textSize="24sp" />
+
+        <!-- To consider tracking the question number?
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question"
+            android:textSize="20sp"
+            android:textColor="@color/comboBlue"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/question_counter"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/question_number"
+            android:layout_alignParentRight="true"
+            android:text="1"
+            android:textColor="@color/comboBlue"
+            android:textSize="20sp"/>
+            -->
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Loading..."
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/question"/>
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Loading..."
+        android:background="@color/themeBlue"
+        android:textColor="#fff"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice1"/>
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Loading..."
+        android:background="@color/themeBlue"
+        android:textColor="#fff"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice2"/>
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Loading..."
+        android:background="@color/themeBlue"
+        android:textColor="#fff"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice3"/>
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Loading..."
+        android:background="@color/themeBlue"
+        android:textColor="#fff"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice4"/>
+
+    <!-- Do we want a quit button??
+    <Button
+        android:layout_width="80dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Quit"
+        android:background="@color/exitRed"
+        android:textColor="#fff"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/quit"/>
+        -->
+
+</LinearLayout>

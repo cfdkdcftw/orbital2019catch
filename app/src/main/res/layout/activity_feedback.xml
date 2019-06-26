@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feedback.FeedbackHomeActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/survey"
+            android:id="@+id/feedback_company_logo"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/feedback_company_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toEndOf="@+id/feedback_company_logo"
+            android:layout_toRightOf="@+id/feedback_company_logo"
+            android:gravity="center_vertical"
+            android:text="Placeholder Company Name"
+            android:textColor="@color/themeBlue"
+            android:textSize="24sp" />
+
+        <!-- To consider tracking the question number?
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question"
+            android:textSize="20sp"
+            android:textColor="@color/comboBlue"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/question_counter"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/question_number"
+            android:layout_alignParentRight="true"
+            android:text="1"
+            android:textColor="@color/comboBlue"
+            android:textSize="20sp"/>
+            -->
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Loading..."
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/feedback_question"/>
+
+
+    <EditText
+        android:id="@+id/feedback_user_input"
+        android:layout_width="match_parent"
+        android:layout_height="364dp"
+        android:layout_alignParentStart="true"
+        android:background="@color/lightGray"
+        android:gravity="top"
+        android:hint="Minimum 140 characters"
+        android:padding="16dp" />
+
+    <Button
+        android:id="@+id/submit_feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="right"
+        android:layout_marginRight="24dp"
+        android:clickable="true"
+        android:text="Submit feedback"
+        android:textAllCaps="false" />
+</LinearLayout>

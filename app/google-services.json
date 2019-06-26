@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "507858032332",
+    "firebase_url": "https://orbital2019catch.firebaseio.com",
+    "project_id": "orbital2019catch",
+    "storage_bucket": "orbital2019catch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507858032332:android:8fbc18598e3beb9f",
+        "android_client_info": {
+          "package_name": "com.example.orbital2019catch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "507858032332-e0s1vhuq5ud2bbbmnk2h19l13iba74bf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.orbital2019catch",
+            "certificate_hash": "d1945b134a9846b495dc32a2fba64ca25600c170"
+          }
+        },
+        {
+          "client_id": "507858032332-9pjqfc97903n2883p3bsekh7t1ci1hg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3EoqNE1ijKKZFiq4pceUAfhxFlLkuLoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "507858032332-9pjqfc97903n2883p3bsekh7t1ci1hg8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
