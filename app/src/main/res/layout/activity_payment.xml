@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile.PaymentActivity">
+
+    <ImageView
+        android:id="@+id/payment_logo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/catch_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"/>
+    <TextView
+        android:id="@+id/payment_page_title"
+        android:layout_below="@id/payment_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Submit Payment Details"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_below="@+id/payment_page_title"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_input_background"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="20dp"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"/>
+
+    <EditText
+        android:id="@+id/payment_amount"
+        android:layout_below="@+id/phone_number"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_input_background"
+        android:ems="10"
+        android:hint="Amount to be withdrawn"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"/>
+
+    <Button
+        android:id="@+id/request_payment"
+        android:layout_below="@id/payment_amount"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border_button_background"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:text="Request Payment via PayNow"
+        android:textAllCaps="false"
+        android:textColor="@color/deepBlue"
+        android:textSize="16sp"/>
+</RelativeLayout>

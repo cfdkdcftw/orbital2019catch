@@ -51,8 +51,9 @@
             android:name=".loginandregister.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".profile.PaymentActivity" />
         <activity android:name=".UserBalanceActivity" />
-        <activity android:name=".ProfileSettingsActivity" />
+        <activity android:name=".profile.ProfileSettingsActivity" />
         <activity android:name=".qrcode.QrCodeActivity" />
         <activity android:name=".location.LocationBasedActivity" />
         <activity android:name=".livechallenge.LiveChallengeActivity" />

@@ -14,17 +14,21 @@ public class UserProfile {
         this.balance = 0;
     }
 
+    public UserProfile(String name, String email, double balance) {
+        this.name = name;
+        this.email = email;
+        this.balance = balance;
+    }
+
     public String getName() {
         return name;
     }
 
     public String getEmail() {
-
         return email;
     }
 
     public void addBalance(double amount) {
-
         this.balance += amount;
     }
 

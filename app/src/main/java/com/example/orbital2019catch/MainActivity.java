@@ -17,6 +17,7 @@ import com.example.orbital2019catch.livechallenge.LiveChallengeActivity;
 import com.example.orbital2019catch.location.LocationBasedActivity;
 import com.example.orbital2019catch.loginandregister.LoginActivity;
 import com.example.orbital2019catch.loginandregister.UserProfile;
+import com.example.orbital2019catch.profile.ProfileSettingsActivity;
 import com.example.orbital2019catch.qrcode.QrCodeActivity;
 import com.example.orbital2019catch.survey.SurveysHomeActivity;
 import com.firebase.client.Firebase;
