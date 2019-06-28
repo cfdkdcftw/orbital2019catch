@@ -1,14 +1,13 @@
 package com.example.orbital2019catch.profile;
 
 public class PaymentRequest {
-
     private String phoneNumber;
-    private String amount;
+    private double amount;
 
     public PaymentRequest() {
     }
 
-    public PaymentRequest(String phoneNumber, String amount) {
+    public PaymentRequest(String phoneNumber, double amount) {
         this.phoneNumber = phoneNumber;
         this.amount = amount;
     }
@@ -17,7 +16,7 @@ public class PaymentRequest {
         return phoneNumber;
     }
 
-    public String getAmount() {
+    public double getAmount() {
         return amount;
     }
 }

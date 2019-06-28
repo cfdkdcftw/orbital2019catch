@@ -1,5 +1,10 @@
 package com.example.orbital2019catch.loginandregister;
 
+import com.example.orbital2019catch.profile.PaymentActivity;
+import com.example.orbital2019catch.profile.PaymentRequest;
+
+import java.util.ArrayList;
+
 public class UserProfile {
 
     private String name;
@@ -39,4 +44,5 @@ public class UserProfile {
     public void setName(String name) {
         this.name = name;
     }
+
 }

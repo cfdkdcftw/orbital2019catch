@@ -19,21 +19,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Submit Payment Details"
+        android:text="Withdraw From Wallet"
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textColor="@color/black" />
 
+    <TextView
+        android:id="@+id/balance_heading"
+        android:layout_below="@+id/payment_page_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/themeBlue"
+        android:text="Current Balance"/>
+
+    <TextView
+        android:id="@+id/balance_display"
+        android:layout_below="@+id/balance_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="0.00"/>
+
     <EditText
         android:id="@+id/phone_number"
-        android:layout_below="@+id/payment_page_title"
+        android:layout_below="@+id/balance_display"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/login_input_background"
         android:ems="10"
         android:hint="Phone Number"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:paddingLeft="20dp"
         android:textIsSelectable="true"
         android:focusable="true"
