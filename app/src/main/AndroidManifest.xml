@@ -63,6 +63,13 @@
         <activity android:name=".survey.SurveysHomeActivity" />
         <activity android:name=".survey.SurveyLocalSpotify" />
         <activity android:name=".survey.SurveyFirebaseNike" />
+        <activity android:name=".survey.SurveyFirebaseUniqlo" />
+        <activity android:name=".location.JewelFeedbackActivity" />
+        <activity android:name=".location.SurveyFirebaseMCD" />
+        <activity android:name=".location.SOCFeedbackActivity" />
+        <activity android:name=".location.SurveyFirebaseMerlion" />
+        <activity android:name=".location.SurveyFirebaseNTUC" />
+        <activity android:name=".location.SurveyFirebasePuma" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,7 @@
 package com.example.orbital2019catch.location;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Camera;
 import android.location.Location;
 import android.location.LocationManager;
@@ -9,18 +10,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.orbital2019catch.MainActivity;
 import com.example.orbital2019catch.R;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class LocationBasedActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class LocationBasedActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener{
 
     private GoogleMap mMap;
     private static final LatLng pumaBugis = new LatLng(1.2998, 103.8541);
@@ -78,21 +81,49 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
 
         mMap.animateCamera(CameraUpdateFactory.zoomTo(10.5f));
         //  adding markers
-        mPumaBugis = mMap.addMarker(new MarkerOptions().position(pumaBugis).title("Puma at Bugis+"));
+        mPumaBugis = mMap.addMarker(new MarkerOptions()
+                .position(pumaBugis)
+                .title("Puma at Bugis+")
+                .snippet("Payout: $0.40"));
+        //        .icon(BitmapDescriptorFactory.fromResource(R.drawable.puma)));
         mPumaBugis.setTag(0);
-        mSOC = mMap.addMarker(new MarkerOptions().position(soc).title("NUS School of Computing"));
+        mSOC = mMap.addMarker(new MarkerOptions()
+                .position(soc)
+                .title("NUS School of Computing")
+                .snippet("Payout: $0.20"));
+         //       .icon(BitmapDescriptorFactory.fromResource(R.drawable.soc)));
         mSOC.setTag(0);
-        mJewel = mMap.addMarker(new MarkerOptions().position(jewel).title("Jewel"));
+        mJewel = mMap.addMarker(new MarkerOptions()
+                .position(jewel)
+                .title("Jewel")
+                .snippet("Payout: $0.60"));
+         //       .icon(BitmapDescriptorFactory.fromResource(R.drawable.jewel)));
         mJewel.setTag(0);
-        mMCDCausewayPt = mMap.addMarker(new MarkerOptions().position(mcdonaldsCauseway).title("McDonald's at Causeway Point"));
+        mMCDCausewayPt = mMap.addMarker(new MarkerOptions()
+                .position(mcdonaldsCauseway)
+                .title("McDonald's at Causeway Point")
+                .snippet("Payout: $0.30"));
+         //       .icon(BitmapDescriptorFactory.fromResource(R.drawable.mcd)));
         mMCDCausewayPt.setTag(0);
-        mNTUCJurongPt = mMap.addMarker(new MarkerOptions().position(ntucJurongPt).title("FairPrice at Jurong Point"));
+        mNTUCJurongPt = mMap.addMarker(new MarkerOptions()
+                .position(ntucJurongPt)
+                .title("FairPrice at Jurong Point")
+                .snippet("Payout: $0.50"));
+         //       .icon(BitmapDescriptorFactory.fromResource(R.drawable.ntuc)));
         mNTUCJurongPt.setTag(0);
-        mMerlion = mMap.addMarker(new MarkerOptions().position(merlionPark).title("Merlion Park"));
+        /*
+        mMerlion = mMap.addMarker(new MarkerOptions()
+                .position(merlionPark)
+                .title("Merlion Park")
+                .snippet("Payout: $0.70"));
+        //        .icon(BitmapDescriptorFactory.fromResource(R.drawable.merlion)));
         mMerlion.setTag(0);
-
+        */
         //  Set a listener for marker click
-        mMap.setOnMarkerClickListener(this);
+        // mMap.setOnMarkerClickListener(this);
+
+        // Set listener on the snippet window
+        mMap.setOnInfoWindowClickListener(this);
     }
 
     public void onPause() {
@@ -102,13 +133,56 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
     }
 
     @Override
-    public boolean onMarkerClick(Marker marker) {
-        // to start survey/feedback
-        return false;
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 
     @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
+    public void onInfoWindowClick(Marker marker) {
+        if (marker.equals(mJewel)) {
+            Intent intent = new Intent(this, JewelFeedbackActivity.class);
+            startActivity(intent);
+        } else if (marker.equals(mSOC)) {
+            Intent intent = new Intent(this, SOCFeedbackActivity.class);
+            startActivity(intent);
+        } else if (marker.equals(mMCDCausewayPt)) {
+            Intent intent = new Intent(this, SurveyFirebaseMCD.class);
+            startActivity(intent);
+        } else if (marker.equals(mMerlion)) {
+            Intent intent = new Intent(this, SurveyFirebaseMerlion.class);
+            startActivity(intent);
+        } else if (marker.equals(mNTUCJurongPt)) {
+            Intent intent = new Intent(this, SurveyFirebaseNTUC.class);
+            startActivity(intent);
+        } else if (marker.equals(mPumaBugis)) {
+            Intent intent = new Intent(this, SurveyFirebasePuma.class);
+            startActivity(intent);
+        }
+    }
 
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        /*
+        if (marker.equals(mJewel)) {
+            Intent intent = new Intent(this, JewelFeedbackActivity.class);
+            startActivity(intent);
+        } else if (marker.equals(mSOC)) {
+            Intent intent = new Intent(this, SOCFeedbackActivity.class);
+            startActivity(intent);
+        } else if (marker.equals(mMCDCausewayPt)) {
+            Intent intent = new Intent(this, SurveyFirebaseMCD.class);
+            startActivity(intent);
+        } else if (marker.equals(mMerlion)) {
+            Intent intent = new Intent(this, SurveyFirebaseMerlion.class);
+            startActivity(intent);
+        } else if (marker.equals(mNTUCJurongPt)) {
+            Intent intent = new Intent(this, SurveyFirebaseNTUC.class);
+            startActivity(intent);
+        } else if (marker.equals(mPumaBugis)) {
+            Intent intent = new Intent(this, SurveyFirebasePuma.class);
+            startActivity(intent);
+        }
+        */
+        return false;
     }
 }

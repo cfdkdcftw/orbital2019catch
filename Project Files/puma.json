@@ -1,0 +1,37 @@
+[
+    {
+        "question": "How would you rate the range of products that Puma at Bugis+ has?",
+        "choice1": "Poor",
+        "choice2": "Average",
+        "choice3": "Good",
+        "choice4": "Nothing else compares"
+    },
+    {
+        "question": "How easy was it to locate Puma at Bugis+?",
+        "choice1": "Very difficult",
+        "choice2": "Difficult",
+        "choice3": "Easy",
+        "choice4": "Extremely easy"
+    },
+    {
+        "question": "Compared to our competitors, is our pricing competitive?",
+        "choice1": "Better",
+        "choice2": "Worse",
+        "choice3": "The same",
+        "choice4": "Nothing else compares!"
+    },
+    {
+        "question": "What is your favourite Puma product?",
+        "choice1": "Shoes",
+        "choice2": "Clothing",
+        "choice3": "Accessories",
+        "choice4": "Sports"
+    },
+    {
+        "question": "How likely are you to recommend buying Puma sneakers to a friend?",
+        "choice1": "Not at all",
+        "choice2": "Not likely",
+        "choice3": "Likely",
+        "choice4": "Very likely"
+    }
+]

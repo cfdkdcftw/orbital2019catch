@@ -1,0 +1,37 @@
+[
+    {
+        "question": "How would you rate the range of products that Fairprice at Jurong Point has?",
+        "choice1": "Poor",
+        "choice2": "Average",
+        "choice3": "Good",
+        "choice4": "Nothing else compares"
+    },
+    {
+        "question": "How easy was it to locate Fairprice at Jurong Point?",
+        "choice1": "Very difficult",
+        "choice2": "Difficult",
+        "choice3": "Easy",
+        "choice4": "Extremely easy"
+    },
+    {
+        "question": "Compared to our competitors, is our pricing competitive?",
+        "choice1": "Better",
+        "choice2": "Worse",
+        "choice3": "The same",
+        "choice4": "Nothing else compares!"
+    },
+    {
+        "question": "How often do you purchase groceries at our Jurong Point outlet?",
+        "choice1": "Once a week",
+        "choice2": "Twice a week",
+        "choice3": "Thrice a week or more",
+        "choice4": "Everyday"
+    },
+    {
+        "question": "How likely are you to recommend visiting our Jurong Point outlet to a friend?",
+        "choice1": "Not likely at all",
+        "choice2": "Not likely",
+        "choice3": "Likely",
+        "choice4": "Very likely"
+    }
+]

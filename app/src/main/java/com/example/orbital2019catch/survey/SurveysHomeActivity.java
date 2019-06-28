@@ -13,7 +13,7 @@ import com.example.orbital2019catch.survey.workinprogress.SurveyArrayAdapter;
 
 
 public class SurveysHomeActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button survey1, survey2;
+    private Button survey1, survey2, survey3;
     private ListView listView;
     private SurveyArrayAdapter surveyArrayAdapter;
 
@@ -50,6 +50,8 @@ public class SurveysHomeActivity extends AppCompatActivity implements View.OnCli
         survey2 = (Button) findViewById(R.id.survey_btn2);
         survey2.setOnClickListener(this);
 
+        survey2 = (Button) findViewById(R.id.survey_btn3);
+        survey2.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +66,11 @@ public class SurveysHomeActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.survey_btn2:
                 intent = new Intent(this, SurveyFirebaseNike.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                break;
+            case R.id.survey_btn3:
+                intent = new Intent(this, SurveyFirebaseUniqlo.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 break;

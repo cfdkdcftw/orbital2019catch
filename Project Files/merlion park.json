@@ -1,0 +1,37 @@
+[
+    {
+        "question": "How would you rate the view of Merlion Park and its vicinity?",
+        "choice1": "Poor",
+        "choice2": "Average",
+        "choice3": "Good",
+        "choice4": "Nothing else compares"
+    },
+    {
+        "question": "How easy was it to locate Merlion Park?",
+        "choice1": "Very difficult",
+        "choice2": "Difficult",
+        "choice3": "Easy",
+        "choice4": "Extremely easy"
+    },
+    {
+        "question": "Compared to the other attractions in the vicinity, is Merlion Park better, worse or the same?",
+        "choice1": "Better",
+        "choice2": "Worse",
+        "choice3": "The same",
+        "choice4": "Nothing else compares!"
+    },
+    {
+        "question": "How likely are you to visit Merlion Park again?",
+        "choice1": "Not likely at all",
+        "choice2": "Not likely",
+        "choice3": "Likely",
+        "choice4": "Very likely"
+    },
+    {
+        "question": "How likely are you to recommend visiting Merlion Park to a friend?",
+        "choice1": "Not likely at all",
+        "choice2": "Not likely",
+        "choice3": "Likely",
+        "choice4": "Very likely"
+    }
+]

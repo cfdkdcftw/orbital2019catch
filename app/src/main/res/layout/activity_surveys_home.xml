@@ -124,6 +124,43 @@
                 android:src="@drawable/nike_logo" />
 
         </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/surveysCard3"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/survey_description3"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="60dp"
+            android:text="Uniqlo consumer survey"
+            android:textAlignment="gravity"
+            android:gravity="center_vertical"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/survey_btn3"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="270dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:clickable="true"
+            android:text="Earn  $0.60 now!"
+            />
+
+        <ImageView
+            android:id="@+id/survey_company_icon3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:padding="5dp"
+            android:src="@drawable/uniqlo" />
+    </android.support.v7.widget.CardView>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
