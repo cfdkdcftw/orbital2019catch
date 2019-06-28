@@ -12,4 +12,12 @@ public class PaymentRequest {
         this.phoneNumber = phoneNumber;
         this.amount = amount;
     }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
 }

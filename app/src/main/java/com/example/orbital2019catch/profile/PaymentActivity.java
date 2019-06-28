@@ -88,7 +88,6 @@ public class PaymentActivity  extends AppCompatActivity {
                 Toast.makeText(PaymentActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     private Boolean validate() {

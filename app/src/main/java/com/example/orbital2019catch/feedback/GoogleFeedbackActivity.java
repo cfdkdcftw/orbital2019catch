@@ -3,6 +3,7 @@ package com.example.orbital2019catch.feedback;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -13,11 +14,15 @@ import android.widget.Toast;
 
 import com.example.orbital2019catch.MainActivity;
 import com.example.orbital2019catch.R;
+import com.example.orbital2019catch.loginandregister.UserProfile;
+import com.example.orbital2019catch.survey.SurveyLocalSpotify;
 import com.example.orbital2019catch.survey.SurveysHomeActivity;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +38,11 @@ public class GoogleFeedbackActivity extends Activity{
 
     DatabaseReference databaseFeedback = FirebaseDatabase.getInstance().getReference("feedback/google");
 
+    //  payment
+    private FirebaseDatabase mDatabase;
+    private FirebaseAuth mAuth;
+    String balance;
+
     public GoogleFeedbackActivity() {
     }
 
@@ -44,6 +54,10 @@ public class GoogleFeedbackActivity extends Activity{
         companyLogo.setImageResource(R.drawable.googleg_standard_color_18);
         submit = (Button) findViewById(R.id.submit_feedback);
         userInput = (EditText) findViewById(R.id.feedback_user_input);
+
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance();
+
         mQuestionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -69,7 +83,6 @@ public class GoogleFeedbackActivity extends Activity{
     }
 
     private void addFeedback() {
-        String surveyName = companyName.getText().toString().trim();
         String inputString = userInput.getText().toString();
         if (TextUtils.isEmpty(inputString)) {
             Toast.makeText(this, "Please enter your feedback!", Toast.LENGTH_LONG).show();
@@ -80,12 +93,34 @@ public class GoogleFeedbackActivity extends Activity{
                 String id = databaseFeedback.push().getKey();
                 Feedback feedback = new Feedback(inputString);
                 databaseFeedback.child(id).setValue(feedback);
+                // addCredits(); null obj ref for balance
                 Toast.makeText(this, "Feedback successfully submitted!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, FeedbackHomeActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
             }
         }
+    }
+
+    private void addCredits() {
+        getBalance();
+        DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
+        balanceRef.setValue(Double.parseDouble(balance) + 1.0);
+    }
+
+    private void getBalance() {
+        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+        databaseReference.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
+                UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                balance = String.format("%.2f", userProfile.getBalance());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(GoogleFeedbackActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override // over-riding so that back does not lead to the previously done survey
