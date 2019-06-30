@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.loginandregister.UserProfile;
-import com.example.orbital2019catch.profile.PaymentActivity;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -43,7 +42,8 @@ public class SurveyFirebaseNike extends AppCompatActivity {
     //  payment
     private FirebaseDatabase mDatabase;
     private FirebaseAuth mAuth;
-    String balance;
+    private double balance;
+    private double amount = 0.8;
 
     private ArrayList<String> answers = new ArrayList<>();
     private int mQuestionNumber = 0;
@@ -194,28 +194,22 @@ public class SurveyFirebaseNike extends AppCompatActivity {
                 answers.get(3), answers.get(4));
         String id = databaseSurvey.push().getKey();
         databaseSurvey.child(id).setValue(surveyResponse);
-        // addCredits(); null obj ref for balance
-    }
-
-    private void addCredits() {
-        getBalance();
-        DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
-        balanceRef.setValue(Double.parseDouble(balance) + 0.8);
-    }
-
-    private void getBalance() {
         DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
         databaseReference.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override
             public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
                 UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                balance = String.format("%.2f", userProfile.getBalance());
+                balance = userProfile.getBalance();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(SurveyFirebaseNike.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
+        balanceRef.setValue(balance + amount);
     }
 
     public void onPause() {

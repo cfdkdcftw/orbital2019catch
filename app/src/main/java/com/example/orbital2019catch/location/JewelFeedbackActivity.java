@@ -17,6 +17,7 @@ import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.feedback.Feedback;
 import com.example.orbital2019catch.feedback.FeedbackHomeActivity;
 import com.example.orbital2019catch.loginandregister.UserProfile;
+import com.example.orbital2019catch.survey.SurveyFirebaseNike;
 import com.example.orbital2019catch.survey.SurveyLocalSpotify;
 import com.example.orbital2019catch.survey.SurveysHomeActivity;
 import com.firebase.client.DataSnapshot;
@@ -43,7 +44,7 @@ public class JewelFeedbackActivity extends Activity{
     //  payment
     private FirebaseDatabase mDatabase;
     private FirebaseAuth mAuth;
-    String balance;
+    private double balance;
 
     public JewelFeedbackActivity() {
     }
@@ -95,6 +96,23 @@ public class JewelFeedbackActivity extends Activity{
                 String id = databaseFeedback.push().getKey();
                 Feedback feedback = new Feedback(inputString);
                 databaseFeedback.child(id).setValue(feedback);
+                DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+                databaseReference.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
+                        UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                        balance = userProfile.getBalance();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(JewelFeedbackActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
+                balanceRef.setValue(balance + 0.6);
+
                 // addCredits(); null obj ref for balance
                 Toast.makeText(this, "Feedback successfully submitted!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, MainActivity.class);
@@ -102,27 +120,6 @@ public class JewelFeedbackActivity extends Activity{
                 overridePendingTransition(0,0);
             }
         }
-    }
-
-    private void addCredits() {
-        getBalance();
-        DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
-        balanceRef.setValue(Double.parseDouble(balance) + 1.0);
-    }
-
-    private void getBalance() {
-        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
-        databaseReference.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
-                UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                balance = String.format("%.2f", userProfile.getBalance());
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(JewelFeedbackActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override // over-riding so that back does not lead to the previously done survey

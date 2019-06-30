@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance();
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {
@@ -65,12 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             this.email = currentUser.getEmail();
         }
         setContentView(R.layout.activity_main);
-
         // display welcome message to user
         displayName = findViewById(R.id.user_display_name);
         displayBalance = findViewById(R.id.user_display_balance);
-        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
 
+        mDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

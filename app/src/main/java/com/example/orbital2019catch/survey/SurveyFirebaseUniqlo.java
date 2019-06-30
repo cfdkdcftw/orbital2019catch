@@ -43,7 +43,7 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
     //  payment
     private FirebaseDatabase mDatabase;
     private FirebaseAuth mAuth;
-    String balance;
+    private double balance;
     double amount = 0.6;
 
     private ArrayList<String> answers = new ArrayList<>();
@@ -195,8 +195,22 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
                 answers.get(3), answers.get(4));
         String id = databaseSurvey.push().getKey();
         databaseSurvey.child(id).setValue(surveyResponse);
-        Credit credit = new Credit(amount);
-        credit.addCredits();
+        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+        databaseReference.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
+                UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                balance = userProfile.getBalance();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(SurveyFirebaseUniqlo.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
+        balanceRef.setValue(balance + amount);
         // addCredits(); null obj ref for balance
     }
 
