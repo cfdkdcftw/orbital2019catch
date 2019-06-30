@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.icu.util.Calendar;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -97,7 +98,7 @@ public class PaymentActivity  extends AppCompatActivity {
 
     private void sendRequest() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference("payments");
+        DatabaseReference myRef = firebaseDatabase.getReference("payments/").child(mAuth.getUid() + " " + Calendar.getInstance().getTime().toString());
         PaymentRequest paymentRequest = new PaymentRequest(phoneNumber, amountInDouble);
         myRef.setValue(paymentRequest);
 

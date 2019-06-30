@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.orbital2019catch.Credit;
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.loginandregister.UserProfile;
 import com.firebase.client.DataSnapshot;
@@ -194,28 +195,9 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
                 answers.get(3), answers.get(4));
         String id = databaseSurvey.push().getKey();
         databaseSurvey.child(id).setValue(surveyResponse);
+        Credit credit = new Credit(amount);
+        credit.addCredits();
         // addCredits(); null obj ref for balance
-    }
-
-    private void addCredits() {
-        getBalance();
-        DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
-        balanceRef.setValue(Double.parseDouble(balance) + amount);
-    }
-
-    private void getBalance() {
-        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
-        databaseReference.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
-                UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                balance = String.format("%.2f", userProfile.getBalance());
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(SurveyFirebaseUniqlo.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     public void onPause() {
