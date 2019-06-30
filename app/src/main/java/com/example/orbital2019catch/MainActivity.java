@@ -159,15 +159,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void getImages(){
-        mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
-        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-        mImageUrls.add("https://i.redd.it/qn7f9oqu7o501.jpg");
-        mImageUrls.add("https://i.redd.it/j6myfqglup501.jpg");
-        mImageUrls.add("https://i.redd.it/0h2gm1ix6p501.jpg");
-        mImageUrls.add("https://i.redd.it/k98uzl68eh501.jpg");
-        mImageUrls.add("https://i.redd.it/glin0nwndo501.jpg");
-        mImageUrls.add("https://i.redd.it/obx4zydshg601.jpg");
-        mImageUrls.add("https://i.imgur.com/ZcLLrkY.jpg");
+        mImageUrls.add("https://i.ibb.co/HH8wZcW/Add-a-heading.png");
+        mImageUrls.add("https://i.ibb.co/kg0g281/Ma-La-Xiang-Guo.png");
+        mImageUrls.add("https://i.ibb.co/x7PNHWP/Ma-La-Xiang-Guo-1.png");
 
         initRecyclerView();
     }

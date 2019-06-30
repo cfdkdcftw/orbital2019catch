@@ -34,8 +34,8 @@
     <!-- to be replaced by scrolling banners -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@color/lightBlue"
+        android:layout_height="200dp"
+        android:background="@drawable/topshop_banner"
         android:layout_marginTop="15dp"/>
 
     <!-- heading for app functionality menu -->
