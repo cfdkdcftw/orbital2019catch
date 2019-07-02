@@ -62,27 +62,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             sendToLogin();
         } else {
             this.email = currentUser.getEmail();
+            setContentView(R.layout.activity_main);
+            // display welcome message to user
+            displayName = findViewById(R.id.user_display_name);
+            displayBalance = findViewById(R.id.user_display_balance);
+            mDatabase = FirebaseDatabase.getInstance();
+            DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                    displayName.setText(userProfile.getName() + "!");
+                    displayBalance.setText(String.format("$%.2f", userProfile.getBalance()));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(MainActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
-        setContentView(R.layout.activity_main);
-        // display welcome message to user
-        displayName = findViewById(R.id.user_display_name);
-        displayBalance = findViewById(R.id.user_display_balance);
-
-        mDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                displayName.setText(userProfile.getName() + "!");
-                displayBalance.setText(String.format("$%.2f", userProfile.getBalance()));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(MainActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
         // to connect to firebase for surveys
         Firebase.setAndroidContext(this);

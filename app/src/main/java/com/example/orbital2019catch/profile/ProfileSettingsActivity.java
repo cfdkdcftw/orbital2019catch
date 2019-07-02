@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileSettingsActivity extends AppCompatActivity {
 
-    private Button mLogoutBtn, paymentBtn;
+    private Button mLogoutBtn, mPaymentBtn, mPaymentHistoryBtn;
     private TextView profileName, profileEmail, profileBalance;
 
     private FirebaseAuth mAuth;
@@ -45,6 +45,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         profileName = findViewById(R.id.username_display);
         profileEmail = findViewById(R.id.email_display);
         profileBalance = findViewById(R.id.balance_display);
+
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
@@ -77,8 +78,8 @@ public class ProfileSettingsActivity extends AppCompatActivity {
             }
         });
 
-        paymentBtn = (Button) findViewById(R.id.paymentBtn);
-        paymentBtn.setOnClickListener(new View.OnClickListener() {
+        mPaymentBtn = (Button) findViewById(R.id.paymentBtn);
+        mPaymentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (ProfileSettingsActivity.this, PaymentActivity.class);
@@ -86,6 +87,17 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
             }
         });
+
+        mPaymentHistoryBtn = (Button) findViewById(R.id.paymentHistoryBtn);
+        mPaymentHistoryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (ProfileSettingsActivity.this, PaymentHistoryActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            }
+        });
+
     }
 
     public void onPause() {

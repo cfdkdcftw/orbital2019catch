@@ -19,7 +19,9 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven {
+            url "hhtpsL//maven.google.com"
+        }
     }
 }
 

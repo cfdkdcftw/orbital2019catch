@@ -34,9 +34,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.TimeZone;
 
 import static com.example.orbital2019catch.App.CHANNEL_1_ID;
 
@@ -98,8 +106,18 @@ public class PaymentActivity  extends AppCompatActivity {
 
     private void sendRequest() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference("payments/").child(mAuth.getUid() + " " + Calendar.getInstance().getTime().toString());
-        PaymentRequest paymentRequest = new PaymentRequest(phoneNumber, amountInDouble);
+        Date date = new Date();
+        TimeZone tz = TimeZone.getTimeZone("Singapore");
+        DateFormat df = new SimpleDateFormat("yyyyMMddHHmm"); // Quoted "Z" to indicate UTC, no timezone offset
+        df.setTimeZone(tz);
+        String nowAsISO = df.format(new Date());
+        DateTimeFormatter prettyDate = DateTimeFormatter.ofPattern("E, dd MMM yyyy"); // Sat, 14 Jul 2018
+        LocalDate localDate = LocalDate.now();
+        String currDate = prettyDate.format(localDate);
+        DateTimeFormatter prettyTime = DateTimeFormatter.ofPattern("h:mm a"); // 12:08 PM
+        String currTime = ZonedDateTime.now(ZoneId.of("Singapore")).format(prettyTime);
+        DatabaseReference myRef = firebaseDatabase.getReference("payments").child(mAuth.getUid()).child(nowAsISO);
+        PaymentRequest paymentRequest = new PaymentRequest(phoneNumber, amountInDouble, currDate, currTime);
         myRef.setValue(paymentRequest);
 
         updateUserBalance();
@@ -128,8 +146,9 @@ public class PaymentActivity  extends AppCompatActivity {
             Toast.makeText(PaymentActivity.this.getApplicationContext(), "You have insufficient balance.", Toast.LENGTH_LONG).show();
         } else if (amountInDouble <= 0) {
             Toast.makeText(PaymentActivity.this.getApplicationContext(), "Please enter a valid amount.", Toast.LENGTH_LONG).show();
-        }
-        else {
+        } else if (!(phoneNumber.matches("[0-9]+") && phoneNumber.length() > 2)) {
+            Toast.makeText(PaymentActivity.this.getApplicationContext(), "Phone number can only contain digits.", Toast.LENGTH_LONG).show();
+        } else {
             result = true;
         }
 
