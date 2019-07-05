@@ -53,8 +53,8 @@
             android:name=".loginandregister.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".livechallenge.PlayerFireKastActivity" />
-        <activity android:name=".livechallenge.StreamerFireKastActivity" />
+        <activity android:name=".deprecated.PlayerFireKastActivity" />
+        <activity android:name=".deprecated.StreamerFireKastActivity" />
         <activity android:name=".loginandregister.ForgotPasswordActivity" />
         <activity android:name=".profile.PaymentHistoryActivity" />
         <activity android:name=".profile.PaymentActivity" />
