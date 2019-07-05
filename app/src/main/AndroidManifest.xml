@@ -69,6 +69,7 @@
         <activity android:name=".profile.ProfileSettingsActivity" />
         <activity android:name=".qrcode.QrCodeActivity" />
         <activity android:name=".location.LocationBasedActivity" />
+        <activity android:name=".livechallenge.BambuserPlayerActivity" />
         <activity android:name=".livechallenge.BambuserBroadcastActivity" />
         <activity android:name=".livechallenge.LiveChallengeActivity" />
         <activity android:name=".feedback.FeedbackHomeActivity" />

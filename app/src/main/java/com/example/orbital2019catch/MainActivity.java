@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.orbital2019catch.feedback.FeedbackHomeActivity;
 import com.example.orbital2019catch.livechallenge.BambuserBroadcastActivity;
+import com.example.orbital2019catch.livechallenge.BambuserPlayerActivity;
 import com.example.orbital2019catch.livechallenge.LiveChallengeActivity;
 import com.example.orbital2019catch.location.LocationBasedActivity;
 import com.example.orbital2019catch.loginandregister.LoginActivity;
@@ -138,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 overridePendingTransition(0,0);
                 break;
             case R.id.liveChallengeCard :
-                intent = new Intent(this, BambuserBroadcastActivity.class);
+                intent = new Intent(this, BambuserPlayerActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 break;

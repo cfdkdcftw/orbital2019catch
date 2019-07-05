@@ -74,4 +74,7 @@ dependencies {
     //   exclude group: "com.android.support"
     // }
     // ☝️ Uncomment above lines if targeting API 26 and below
+
+    //bambuser
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 }
