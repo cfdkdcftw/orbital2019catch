@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':libbambuser-0.9.18'

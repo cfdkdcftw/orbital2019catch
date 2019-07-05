@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
+        }
     }
     buildTypes {
         release {
@@ -66,7 +69,8 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui:0.6.2'
 
     //firekast
-    implementation('io.firekast:firekast:1.7.2') // {
+    implementation('io.firekast:firekast:1.7.2')
+    implementation project(path: ':libbambuser-0.9.18') // {
     //   exclude group: "com.android.support"
     // }
     // ☝️ Uncomment above lines if targeting API 26 and below

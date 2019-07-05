@@ -40,6 +40,7 @@ public class LiveChallengeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_live_challenge);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
