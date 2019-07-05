@@ -1,11 +1,7 @@
-package com.example.orbital2019catch;
+package com.example.orbital2019catch.profile;
 
 import android.support.annotation.NonNull;
-import android.widget.Toast;
 
-import com.example.orbital2019catch.loginandregister.UserProfile;
-import com.example.orbital2019catch.survey.SurveyFirebaseUniqlo;
-import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

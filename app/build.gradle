@@ -64,4 +64,10 @@ dependencies {
     // add library
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.firebaseui:firebase-ui:0.6.2'
+
+    //firekast
+    implementation('io.firekast:firekast:1.7.2') // {
+    //   exclude group: "com.android.support"
+    // }
+    // ☝️ Uncomment above lines if targeting API 26 and below
 }

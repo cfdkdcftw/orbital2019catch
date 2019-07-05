@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.loginandregister.LoginActivity;
-import com.example.orbital2019catch.loginandregister.UserProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

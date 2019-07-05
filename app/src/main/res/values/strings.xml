@@ -3,4 +3,6 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="firekast_private_key">$2a$10$eQYleu.JkdUYJndsHLyi/u1qAQJ01mcTx2f7Nn4foC3jgSe9ie8yG</string>
+    <string name="firekast_public_key">$2a$10$14XpsBduPMXlh1MGvAGQ2ulI3cSfZlHSM61K48qRugF7z.qaZUbzC</string>
 </resources>

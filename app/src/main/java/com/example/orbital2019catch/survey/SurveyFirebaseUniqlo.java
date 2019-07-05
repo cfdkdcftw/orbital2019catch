@@ -10,9 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.orbital2019catch.Credit;
 import com.example.orbital2019catch.R;
-import com.example.orbital2019catch.loginandregister.UserProfile;
+import com.example.orbital2019catch.profile.UserProfile;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;

@@ -73,6 +73,18 @@
         android:textColor="@color/themeBlue"
         android:textSize="16dp"/>
 
+    <TextView
+        android:id="@+id/login_forgot_btn"
+        android:layout_below="@id/login_register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Forgot your password?"
+        android:textAllCaps="false"
+        android:textColor="@color/comboBrown"
+        android:textSize="16dp"/>
+
     <ProgressBar
         android:id="@+id/loginProgress"
         style="?android:attr/progressBarStyleHorizontal"

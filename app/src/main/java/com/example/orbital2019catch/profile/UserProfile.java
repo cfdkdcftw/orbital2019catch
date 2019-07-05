@@ -1,4 +1,4 @@
-package com.example.orbital2019catch.loginandregister;
+package com.example.orbital2019catch.profile;
 
 import com.example.orbital2019catch.profile.PaymentActivity;
 import com.example.orbital2019catch.profile.PaymentRequest;

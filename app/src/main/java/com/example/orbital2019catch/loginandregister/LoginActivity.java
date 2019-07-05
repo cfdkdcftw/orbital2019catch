@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.orbital2019catch.MainActivity;
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText mEmailField, mPasswordField;
     private Button mLoginBtn, mRegisterBtn;
+    private TextView mForgotPassword;
     private ProgressBar mLoginProgress;
     private FirebaseAuth mAuth;
 
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordField = (EditText) findViewById(R.id.login_password);
         mLoginBtn = (Button) findViewById(R.id.login_btn);
         mRegisterBtn = (Button) findViewById(R.id.login_register_btn);
+        mForgotPassword = (TextView) findViewById(R.id.login_forgot_btn);
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +60,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
+        mForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+            }
+        });    }
 
     private Boolean validate() {
         Boolean result = false;

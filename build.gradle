@@ -19,9 +19,8 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url "hhtpsL//maven.google.com"
-        }
+        maven { url "hhtpsL//maven.google.com" }
+        maven { url 'https://dl.bintray.com/firekast/android' }
     }
 }
 
