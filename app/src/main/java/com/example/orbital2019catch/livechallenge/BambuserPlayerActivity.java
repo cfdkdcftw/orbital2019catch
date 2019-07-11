@@ -1,7 +1,7 @@
 package com.example.orbital2019catch.livechallenge;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.SurfaceView;
 import android.widget.TextView;
 import com.bambuser.broadcaster.BroadcastPlayer;
@@ -15,7 +15,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import com.bambuser.broadcaster.BroadcastPlayer;
+
 import android.widget.MediaController;
 import android.view.MotionEvent;
 // ...
@@ -155,7 +155,7 @@ public class BambuserPlayerActivity extends AppCompatActivity {
         }
         if (mBroadcastPlayer != null) {
             mBroadcastPlayer.close();
-            mBroadcastPlayer = new BroadcastPlayer(this, resourceUri, APPLICATION_ID, mBroadcastPlayerObserver);
+            mBroadcastPlayer = new BroadcastPlayer(this, resourceUri, String.valueOf(R.string.bambuser_application_key), mBroadcastPlayerObserver);
             mBroadcastPlayer.setSurfaceView(mVideoSurface);
             mBroadcastPlayer.load();
         }

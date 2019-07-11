@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="15dp"
     tools:context=".survey.SurveysHomeActivity">
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/surveyCard"
         android:foreground="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
@@ -43,5 +43,5 @@
             android:padding="5dp"
             android:src="@drawable/nike_logo" />
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

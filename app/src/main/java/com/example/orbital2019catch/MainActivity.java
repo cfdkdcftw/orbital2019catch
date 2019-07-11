@@ -1,12 +1,12 @@
 package com.example.orbital2019catch;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.orbital2019catch.feedback.FeedbackHomeActivity;
 import com.example.orbital2019catch.livechallenge.BambuserBroadcastActivity;
 import com.example.orbital2019catch.livechallenge.BambuserPlayerActivity;
-import com.example.orbital2019catch.livechallenge.LiveChallengeActivity;
+import com.example.orbital2019catch.livechallenge.WowzaBroadcastActivity;
 import com.example.orbital2019catch.location.LocationBasedActivity;
 import com.example.orbital2019catch.loginandregister.LoginActivity;
 import com.example.orbital2019catch.profile.UserProfile;
@@ -34,7 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button profileSettingsBtn, userBalanceButton;
+    private Button profileSettingsBtn;
     private CardView surveysCard, feedbackCard, liveChallengeCard, locationBasedActivitiesCard,
             qrCodeScannerCard;
     private ArrayList<String> mImageUrls = new ArrayList<>();
@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {
             sendToLogin();
@@ -83,34 +82,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(MainActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
                 }
             });
+
+            // to connect to firebase for surveys
+            Firebase.setAndroidContext(this);
+
+            // defining cards
+            surveysCard = (CardView) findViewById(R.id.surveysCard);
+            feedbackCard = (CardView) findViewById(R.id.feedbackCard);
+            liveChallengeCard = (CardView) findViewById(R.id.liveChallengeCard);
+            locationBasedActivitiesCard = (CardView) findViewById(R.id.locationBasedActivitiesCard);
+            qrCodeScannerCard = (CardView) findViewById(R.id.qrCodeScannerCard);
+
+            // defining buttons
+            profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
+
+            // add onClickListener to buttons
+            profileSettingsBtn.setOnClickListener(this);
+
+            // add onClickListener to cards
+            surveysCard.setOnClickListener(this);
+            feedbackCard.setOnClickListener(this);
+            liveChallengeCard.setOnClickListener(this);
+            locationBasedActivitiesCard.setOnClickListener(this);
+            qrCodeScannerCard.setOnClickListener(this);
+
+            // for news flash recycler view
+            getImages();
         }
-
-        // to connect to firebase for surveys
-        Firebase.setAndroidContext(this);
-
-        // defining buttons
-        profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
-
-        // add onClickListener to buttons
-        profileSettingsBtn.setOnClickListener(this);
-
-        // defining cards
-        surveysCard = (CardView) findViewById(R.id.surveysCard);
-        feedbackCard = (CardView) findViewById(R.id.feedbackCard);
-        liveChallengeCard = (CardView) findViewById(R.id.liveChallengeCard);
-        locationBasedActivitiesCard = (CardView) findViewById(R.id.locationBasedActivitiesCard);
-        qrCodeScannerCard = (CardView) findViewById(R.id.qrCodeScannerCard);
-
-        // add onClickListener to cards
-        surveysCard.setOnClickListener(this);
-        feedbackCard.setOnClickListener(this);
-        liveChallengeCard.setOnClickListener(this);
-        locationBasedActivitiesCard.setOnClickListener(this);
-        qrCodeScannerCard.setOnClickListener(this);
-
-        // for news flash recycler view
-        getImages();
-
     }
 
     @Override
@@ -139,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 overridePendingTransition(0,0);
                 break;
             case R.id.liveChallengeCard :
-                intent = new Intent(this, BambuserPlayerActivity.class);
+                intent = new Intent(this, WowzaBroadcastActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 break;

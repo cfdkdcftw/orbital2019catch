@@ -49,7 +49,7 @@
 
         <!-- app functionality menu -->
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/feedbackCard1"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                 android:padding="5dp"
                 android:src="@drawable/googleg_standard_color_18" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <ListView
             android:layout_width="match_parent"

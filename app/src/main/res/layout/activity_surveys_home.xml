@@ -49,7 +49,7 @@
 
     <!-- app functionality menu -->
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/surveysCard1"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
@@ -85,9 +85,9 @@
                     android:padding="5dp"
                     android:src="@drawable/spotify_logo" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/surveysCard2"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
@@ -123,9 +123,9 @@
                 android:padding="5dp"
                 android:src="@drawable/nike_logo" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/surveysCard3"
         android:foreground="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
@@ -160,7 +160,7 @@
             android:layout_gravity="center_vertical"
             android:padding="5dp"
             android:src="@drawable/uniqlo" />
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

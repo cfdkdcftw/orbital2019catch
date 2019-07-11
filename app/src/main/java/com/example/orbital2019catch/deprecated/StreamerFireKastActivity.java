@@ -1,16 +1,14 @@
 package com.example.orbital2019catch.deprecated;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.orbital2019catch.R;
 
 import io.firekast.FKCamera;
 import io.firekast.FKCameraFragment;
 import io.firekast.FKError;
-import io.firekast.FKPlayerView;
-import io.firekast.FKStream;
 import io.firekast.FKStreamer;
 
 public class StreamerFireKastActivity extends AppCompatActivity {

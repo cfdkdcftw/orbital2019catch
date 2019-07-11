@@ -112,7 +112,7 @@
         android:layout_marginTop="5dp"
         android:background="@color/lightGray">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/surveysCard"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -134,9 +134,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/feedbackCard"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -158,9 +158,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/liveChallengeCard"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -182,9 +182,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/locationBasedActivitiesCard"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -206,9 +206,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/qrCodeScannerCard"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -230,7 +230,7 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
@@ -244,14 +244,14 @@
         />
 
     <!-- news flashes -->
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsFlashRecylerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:overScrollMode="never">
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
 </ScrollView>

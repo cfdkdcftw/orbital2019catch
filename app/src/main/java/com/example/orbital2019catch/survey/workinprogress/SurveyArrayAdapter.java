@@ -3,8 +3,8 @@ package com.example.orbital2019catch.survey.workinprogress;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.support.v7.view.menu.MenuView;
+
+import androidx.appcompat.view.menu.MenuView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;

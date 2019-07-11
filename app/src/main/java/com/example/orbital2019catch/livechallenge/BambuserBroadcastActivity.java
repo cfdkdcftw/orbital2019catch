@@ -3,8 +3,8 @@ package com.example.orbital2019catch.livechallenge;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.orbital2019catch.R;
 import android.view.View;
@@ -23,7 +23,6 @@ public class BambuserBroadcastActivity extends AppCompatActivity {
     Button mBroadcastButton;
     SurfaceView mPreviewSurface;
     Broadcaster mBroadcaster;
-    private static final String APPLICATION_ID = "GFZalqkR5iyZcIgaolQmA";
 
     private Broadcaster.Observer mBroadcasterObserver = new Broadcaster.Observer() {
         @Override
@@ -67,7 +66,7 @@ public class BambuserBroadcastActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bambuser_broadcast);
         mPreviewSurface = (SurfaceView) findViewById(R.id.PreviewSurfaceView);
-        mBroadcaster = new Broadcaster(this, APPLICATION_ID, mBroadcasterObserver);
+        mBroadcaster = new Broadcaster(this, String.valueOf(R.string.bambuser_application_key), mBroadcasterObserver);
         mBroadcaster.setRotation(getWindowManager().getDefaultDisplay().getRotation());
         mBroadcastButton = (Button)findViewById(R.id.BroadcastButton);
         mBroadcastButton.setOnClickListener(new View.OnClickListener() {

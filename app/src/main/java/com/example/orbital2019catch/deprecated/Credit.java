@@ -1,6 +1,6 @@
 package com.example.orbital2019catch.deprecated;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.orbital2019catch.profile.UserProfile;
 import com.google.firebase.auth.FirebaseAuth;

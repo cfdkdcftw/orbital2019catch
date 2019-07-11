@@ -1,13 +1,10 @@
 package com.example.orbital2019catch.qrcode;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.SparseArray;
-import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,14 +12,8 @@ import android.widget.Toast;
 import com.example.orbital2019catch.MainActivity;
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.survey.SurveyLocalSpotify;
-import com.example.orbital2019catch.survey.SurveysHomeActivity;
-import com.google.android.gms.common.api.CommonStatusCodes;
-import com.google.android.gms.vision.CameraSource;
-import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
-import com.google.android.gms.vision.barcode.BarcodeDetector;
 
-import java.io.IOException;
 import java.util.List;
 
 import info.androidhive.barcode.BarcodeReader;
