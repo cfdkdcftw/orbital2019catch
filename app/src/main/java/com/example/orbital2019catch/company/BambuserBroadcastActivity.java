@@ -1,4 +1,4 @@
-package com.example.orbital2019catch.livechallenge;
+package com.example.orbital2019catch.company;
 
 import android.Manifest;
 import android.content.pm.PackageManager;

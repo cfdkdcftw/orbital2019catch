@@ -63,7 +63,7 @@
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode" />
-        <activity android:name=".livechallenge.WowzaBroadcastActivity"
+        <activity android:name=".company.WowzaBroadcastActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
         <activity
             android:name=".loginandregister.RegisterActivity"
@@ -73,17 +73,19 @@
             android:name=".loginandregister.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".company.CompanyProfileSettingsActivity" />
+        <activity android:name=".company.CompanyMainActivity" />
         <activity android:name=".deprecated.PlayerFireKastActivity" />
         <activity android:name=".deprecated.StreamerFireKastActivity" />
         <activity android:name=".loginandregister.ForgotPasswordActivity" />
         <activity android:name=".profile.PaymentHistoryActivity" />
         <activity android:name=".profile.PaymentActivity" />
-        <activity android:name=".UserBalanceActivity" />
+        <activity android:name=".deprecated.UserBalanceActivity" />
         <activity android:name=".profile.ProfileSettingsActivity" />
         <activity android:name=".qrcode.QrCodeActivity" />
         <activity android:name=".location.LocationBasedActivity" />
         <activity android:name=".livechallenge.BambuserPlayerActivity" />
-        <activity android:name=".livechallenge.BambuserBroadcastActivity" />
+        <activity android:name=".company.BambuserBroadcastActivity" />
         <activity android:name=".livechallenge.LiveChallengeActivity" />
         <activity android:name=".feedback.FeedbackHomeActivity" />
         <activity android:name=".feedback.GoogleFeedbackActivity" />

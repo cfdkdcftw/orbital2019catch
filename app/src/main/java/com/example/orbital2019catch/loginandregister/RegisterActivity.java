@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.orbital2019catch.MainActivity;
 import com.example.orbital2019catch.R;
+import com.example.orbital2019catch.company.CompanyMainActivity;
 import com.example.orbital2019catch.profile.UserProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,11 +24,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private String name, email, password;
+    private String name, email, password, role;
     private EditText mNameField, mEmailField, mPasswordField;
     private Button mRegisterBtn;
     private ProgressBar mRegisterProgress;
     private FirebaseAuth mAuth;
+    private boolean checked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +72,11 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(RegisterActivity.this.getApplicationContext(), "Please enter password.", Toast.LENGTH_LONG).show();
         } else if (password.length() < 6) {
             Toast.makeText(RegisterActivity.this.getApplicationContext(), "Password must have at least 6 characters.", Toast.LENGTH_LONG).show();
+        } else if (!checked){
+            Toast.makeText(RegisterActivity.this.getApplicationContext(), "Please select your account type.", Toast.LENGTH_LONG).show();
         } else {
             result = true;
         }
-
         return result;
     }
 
@@ -91,9 +95,15 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this.getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
                             mRegisterProgress.setVisibility(View.INVISIBLE);
 
-                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            overridePendingTransition(0,0);
+                            if (role.equals("user")) {
+                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                overridePendingTransition(0, 0);
+                            } else {
+                                Intent intent = new Intent(RegisterActivity.this, CompanyMainActivity.class);
+                                startActivity(intent);
+                                overridePendingTransition(0,0);
+                            }
                         }
                         else {
                             Toast.makeText(RegisterActivity.this.getApplicationContext(), "Registration failed!" + task.getException().toString(), Toast.LENGTH_LONG).show();
@@ -107,7 +117,7 @@ public class RegisterActivity extends AppCompatActivity {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = firebaseDatabase.getReference(mAuth.getUid());
 
-        UserProfile userProfile = new UserProfile(name, email);
+        UserProfile userProfile = new UserProfile(name, email, role);
         myRef.setValue(userProfile);
     }
 
@@ -116,4 +126,22 @@ public class RegisterActivity extends AppCompatActivity {
         // to disable animation when back button is clicked
         overridePendingTransition(0, 0);
     }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_company:
+                if (checked)
+                    role = "company";
+                    break;
+            case R.id.radio_user:
+                if (checked)
+                    role = "user";
+                    break;
+        }
+    }
+
 }

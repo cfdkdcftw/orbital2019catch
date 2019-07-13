@@ -6,7 +6,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".livechallenge.WowzaBroadcastActivity">
+    tools:context=".company.WowzaBroadcastActivity">
 
     <!-- The camera preview display -->
     <com.wowza.gocoder.sdk.api.devices.WOWZCameraView

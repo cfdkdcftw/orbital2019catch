@@ -1,7 +1,9 @@
-package com.example.orbital2019catch;
+package com.example.orbital2019catch.deprecated;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.orbital2019catch.R;
 
 public class UserBalanceActivity extends AppCompatActivity {
 

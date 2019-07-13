@@ -10,13 +10,15 @@ public class UserProfile {
     private String name;
     private String email;
     private double balance;
+    private String role;
 
     public UserProfile() {}
 
-    public UserProfile(String name, String email) {
+    public UserProfile(String name, String email, String role) {
         this.name = name;
         this.email = email;
         this.balance = 0;
+        this.role = role;
     }
 
     public UserProfile(String name, String email, double balance) {
@@ -45,4 +47,19 @@ public class UserProfile {
         this.name = name;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
