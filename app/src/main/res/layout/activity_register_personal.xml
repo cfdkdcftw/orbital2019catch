@@ -72,42 +72,10 @@
         android:focusable="true"
         android:longClickable="true"/>
 
-    <RadioGroup
-        android:id="@+id/register_role_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_password"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="8px">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select your account type"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            android:textColor="@color/black" />
-
-        <RadioButton
-            android:id="@+id/radio_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="User         " />
-
-        <RadioButton
-            android:id="@+id/radio_company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="Company" />
-    </RadioGroup>
 
     <Button
         android:id="@+id/register_btn"
-        android:layout_below="@id/register_role_group"
+        android:layout_below="@id/register_password"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"

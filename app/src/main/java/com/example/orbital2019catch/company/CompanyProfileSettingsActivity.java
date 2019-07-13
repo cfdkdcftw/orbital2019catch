@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CompanyProfileSettingsActivity extends AppCompatActivity {
 
     private Button mLogoutBtn;
-    private TextView profileName, profileEmail;
+    private TextView profileName, profileEmail,profileCompany;
 
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
@@ -44,7 +44,7 @@ public class CompanyProfileSettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_profile_settings);
-
+        profileCompany = findViewById(R.id.company_name_display);
         profileName = findViewById(R.id.username_display);
         profileEmail = findViewById(R.id.email_display);
 
@@ -57,6 +57,7 @@ public class CompanyProfileSettingsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                profileCompany.setText(userProfile.getCompanyName());
                 profileName.setText(userProfile.getName());
                 profileEmail.setText(userProfile.getEmail());
             }

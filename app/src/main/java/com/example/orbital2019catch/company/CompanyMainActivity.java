@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.example.orbital2019catch.R;
+import com.example.orbital2019catch.livechallenge.BambuserPlayerActivity;
 import com.example.orbital2019catch.loginandregister.LoginActivity;
 import com.example.orbital2019catch.profile.UserProfile;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,7 +28,7 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
     private TextView displayName;
-    String email;
+    private String email;
     private CardView liveChallengeCard;
 
     @Override
@@ -68,16 +69,22 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
             });
             liveChallengeCard = (CardView) findViewById(R.id.liveChallengeCard);
             liveChallengeCard.setOnClickListener(this);
+            profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
+            profileSettingsBtn.setOnClickListener(this);
         }
     }
 
     @Override
     public void onClick(View v) {
         Intent intent;
-
         switch (v.getId()) {
             case R.id.liveChallengeCard :
-                intent = new Intent(this, WowzaBroadcastActivity.class);
+                intent = new Intent(this, BambuserBroadcastActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.profile_settings_btn :
+                intent = new Intent(this, CompanyProfileSettingsActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 break;
@@ -85,7 +92,6 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
                 break;
         }
     }
-
 
     @Override // ovrerriding so that back button cannot be clicked
     public void onBackPressed() {

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.orbital2019catch.company.CompanyMainActivity;
 import com.example.orbital2019catch.deprecated.UserBalanceActivity;
 import com.example.orbital2019catch.feedback.FeedbackHomeActivity;
 import com.example.orbital2019catch.livechallenge.BambuserPlayerActivity;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
+    private DatabaseReference mRef;
     private TextView displayName, displayBalance;
     String email;
 
@@ -61,53 +63,65 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (currentUser == null) {
             sendToLogin();
         } else {
-            this.email = currentUser.getEmail();
-            setContentView(R.layout.activity_main);
-            // display welcome message to user
-            displayName = findViewById(R.id.user_display_name);
-            displayBalance = findViewById(R.id.user_display_balance);
             mDatabase = FirebaseDatabase.getInstance();
-            DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                    displayName.setText(userProfile.getName() + "!");
-                    displayBalance.setText(String.format("$%.2f", userProfile.getBalance()));
-                }
+            mRef = mDatabase.getReference(mAuth.getUid()).child("role");
+            if (mRef.toString().equals("company")) {
+                sendToCompanyMainActivity();
+            } else {
+                this.email = currentUser.getEmail();
+                setContentView(R.layout.activity_main);
+                // display welcome message to user
+                displayName = findViewById(R.id.user_display_name);
+                displayBalance = findViewById(R.id.user_display_balance);
+                DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                        displayName.setText(userProfile.getName() + "!");
+                        displayBalance.setText(String.format("$%.2f", userProfile.getBalance()));
+                    }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(MainActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
-                }
-            });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(MainActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-            // to connect to firebase for surveys
-            Firebase.setAndroidContext(this);
+                // to connect to firebase for surveys
+                Firebase.setAndroidContext(this);
 
-            // defining cards
-            surveysCard = (CardView) findViewById(R.id.surveysCard);
-            feedbackCard = (CardView) findViewById(R.id.feedbackCard);
-            liveChallengeCard = (CardView) findViewById(R.id.liveChallengeCard);
-            locationBasedActivitiesCard = (CardView) findViewById(R.id.locationBasedActivitiesCard);
-            qrCodeScannerCard = (CardView) findViewById(R.id.qrCodeScannerCard);
+                // defining cards
+                surveysCard = (CardView) findViewById(R.id.surveysCard);
+                feedbackCard = (CardView) findViewById(R.id.feedbackCard);
+                liveChallengeCard = (CardView) findViewById(R.id.liveChallengeCard);
+                locationBasedActivitiesCard = (CardView) findViewById(R.id.locationBasedActivitiesCard);
+                qrCodeScannerCard = (CardView) findViewById(R.id.qrCodeScannerCard);
 
-            // defining buttons
-            profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
+                // defining buttons
+                profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
 
-            // add onClickListener to buttons
-            profileSettingsBtn.setOnClickListener(this);
+                // add onClickListener to buttons
+                profileSettingsBtn.setOnClickListener(this);
 
-            // add onClickListener to cards
-            surveysCard.setOnClickListener(this);
-            feedbackCard.setOnClickListener(this);
-            liveChallengeCard.setOnClickListener(this);
-            locationBasedActivitiesCard.setOnClickListener(this);
-            qrCodeScannerCard.setOnClickListener(this);
+                // add onClickListener to cards
+                surveysCard.setOnClickListener(this);
+                feedbackCard.setOnClickListener(this);
+                liveChallengeCard.setOnClickListener(this);
+                locationBasedActivitiesCard.setOnClickListener(this);
+                qrCodeScannerCard.setOnClickListener(this);
 
-            // for news flash recycler view
-            getImages();
+                // for news flash recycler view
+                getImages();
+            }
         }
+    }
+
+    private void sendToCompanyMainActivity() {
+        Intent intent = new Intent(this, CompanyMainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(0,0);
+
     }
 
     @Override

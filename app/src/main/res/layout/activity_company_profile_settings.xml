@@ -19,8 +19,29 @@
         android:text="Account Details"/>
 
     <TextView
-        android:id="@+id/username_heading"
+        android:id="@+id/company_name_heading"
         android:layout_below="@+id/activity_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/themeBlue"
+        android:text="Company Name"/>
+
+    <TextView
+        android:id="@+id/company_name_display"
+        android:layout_below="@+id/company_name_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Lorem Ipsum"/>
+
+
+    <TextView
+        android:id="@+id/username_heading"
+        android:layout_below="@+id/company_name_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -57,26 +78,6 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="loremipsum@gmail.com"/>
-
-    <TextView
-        android:id="@+id/company_name_heading"
-        android:layout_below="@+id/email_display"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@color/themeBlue"
-        android:text="Company Name"/>
-
-    <TextView
-        android:id="@+id/company_name_display"
-        android:layout_below="@+id/company_name_heading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Lorem Ipsum"/>
 
     <Button
         android:id="@+id/logout_btn"

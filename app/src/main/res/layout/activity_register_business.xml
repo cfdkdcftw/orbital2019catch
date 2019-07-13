@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginandregister.LoginActivity">
+
+    <ImageView
+        android:id="@+id/register_logo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/catch_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"/>
+    <TextView
+        android:id="@+id/register_page_title"
+        android:layout_below="@id/register_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Create a New Account"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/register_company_name"
+        android:layout_below="@+id/register_page_title"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_input_background"
+        android:ems="10"
+        android:hint="Company Name"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="20dp"
+        android:inputType="text"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"/>
+
+    <EditText
+        android:id="@+id/register_name"
+        android:layout_below="@+id/register_company_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_input_background"
+        android:ems="10"
+        android:hint="Name"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPersonName"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"/>
+
+    <EditText
+        android:id="@+id/register_email"
+        android:layout_below="@+id/register_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_input_background"
+        android:ems="10"
+        android:hint="Email"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textEmailAddress"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"/>
+
+    <EditText
+        android:id="@+id/register_password"
+        android:layout_below="@+id/register_email"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_input_background"
+        android:ems="10"
+        android:hint="Password"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPassword"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"/>
+
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_below="@id/register_password"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border_button_background"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:text="Create a New Account"
+        android:textAllCaps="false"
+        android:textColor="@color/deepBlue"
+        android:textSize="16sp"/>
+
+    <ProgressBar
+        android:id="@+id/registerProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="true"
+        android:visibility="invisible"/>
+
+
+</RelativeLayout>

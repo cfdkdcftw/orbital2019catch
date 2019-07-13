@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".loginandregister.RegisterActivity"
-    tools:showIn="@layout/activity_register">
+    tools:context=".loginandregister.RegisterPersonalActivity"
+    tools:showIn="@layout/activity_register_personal">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

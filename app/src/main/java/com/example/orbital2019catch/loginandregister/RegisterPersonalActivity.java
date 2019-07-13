@@ -22,19 +22,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterPersonalActivity extends AppCompatActivity {
 
-    private String name, email, password, role;
+    private String name, email, password;
     private EditText mNameField, mEmailField, mPasswordField;
     private Button mRegisterBtn;
     private ProgressBar mRegisterProgress;
     private FirebaseAuth mAuth;
-    private boolean checked;
+    private String role = "user";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_register_personal);
 
         mAuth = FirebaseAuth.getInstance();
         mRegisterProgress = (ProgressBar) findViewById(R.id.registerProgress);
@@ -65,15 +65,13 @@ public class RegisterActivity extends AppCompatActivity {
         Boolean result = false;
 
         if (name.isEmpty()) {
-            Toast.makeText(RegisterActivity.this.getApplicationContext(), "Please enter name.", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterPersonalActivity.this.getApplicationContext(), "Please enter your name!", Toast.LENGTH_LONG).show();
         } else if (email.isEmpty()) {
-            Toast.makeText(RegisterActivity.this.getApplicationContext(), "Please enter email.", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterPersonalActivity.this.getApplicationContext(), "Please enter your email!", Toast.LENGTH_LONG).show();
         } else if (password.isEmpty()) {
-            Toast.makeText(RegisterActivity.this.getApplicationContext(), "Please enter password.", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterPersonalActivity.this.getApplicationContext(), "Please enter your password!", Toast.LENGTH_LONG).show();
         } else if (password.length() < 6) {
-            Toast.makeText(RegisterActivity.this.getApplicationContext(), "Password must have at least 6 characters.", Toast.LENGTH_LONG).show();
-        } else if (!checked){
-            Toast.makeText(RegisterActivity.this.getApplicationContext(), "Please select your account type.", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterPersonalActivity.this.getApplicationContext(), "Password must have at least 6 characters!", Toast.LENGTH_LONG).show();
         } else {
             result = true;
         }
@@ -92,21 +90,14 @@ public class RegisterActivity extends AppCompatActivity {
                             // send user data to database
                             sendUserData();
 
-                            Toast.makeText(RegisterActivity.this.getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterPersonalActivity.this.getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
                             mRegisterProgress.setVisibility(View.INVISIBLE);
-
-                            if (role.equals("user")) {
-                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                overridePendingTransition(0, 0);
-                            } else {
-                                Intent intent = new Intent(RegisterActivity.this, CompanyMainActivity.class);
-                                startActivity(intent);
-                                overridePendingTransition(0,0);
-                            }
+                            Intent intent = new Intent(RegisterPersonalActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(0, 0);
                         }
                         else {
-                            Toast.makeText(RegisterActivity.this.getApplicationContext(), "Registration failed!" + task.getException().toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterPersonalActivity.this.getApplicationContext(), "Registration failed!" + task.getException().toString(), Toast.LENGTH_LONG).show();
                             mRegisterProgress.setVisibility(View.INVISIBLE);
                         }
                     }
@@ -126,22 +117,4 @@ public class RegisterActivity extends AppCompatActivity {
         // to disable animation when back button is clicked
         overridePendingTransition(0, 0);
     }
-
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radio_company:
-                if (checked)
-                    role = "company";
-                    break;
-            case R.id.radio_user:
-                if (checked)
-                    role = "user";
-                    break;
-        }
-    }
-
 }
