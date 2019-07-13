@@ -46,7 +46,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".loginandregister.SelectAccountTypeActivity"></activity>
+        <activity android:name=".livechallenge.WowzaPlayerActivity"></activity>
+        <activity android:name=".loginandregister.SelectAccountTypeActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -91,8 +92,8 @@
         <activity android:name=".profile.ProfileSettingsActivity" />
         <activity android:name=".qrcode.QrCodeActivity" />
         <activity android:name=".location.LocationBasedActivity" />
-        <activity android:name=".livechallenge.BambuserPlayerActivity" />
-        <activity android:name=".company.BambuserBroadcastActivity" />
+        <activity android:name=".deprecated.BambuserPlayerActivity" />
+        <activity android:name=".deprecated.BambuserBroadcastActivity" />
         <activity android:name=".livechallenge.LiveChallengeActivity" />
         <activity android:name=".feedback.FeedbackHomeActivity" />
         <activity android:name=".feedback.GoogleFeedbackActivity" />

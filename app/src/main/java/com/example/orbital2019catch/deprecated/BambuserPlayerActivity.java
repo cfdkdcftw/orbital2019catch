@@ -1,4 +1,4 @@
-package com.example.orbital2019catch.livechallenge;
+package com.example.orbital2019catch.deprecated;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;

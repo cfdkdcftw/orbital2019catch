@@ -1,4 +1,4 @@
-package com.example.orbital2019catch.company;
+package com.example.orbital2019catch.deprecated;
 
 import android.Manifest;
 import android.content.pm.PackageManager;

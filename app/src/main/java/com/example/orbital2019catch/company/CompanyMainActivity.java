@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.example.orbital2019catch.R;
-import com.example.orbital2019catch.livechallenge.BambuserPlayerActivity;
 import com.example.orbital2019catch.loginandregister.LoginActivity;
 import com.example.orbital2019catch.profile.UserProfile;
 import com.google.firebase.auth.FirebaseAuth;
