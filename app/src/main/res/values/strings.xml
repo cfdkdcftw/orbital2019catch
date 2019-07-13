@@ -6,4 +6,9 @@
     <string name="firekast_private_key">$2a$10$eQYleu.JkdUYJndsHLyi/u1qAQJ01mcTx2f7Nn4foC3jgSe9ie8yG</string>
     <string name="firekast_public_key">$2a$10$14XpsBduPMXlh1MGvAGQ2ulI3cSfZlHSM61K48qRugF7z.qaZUbzC</string>
     <string name="bambuser_application_key">3aIsby24eRoYDq5TebVgeA</string>
+    <string name="wowza_gocoder_sdk_key">GOSK-A746-010C-EF6A-BB0E-6155</string>
+    <string name="wowza_host_address">ea7117.entrypoint.cloud.wowza.com</string>
+    <string name="wowza_application_name">app-7d57</string>
+    <string name="wowza_port">1935</string>
+    <string name="wowza_stream_name">1ff3fced</string>
 </resources>

@@ -79,7 +79,7 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
         Intent intent;
         switch (v.getId()) {
             case R.id.liveChallengeCard :
-                intent = new Intent(this, BambuserBroadcastActivity.class);
+                intent = new Intent(this, WowzaBroadcastActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 break;

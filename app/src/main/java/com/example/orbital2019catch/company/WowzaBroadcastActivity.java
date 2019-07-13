@@ -55,10 +55,10 @@ public class WowzaBroadcastActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_wowza_broadcast);
 
         // Initialize the GoCoder SDK
-        goCoder = WowzaGoCoder.init(getApplicationContext(), "GOSK-XXXX-XXXX-XXXX-XXXX-XXXX");
+        goCoder = WowzaGoCoder.init(getApplicationContext(), getString(R.string.wowza_gocoder_sdk_key));
 
         if (goCoder == null) {
             // If initialization failed, retrieve the last error and display it
@@ -82,10 +82,10 @@ public class WowzaBroadcastActivity extends AppCompatActivity
         goCoderBroadcastConfig = new WOWZBroadcastConfig(WOWZMediaConfig.FRAME_SIZE_1920x1080);
 
         // Set the connection properties for the target Wowza Streaming Engine server or Wowza Streaming Cloud live stream
-        goCoderBroadcastConfig.setHostAddress("live.someserver.net");
-        goCoderBroadcastConfig.setPortNumber(1935);
-        goCoderBroadcastConfig.setApplicationName("live");
-        goCoderBroadcastConfig.setStreamName("1ff3fced");
+        goCoderBroadcastConfig.setHostAddress(getString(R.string.wowza_host_address));
+        goCoderBroadcastConfig.setPortNumber(Integer.parseInt(getString(R.string.wowza_port)));
+        goCoderBroadcastConfig.setApplicationName(getString(R.string.wowza_stream_name));
+        goCoderBroadcastConfig.setStreamName(getString(R.string.wowza_stream_name));
 
         // Designate the camera preview as the video broadcaster
         goCoderBroadcastConfig.setVideoBroadcaster(goCoderCameraView);
