@@ -55,7 +55,7 @@ public class PaymentActivity  extends AppCompatActivity {
         notificationManagerCompat = NotificationManagerCompat.from(this);
 
         profileBalance = (TextView) findViewById(R.id.balance_display);
-        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+        DatabaseReference databaseReference = mDatabase.getReference("users/" + mAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -115,7 +115,7 @@ public class PaymentActivity  extends AppCompatActivity {
     }
 
     private void updateUserBalance() {
-        DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
+        DatabaseReference balanceRef = mDatabase.getReference("users/" + mAuth.getUid()).child("balance");
         balanceRef.setValue(balance - amountInDouble);
     }
 

@@ -43,7 +43,7 @@ public class LiveChallengeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_live_challenge);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+        DatabaseReference databaseReference = mDatabase.getReference("users/" + mAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

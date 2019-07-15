@@ -65,64 +65,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             sendToLogin();
         } else {
             mDatabase = FirebaseDatabase.getInstance();
-            mRef = mDatabase.getReference(mAuth.getUid()).child("role");
-            if (mRef.toString().equals("company")) {
-                sendToCompanyMainActivity();
-            } else {
-                this.email = currentUser.getEmail();
-                setContentView(R.layout.activity_main);
-                // display welcome message to user
-                displayName = findViewById(R.id.user_display_name);
-                displayBalance = findViewById(R.id.user_display_balance);
-                DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
-                databaseReference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                        displayName.setText(userProfile.getName() + "!");
-                        displayBalance.setText(String.format("$%.2f", userProfile.getBalance()));
+            mRef = mDatabase.getReference("users/" + mAuth.getUid()).child("role");
+            mRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getValue(String.class).equals("company")) {
+                        // is company account
+                        Intent intent = new Intent(getApplicationContext(), CompanyMainActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
                     }
+                }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(MainActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                // to connect to firebase for surveys
-                Firebase.setAndroidContext(this);
-
-                // defining cards
-                surveysCard = (CardView) findViewById(R.id.surveysCard);
-                feedbackCard = (CardView) findViewById(R.id.feedbackCard);
-                liveChallengeCard = (CardView) findViewById(R.id.liveChallengeCard);
-                locationBasedActivitiesCard = (CardView) findViewById(R.id.locationBasedActivitiesCard);
-                qrCodeScannerCard = (CardView) findViewById(R.id.qrCodeScannerCard);
-
-                // defining buttons
-                profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
-
-                // add onClickListener to buttons
-                profileSettingsBtn.setOnClickListener(this);
-
-                // add onClickListener to cards
-                surveysCard.setOnClickListener(this);
-                feedbackCard.setOnClickListener(this);
-                liveChallengeCard.setOnClickListener(this);
-                locationBasedActivitiesCard.setOnClickListener(this);
-                qrCodeScannerCard.setOnClickListener(this);
-
-                // for news flash recycler view
-                getImages();
-            }
+                }
+            });
         }
-    }
 
-    private void sendToCompanyMainActivity() {
-        Intent intent = new Intent(this, CompanyMainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(0,0);
+        this.email = currentUser.getEmail();
+        setContentView(R.layout.activity_main);
+        // display welcome message to user
+        displayName = findViewById(R.id.user_display_name);
+        displayBalance = findViewById(R.id.user_display_balance);
+        DatabaseReference databaseReference = mDatabase.getReference("users/" + mAuth.getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                displayName.setText(userProfile.getName() + "!");
+                displayBalance.setText(String.format("$%.2f", userProfile.getBalance()));
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // to connect to firebase for surveys
+        Firebase.setAndroidContext(this);
+
+        // defining cards
+        surveysCard = (CardView) findViewById(R.id.surveysCard);
+        feedbackCard = (CardView) findViewById(R.id.feedbackCard);
+        liveChallengeCard = (CardView) findViewById(R.id.liveChallengeCard);
+        locationBasedActivitiesCard = (CardView) findViewById(R.id.locationBasedActivitiesCard);
+        qrCodeScannerCard = (CardView) findViewById(R.id.qrCodeScannerCard);
+
+        // defining buttons
+        profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
+
+        // add onClickListener to buttons
+        profileSettingsBtn.setOnClickListener(this);
+
+        // add onClickListener to cards
+        surveysCard.setOnClickListener(this);
+        feedbackCard.setOnClickListener(this);
+        liveChallengeCard.setOnClickListener(this);
+        locationBasedActivitiesCard.setOnClickListener(this);
+        qrCodeScannerCard.setOnClickListener(this);
+
+        // for news flash recycler view
+        getImages();
     }
 
     @Override
@@ -186,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setAdapter(recyclerViewAdapter);
     }
 
-    @Override // ovrerriding so that back button cannot be clicked
+    @Override // overriding so that back button cannot be clicked
     public void onBackPressed() {
     }
 }

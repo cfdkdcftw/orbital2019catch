@@ -11,4 +11,5 @@
     <string name="wowza_application_name">app-f15b</string>
     <string name="wowza_port">1935</string>
     <string name="wowza_stream_name">81c612fd</string>
+    <string name="title_activity_company_view_feedback">CompanyViewFeedbackActivity</string>
 </resources>

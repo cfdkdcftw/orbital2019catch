@@ -10,7 +10,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.orbital2019catch.NewsFlashRecyclerViewAdapter;
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.loginandregister.LoginActivity;
 import com.example.orbital2019catch.profile.UserProfile;
@@ -22,13 +25,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class CompanyMainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button profileSettingsBtn;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
     private TextView displayName;
     private String email;
-    private CardView liveChallengeCard;
+    private CardView surveysCard, feedbackCard, liveChallengeCard;
+    private ArrayList<String> mImageUrls = new ArrayList<>();
+
 
     @Override
     protected void onStart() {
@@ -53,7 +60,7 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
             setContentView(R.layout.activity_company_main);
             displayName = findViewById(R.id.user_display_name);
             mDatabase = FirebaseDatabase.getInstance();
-            DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+            DatabaseReference databaseReference = mDatabase.getReference("users/" + mAuth.getUid());
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -66,10 +73,15 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
                     Toast.makeText(CompanyMainActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
                 }
             });
+            surveysCard = (CardView) findViewById(R.id.surveysCard);
+            surveysCard.setOnClickListener(this);
+            feedbackCard = (CardView) findViewById(R.id.feedbackCard);
+            feedbackCard.setOnClickListener(this);
             liveChallengeCard = (CardView) findViewById(R.id.liveChallengeCard);
             liveChallengeCard.setOnClickListener(this);
             profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
             profileSettingsBtn.setOnClickListener(this);
+            getImages();
         }
     }
 
@@ -77,6 +89,16 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()) {
+            case R.id.surveysCard :
+                intent = new Intent(this, CompanyViewSurveyActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.feedbackCard :
+                intent = new Intent(this, CompanyViewFeedbackActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+                break;
             case R.id.liveChallengeCard :
                 intent = new Intent(this, WowzaBroadcastActivity.class);
                 startActivity(intent);
@@ -92,7 +114,21 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    @Override // ovrerriding so that back button cannot be clicked
+    private void getImages(){
+        mImageUrls.add("https://i.ibb.co/XJtBfsj/NEW-AGE-LOGO.png");
+        mImageUrls.add("https://i.ibb.co/VY8cVsK/Poster.png");
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView recyclerView = findViewById(R.id.newsFlashRecylerView);
+        recyclerView.setLayoutManager(layoutManager);
+        NewsFlashRecyclerViewAdapter recyclerViewAdapter = new NewsFlashRecyclerViewAdapter(this, mImageUrls);
+        recyclerView.setAdapter(recyclerViewAdapter);
+    }
+
+    @Override // overriding so that back button cannot be clicked
     public void onBackPressed() {
     }
 }

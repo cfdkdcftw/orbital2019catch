@@ -51,7 +51,7 @@ public class CompanyProfileSettingsActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+        DatabaseReference databaseReference = mDatabase.getReference("users/" + mAuth.getUid());
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

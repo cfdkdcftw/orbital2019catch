@@ -91,7 +91,7 @@ public class GoogleFeedbackActivity extends Activity{
                 String id = databaseFeedback.push().getKey();
                 Feedback feedback = new Feedback(inputString);
                 databaseFeedback.child(id).setValue(feedback);
-                DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+                DatabaseReference databaseReference = mDatabase.getReference("users/" + mAuth.getUid());
                 databaseReference.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
@@ -105,7 +105,7 @@ public class GoogleFeedbackActivity extends Activity{
                     }
                 });
 
-                DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
+                DatabaseReference balanceRef = mDatabase.getReference("users/" + mAuth.getUid()).child("balance");
                 balanceRef.setValue(balance + 1.0);
 
                 // addCredits(); null obj ref for balance

@@ -194,7 +194,7 @@ public class SurveyFirebaseNike extends AppCompatActivity {
                 answers.get(3), answers.get(4));
         String id = databaseSurvey.push().getKey();
         databaseSurvey.child(id).setValue(surveyResponse);
-        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+        DatabaseReference databaseReference = mDatabase.getReference("users/" + mAuth.getUid());
         databaseReference.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override
             public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
@@ -208,7 +208,7 @@ public class SurveyFirebaseNike extends AppCompatActivity {
             }
         });
 
-        DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
+        DatabaseReference balanceRef = mDatabase.getReference("users/" + mAuth.getUid()).child("balance");
         balanceRef.setValue(balance + amount);
     }
 

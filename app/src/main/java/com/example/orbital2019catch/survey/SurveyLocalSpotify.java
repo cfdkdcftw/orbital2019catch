@@ -128,7 +128,7 @@ public class SurveyLocalSpotify extends AppCompatActivity {
         String id = databaseSurvey.push().getKey();
         databaseSurvey.child(id).setValue(surveyResponse);
         // addCredits(); null obj ref for balance
-        DatabaseReference databaseReference = mDatabase.getReference(mAuth.getUid());
+        DatabaseReference databaseReference = mDatabase.getReference("users/" + mAuth.getUid());
         databaseReference.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override
             public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
@@ -142,7 +142,7 @@ public class SurveyLocalSpotify extends AppCompatActivity {
             }
         });
 
-        DatabaseReference balanceRef = mDatabase.getReference(mAuth.getUid()).child("balance");
+        DatabaseReference balanceRef = mDatabase.getReference("users/" + mAuth.getUid()).child("balance");
         balanceRef.setValue(balance + 1.0);
 
     }

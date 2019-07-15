@@ -15,10 +15,10 @@ public class WowzaPlayerActivity extends AppCompatActivity {
 
     private WOWZPlayerView mStreamPlayerView;
     private WOWZPlayerConfig mStreamPlayerConfig;
-    private String hostAddress = getString(R.string.wowza_host_address);
-    private String appName = getString(R.string.wowza_application_name);
-    private String streamName = getString(R.string.wowza_stream_name);
-    private int portNum = Integer.parseInt(getString(R.string.wowza_port));
+    private String hostAddress;
+    private String appName;
+    private String streamName;
+    private int portNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,12 @@ public class WowzaPlayerActivity extends AppCompatActivity {
         mStreamPlayerView = (WOWZPlayerView) findViewById(R.id.vwStreamPlayer);
         mStreamPlayerConfig = new WOWZPlayerConfig();
         mStreamPlayerConfig.setIsPlayback(true);
+
+        hostAddress = getString(R.string.wowza_host_address);
+        appName = getString(R.string.wowza_application_name);
+        streamName = getString(R.string.wowza_stream_name);
+        portNum = Integer.parseInt(getString(R.string.wowza_port));
+
         mStreamPlayerConfig.setHostAddress(hostAddress);
         mStreamPlayerConfig.setApplicationName(appName);
         mStreamPlayerConfig.setStreamName(streamName);

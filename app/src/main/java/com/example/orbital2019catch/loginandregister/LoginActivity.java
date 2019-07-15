@@ -19,8 +19,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -108,17 +111,29 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this.getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
                             mLoginProgress.setVisibility(View.INVISIBLE);
-                            mRef = FirebaseDatabase.getInstance().getReference(mAuth.getUid()).child("role");
-                            if (mRef.toString().equals("user")) {
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                overridePendingTransition(0, 0);
-                            } else {
-                                Intent intent = new Intent (LoginActivity.this, CompanyMainActivity.class);
-                                startActivity(intent);
-                                overridePendingTransition(0,0);
+                            mRef = FirebaseDatabase.getInstance().getReference("users/" + mAuth.getUid()).child("role");
+                            mRef.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.getValue(String.class).equals("company")) {
+                                        // is company account
+                                        Intent intent = new Intent(getApplicationContext(), CompanyMainActivity.class);
+                                        startActivity(intent);
+                                        overridePendingTransition(0,0);
+                                    } else {
+                                        // is personal account
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        overridePendingTransition(0,0);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                             }
-                        }
                         else {
                             Toast.makeText(LoginActivity.this.getApplicationContext(), "Login failed!", Toast.LENGTH_LONG).show();
                             mLoginProgress.setVisibility(View.INVISIBLE);

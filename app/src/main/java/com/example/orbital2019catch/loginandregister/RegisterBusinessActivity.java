@@ -110,7 +110,7 @@ public class RegisterBusinessActivity extends AppCompatActivity {
 
     private void sendUserData() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference(mAuth.getUid());
+        DatabaseReference myRef = firebaseDatabase.getReference("users/" + mAuth.getUid());
 
         UserProfile userProfile = new UserProfile(name, email, role, companyName);
         myRef.setValue(userProfile);

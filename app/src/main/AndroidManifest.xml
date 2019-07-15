@@ -46,7 +46,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".livechallenge.WowzaPlayerActivity"></activity>
+        <activity android:name=".company.CompanyViewFeedbackActivity"></activity>
+        <activity android:name=".company.CompanyViewSurveyActivity" />
+        <activity android:name=".livechallenge.WowzaPlayerActivity" />
         <activity android:name=".loginandregister.SelectAccountTypeActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

@@ -75,6 +75,15 @@
         </RelativeLayout>
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/review_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Start reviewing the submissions!"
+        android:textAppearance="?android:attr/textAppearanceButton"
+        />
+
     <LinearLayout
         android:layout_margin="8px"
         android:clipToPadding="false"
@@ -82,8 +91,56 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8px"
         android:background="@color/lightGray">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/surveysCard"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/deepPurple"
+                    android:src="@drawable/survey"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/feedbackCard"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/green"
+                    android:src="@drawable/review"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/liveChallengeCard"
@@ -107,5 +164,25 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <!-- heading for news flash -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="News Flash"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        />
+
+    <!-- news flashes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/newsFlashRecylerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:overScrollMode="never">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>
 </ScrollView>
