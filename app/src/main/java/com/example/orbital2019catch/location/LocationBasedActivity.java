@@ -258,7 +258,10 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
         */
 
         mMap.animateCamera(CameraUpdateFactory.zoomTo(10.5f));
+
         //  adding markers
+        //  can consider adding markers onto firebase
+        //  unsure how to start intent tho
         mPumaBugis = mMap.addMarker(new MarkerOptions()
                 .position(pumaBugis)
                 .title("Puma at Bugis+")

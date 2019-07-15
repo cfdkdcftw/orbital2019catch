@@ -12,7 +12,11 @@ import android.widget.Toast;
 import com.example.orbital2019catch.MainActivity;
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.survey.SurveyLocalSpotify;
+import com.firebase.client.Firebase;
 import com.google.android.gms.vision.barcode.Barcode;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -22,6 +26,8 @@ public class QrCodeActivity extends AppCompatActivity implements BarcodeReader.B
     TextView instructions;
     SurfaceView cameraPreview;
     private BarcodeReader barcodeReader;
+    private DatabaseReference mRef;
+    private FirebaseDatabase mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +42,15 @@ public class QrCodeActivity extends AppCompatActivity implements BarcodeReader.B
     public void onScanned(Barcode barcode) {
         // play beep sound
         barcodeReader.playBeep();
-        Intent intent = new Intent(this, SurveyLocalSpotify.class);
-        startActivity(intent);
-        overridePendingTransition(0,0);
+        String result = barcode.displayValue;
+        Intent intent;
+        if (result.equals("catch_spotify_survey")) {
+            intent = new Intent(this, SurveyLocalSpotify.class);
+            startActivity(intent);
+            overridePendingTransition(0,0);
+        } else {
+            Toast.makeText(getApplicationContext(), "Not a Catch QR code!", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

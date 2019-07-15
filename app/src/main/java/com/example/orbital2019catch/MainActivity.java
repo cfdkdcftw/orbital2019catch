@@ -16,6 +16,7 @@ import com.example.orbital2019catch.company.CompanyMainActivity;
 import com.example.orbital2019catch.deprecated.UserBalanceActivity;
 import com.example.orbital2019catch.feedback.FeedbackHomeActivity;
 import com.example.orbital2019catch.deprecated.BambuserPlayerActivity;
+import com.example.orbital2019catch.livechallenge.WowzaPlayerActivity;
 import com.example.orbital2019catch.location.LocationBasedActivity;
 import com.example.orbital2019catch.loginandregister.LoginActivity;
 import com.example.orbital2019catch.profile.UserProfile;
