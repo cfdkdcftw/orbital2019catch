@@ -34,7 +34,7 @@ public class GoogleFeedbackActivity extends Activity{
     private String surveyName = "Google";
     private Firebase mQuestionRef = new Firebase("https://orbital2019catch.firebaseio.com/feedback/google/question");
 
-    DatabaseReference databaseFeedback = FirebaseDatabase.getInstance().getReference("feedback/google");
+    DatabaseReference databaseFeedback = FirebaseDatabase.getInstance().getReference("feedback/google/answers/");
 
     //  payment
     private FirebaseDatabase mDatabase;

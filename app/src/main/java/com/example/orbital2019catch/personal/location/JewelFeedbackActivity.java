@@ -35,7 +35,7 @@ public class JewelFeedbackActivity extends Activity{
     private String surveyName = "Jewel";
     private Firebase mQuestionRef = new Firebase("https://orbital2019catch.firebaseio.com/feedback/jewel/question");
 
-    DatabaseReference databaseFeedback = FirebaseDatabase.getInstance().getReference("feedback/jewel");
+    DatabaseReference databaseFeedback = FirebaseDatabase.getInstance().getReference("feedback/jewel/answers");
 
     //  payment
     private FirebaseDatabase mDatabase;

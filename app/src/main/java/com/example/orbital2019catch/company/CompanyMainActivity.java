@@ -13,8 +13,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.orbital2019catch.company.feedback.CompanyViewFeedbackActivity;
-import com.example.orbital2019catch.company.survey.CompanyViewPumaActivity;
+import com.example.orbital2019catch.company.feedback.GoogleViewFeedbackActivity;
+import com.example.orbital2019catch.company.survey.PumaViewSurveyActivity;
 import com.example.orbital2019catch.personal.NewsFlashRecyclerViewAdapter;
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.personal.loginandregister.LoginActivity;
@@ -38,6 +38,7 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
     private String email;
     private CardView surveysCard, feedbackCard, liveChallengeCard;
     private ArrayList<String> mImageUrls = new ArrayList<>();
+    private String companyName;
 
     @Override
     protected void onStart() {
@@ -69,6 +70,7 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
                     displayName.setText(userProfile.getName() + "!");
+                    companyName = userProfile.getCompanyName();
                 }
 
                 @Override
@@ -94,17 +96,23 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
         switch (v.getId()) {
             case R.id.surveysCard :
                 // if company == spotify -> new spotify intent
-                intent = new Intent(this, CompanyViewPumaActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0,0);
-                break;
-            case R.id.feedbackCard :
-                if (true) {
-                    Toast.makeText(CompanyMainActivity.this, "Your company has no feedbacks available to view!", Toast.LENGTH_LONG).show();
-                } else {
-                    intent = new Intent(this, CompanyViewFeedbackActivity.class);
+                if (companyName.equalsIgnoreCase("Puma")) {
+                    intent = new Intent(this, PumaViewSurveyActivity.class);
                     startActivity(intent);
                     overridePendingTransition(0, 0);
+                    break;
+                } else {
+                    Toast.makeText(CompanyMainActivity.this, "Your company has no surveys available to view!", Toast.LENGTH_LONG).show();
+                    break;
+                }
+            case R.id.feedbackCard :
+                if (companyName.equalsIgnoreCase("google")) {
+                    intent = new Intent(this, GoogleViewFeedbackActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                    break;
+                } else {
+                    Toast.makeText(CompanyMainActivity.this, "Your company has no feedback available to view!", Toast.LENGTH_LONG).show();
                     break;
                 }
             case R.id.liveChallengeCard :

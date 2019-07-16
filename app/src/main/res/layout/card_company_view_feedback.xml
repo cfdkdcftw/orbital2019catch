@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="2"
+    android:orientation="vertical">
+    
+    <LinearLayout
+        android:padding="8px"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/comboBlue"
+            android:id="@+id/card_company_view_feedback_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem Ipsum"
+            android:textSize="18dp"/>
+        <TextView
+            android:padding="4px"
+            android:id="@+id/card_company_view_feedback_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="answer1"/>
+    </LinearLayout>
+</LinearLayout>

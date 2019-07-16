@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.orbital2019catch.R;
+import com.example.orbital2019catch.company.feedback.FeedbackResults;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.google.firebase.database.DataSnapshot;
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CompanyViewPumaActivity extends AppCompatActivity {
+public class PumaViewSurveyActivity extends AppCompatActivity {
 
     DatabaseReference mRef;
     RecyclerView recyclerView;
@@ -34,10 +35,8 @@ public class CompanyViewPumaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_view_survey);
         getQuestions();
+        initRecyclerView();
 
-        recyclerView = (RecyclerView) findViewById(R.id.company_survey_recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        results = new ArrayList<SurveyResults>();
         mRef = FirebaseDatabase.getInstance().getReference("surveys/puma/answers");
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -46,13 +45,13 @@ public class CompanyViewPumaActivity extends AppCompatActivity {
                     SurveyResults surveyResults = ds.getValue(SurveyResults.class);
                     results.add(surveyResults);
                 }
-                adapter = new SurveyAdapter(CompanyViewPumaActivity.this, results);
+                adapter = new SurveyAdapter(PumaViewSurveyActivity.this, results);
                 recyclerView.setAdapter(adapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(CompanyViewPumaActivity.this, "Something went wrong when reading the survey results", Toast.LENGTH_LONG).show();
+                Toast.makeText(PumaViewSurveyActivity.this, "Something went wrong when reading the survey results", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -135,4 +134,13 @@ public class CompanyViewPumaActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void initRecyclerView() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        results = new ArrayList<SurveyResults>();
+        recyclerView = (RecyclerView) findViewById(R.id.company_survey_recycler_view);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+    }
+
 }

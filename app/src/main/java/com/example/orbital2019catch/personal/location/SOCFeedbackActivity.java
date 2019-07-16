@@ -35,7 +35,7 @@ public class SOCFeedbackActivity extends Activity{
     private String surveyName = "NUS School of Computing";
     private Firebase mQuestionRef = new Firebase("https://orbital2019catch.firebaseio.com/feedback/soc/question");
 
-    DatabaseReference databaseFeedback = FirebaseDatabase.getInstance().getReference("feedback/soc");
+    DatabaseReference databaseFeedback = FirebaseDatabase.getInstance().getReference("feedback/soc/answers");
 
     //  payment
     private FirebaseDatabase mDatabase;
