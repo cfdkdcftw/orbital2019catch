@@ -37,7 +37,7 @@
         android:required="false" />
 
     <application
-        android:name=".App"
+        android:name=".personal.App"
         android:allowBackup="true"
         android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
@@ -46,10 +46,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".company.CompanyViewFeedbackActivity"></activity>
-        <activity android:name=".company.CompanyViewSurveyActivity" />
-        <activity android:name=".livechallenge.WowzaPlayerActivity" />
-        <activity android:name=".loginandregister.SelectAccountTypeActivity" />
+        <activity android:name=".company.feedback.CompanyViewFeedbackActivity"></activity>
+        <activity android:name=".company.survey.CompanyViewPumaActivity" />
+        <activity android:name=".personal.livechallenge.WowzaPlayerActivity" />
+        <activity android:name=".personal.loginandregister.SelectAccountTypeActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -72,44 +72,44 @@
             android:name=".company.WowzaBroadcastActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity
-            android:name=".loginandregister.RegisterPersonalActivity"
+            android:name=".personal.loginandregister.RegisterPersonalActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".loginandregister.RegisterBusinessActivity"
+            android:name=".personal.loginandregister.RegisterBusinessActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".loginandregister.LoginActivity"
+            android:name=".personal.loginandregister.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".company.CompanyProfileSettingsActivity" />
         <activity android:name=".company.CompanyMainActivity" />
         <activity android:name=".deprecated.PlayerFireKastActivity" />
         <activity android:name=".deprecated.StreamerFireKastActivity" />
-        <activity android:name=".loginandregister.ForgotPasswordActivity" />
-        <activity android:name=".profile.PaymentHistoryActivity" />
-        <activity android:name=".profile.PaymentActivity" />
+        <activity android:name=".personal.loginandregister.ForgotPasswordActivity" />
+        <activity android:name=".personal.profile.PaymentHistoryActivity" />
+        <activity android:name=".personal.profile.PaymentActivity" />
         <activity android:name=".deprecated.UserBalanceActivity" />
-        <activity android:name=".profile.ProfileSettingsActivity" />
-        <activity android:name=".qrcode.QrCodeActivity" />
-        <activity android:name=".location.LocationBasedActivity" />
+        <activity android:name=".personal.profile.ProfileSettingsActivity" />
+        <activity android:name=".personal.qrcode.QrCodeActivity" />
+        <activity android:name=".personal.location.LocationBasedActivity" />
         <activity android:name=".deprecated.BambuserPlayerActivity" />
         <activity android:name=".deprecated.BambuserBroadcastActivity" />
-        <activity android:name=".livechallenge.LiveChallengeActivity" />
-        <activity android:name=".feedback.FeedbackHomeActivity" />
-        <activity android:name=".feedback.GoogleFeedbackActivity" />
-        <activity android:name=".survey.SurveysHomeActivity" />
-        <activity android:name=".survey.SurveyLocalSpotify" />
-        <activity android:name=".survey.SurveyFirebaseNike" />
-        <activity android:name=".survey.SurveyFirebaseUniqlo" />
-        <activity android:name=".location.JewelFeedbackActivity" />
-        <activity android:name=".location.SurveyFirebaseMCD" />
-        <activity android:name=".location.SOCFeedbackActivity" />
-        <activity android:name=".location.SurveyFirebaseMerlion" />
-        <activity android:name=".location.SurveyFirebaseNTUC" />
-        <activity android:name=".location.SurveyFirebasePuma" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".personal.livechallenge.LiveChallengeActivity" />
+        <activity android:name=".personal.feedback.FeedbackHomeActivity" />
+        <activity android:name=".personal.feedback.GoogleFeedbackActivity" />
+        <activity android:name=".personal.survey.SurveysHomeActivity" />
+        <activity android:name=".personal.survey.SurveyLocalSpotify" />
+        <activity android:name=".personal.survey.SurveyFirebaseNike" />
+        <activity android:name=".personal.survey.SurveyFirebaseUniqlo" />
+        <activity android:name=".personal.location.JewelFeedbackActivity" />
+        <activity android:name=".personal.location.SurveyFirebaseMCD" />
+        <activity android:name=".personal.location.SOCFeedbackActivity" />
+        <activity android:name=".personal.location.SurveyFirebaseMerlion" />
+        <activity android:name=".personal.location.SurveyFirebaseNTUC" />
+        <activity android:name=".personal.location.SurveyFirebasePuma" />
+        <activity android:name=".personal.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

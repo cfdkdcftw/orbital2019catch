@@ -13,10 +13,13 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.orbital2019catch.NewsFlashRecyclerViewAdapter;
+import com.example.orbital2019catch.company.feedback.CompanyViewFeedbackActivity;
+import com.example.orbital2019catch.company.survey.CompanyViewPumaActivity;
+import com.example.orbital2019catch.personal.NewsFlashRecyclerViewAdapter;
 import com.example.orbital2019catch.R;
-import com.example.orbital2019catch.loginandregister.LoginActivity;
-import com.example.orbital2019catch.profile.UserProfile;
+import com.example.orbital2019catch.personal.loginandregister.LoginActivity;
+import com.example.orbital2019catch.personal.profile.UserProfile;
+import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +39,6 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
     private CardView surveysCard, feedbackCard, liveChallengeCard;
     private ArrayList<String> mImageUrls = new ArrayList<>();
 
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -51,6 +53,7 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Firebase.setAndroidContext(this);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {
@@ -90,15 +93,20 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
         Intent intent;
         switch (v.getId()) {
             case R.id.surveysCard :
-                intent = new Intent(this, CompanyViewSurveyActivity.class);
+                // if company == spotify -> new spotify intent
+                intent = new Intent(this, CompanyViewPumaActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 break;
             case R.id.feedbackCard :
-                intent = new Intent(this, CompanyViewFeedbackActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0,0);
-                break;
+                if (true) {
+                    Toast.makeText(CompanyMainActivity.this, "Your company has no feedbacks available to view!", Toast.LENGTH_LONG).show();
+                } else {
+                    intent = new Intent(this, CompanyViewFeedbackActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                    break;
+                }
             case R.id.liveChallengeCard :
                 intent = new Intent(this, WowzaBroadcastActivity.class);
                 startActivity(intent);

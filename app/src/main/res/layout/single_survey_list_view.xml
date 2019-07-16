@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".survey.SurveysHomeActivity">
+    tools:context=".personal.survey.SurveysHomeActivity">
     <androidx.cardview.widget.CardView
         android:id="@+id/surveyCard"
         android:foreground="?android:attr/selectableItemBackground"

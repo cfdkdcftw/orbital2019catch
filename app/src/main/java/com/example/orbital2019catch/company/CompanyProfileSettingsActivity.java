@@ -11,10 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.orbital2019catch.R;
-import com.example.orbital2019catch.loginandregister.LoginActivity;
-import com.example.orbital2019catch.profile.PaymentActivity;
-import com.example.orbital2019catch.profile.PaymentHistoryActivity;
-import com.example.orbital2019catch.profile.UserProfile;
+import com.example.orbital2019catch.personal.loginandregister.LoginActivity;
+import com.example.orbital2019catch.personal.profile.UserProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
