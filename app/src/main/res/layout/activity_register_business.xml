@@ -88,7 +88,6 @@
         android:focusable="true"
         android:longClickable="true"/>
 
-
     <Button
         android:id="@+id/register_btn"
         android:layout_below="@id/register_password"
@@ -112,6 +111,5 @@
         android:layout_centerHorizontal="true"
         android:indeterminate="true"
         android:visibility="invisible"/>
-
 
 </RelativeLayout>
