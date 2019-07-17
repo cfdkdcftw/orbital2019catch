@@ -30,15 +30,15 @@
     <EditText
         android:id="@+id/craft_feedback_question"
         android:layout_below="@+id/company_feedback_question"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/login_input_background"
         android:ems="10"
         android:hint="Enter your question here!"
         android:layout_marginTop="10dp"
         android:paddingLeft="20dp"
-        android:inputType="textEmailAddress"
+        android:inputType="text|textMultiLine"
         android:textIsSelectable="true"
         android:focusable="true"
         android:longClickable="true"/>
@@ -46,7 +46,7 @@
     <EditText
         android:id="@+id/craft_feedback_payout"
         android:layout_below="@+id/craft_feedback_question"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/login_input_background"
@@ -54,7 +54,8 @@
         android:hint="Enter the payout amount!"
         android:layout_marginTop="10dp"
         android:paddingLeft="20dp"
-        android:inputType="text"
+        android:inputType="numberDecimal"
+        android:digits=".0123456789"
         android:textIsSelectable="true"
         android:focusable="true"
         android:longClickable="true"/>
@@ -108,7 +109,7 @@
         android:textSize="16sp"/>
 
     <ProgressBar
-        android:id="@+id/registerProgress"
+        android:id="@+id/craft_feedback_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

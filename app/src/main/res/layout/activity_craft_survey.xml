@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".company.survey.CraftSurveyActivity">
 
+    <TextView
+        android:id="@+id/company_craft_feedback_banner"
+        android:gravity="center"
+        android:text="Create a new Survey form now!"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/themeBlue"
+        android:textSize="12pt"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
         android:id="@+id/login_logo"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/catch_logo"
+        app:srcCompat="@drawable/catch_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"/>
 

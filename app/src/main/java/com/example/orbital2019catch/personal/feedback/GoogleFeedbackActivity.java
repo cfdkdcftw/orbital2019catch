@@ -1,9 +1,7 @@
 package com.example.orbital2019catch.personal.feedback;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,8 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.orbital2019catch.personal.MainActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.orbital2019catch.R;
+import com.example.orbital2019catch.personal.MainActivity;
 import com.example.orbital2019catch.personal.profile.UserProfile;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -24,7 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class GoogleFeedbackActivity extends Activity{
+public class GoogleFeedbackActivity extends AppCompatActivity {
 
     private TextView companyName;
     private ImageView companyLogo;

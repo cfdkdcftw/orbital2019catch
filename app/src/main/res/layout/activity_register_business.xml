@@ -10,7 +10,7 @@
         android:id="@+id/register_logo"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/catch_logo"
+        app:srcCompat="@drawable/catch_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="110dp"/>
     <TextView

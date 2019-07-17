@@ -14,7 +14,7 @@
             android:id="@+id/select_type_logo"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/catch_logo"
+            app:srcCompat="@drawable/catch_logo"
             android:layout_centerHorizontal="true"/>
 
         <TextView
@@ -41,7 +41,7 @@
                 android:id="@+id/personal_icon"
                 android:layout_width="match_parent"
                 android:layout_height="600px"
-                android:src="@drawable/personal_account" />
+                app:srcCompat="@drawable/personal_account" />
         </LinearLayout>
 
         <TextView
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="600px"
                 android:layout_gravity="center"
-                android:src="@drawable/business_account" />
+                app:srcCompat="@drawable/business_account" />
         </LinearLayout>
 
     </RelativeLayout>

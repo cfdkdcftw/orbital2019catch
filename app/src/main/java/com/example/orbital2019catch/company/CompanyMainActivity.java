@@ -13,7 +13,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.orbital2019catch.company.feedback.CraftFeedbackActivity;
 import com.example.orbital2019catch.company.feedback.GoogleViewFeedbackActivity;
+import com.example.orbital2019catch.company.survey.CraftSurveyActivity;
 import com.example.orbital2019catch.company.survey.PumaViewSurveyActivity;
 import com.example.orbital2019catch.personal.NewsFlashRecyclerViewAdapter;
 import com.example.orbital2019catch.R;
@@ -36,7 +38,7 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
     private FirebaseDatabase mDatabase;
     private TextView displayName;
     private String email;
-    private CardView surveysCard, feedbackCard, liveChallengeCard;
+    private CardView surveysCard, feedbackCard, liveChallengeCard, craftSurveysCard, craftFeedbackCard;
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private String companyName;
 
@@ -86,6 +88,10 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
             liveChallengeCard.setOnClickListener(this);
             profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
             profileSettingsBtn.setOnClickListener(this);
+            craftFeedbackCard = (CardView) findViewById(R.id.craftFeedbackCard);
+            craftFeedbackCard.setOnClickListener(this);
+            craftSurveysCard = (CardView) findViewById(R.id.craftSurveysCard);
+            craftSurveysCard.setOnClickListener(this);
             getImages();
         }
     }
@@ -122,6 +128,16 @@ public class CompanyMainActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.profile_settings_btn :
                 intent = new Intent(this, CompanyProfileSettingsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.craftSurveysCard :
+                intent = new Intent(this, CraftSurveyActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.craftFeedbackCard :
+                intent = new Intent(this, CraftFeedbackActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 break;

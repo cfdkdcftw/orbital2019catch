@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/survey"
+            app:srcCompat="@drawable/survey"
             android:id="@+id/feedback_company_logo"
             android:padding="10dp"/>
 

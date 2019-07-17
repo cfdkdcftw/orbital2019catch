@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:overScrollMode="never"
@@ -24,7 +25,7 @@
         <ImageView
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:src="@drawable/catch_logo"
+            app:srcCompat="@drawable/catch_logo"
             android:layout_gravity="left" />
 
         <!-- user profile access button -->
@@ -96,7 +97,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/surveysCard"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:foreground="?attr/selectableItemBackground"
             android:clickable="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -111,7 +112,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@color/deepPurple"
-                    android:src="@drawable/survey"
+                    app:srcCompat="@drawable/survey"
                     android:padding="10dp"/>
 
             </LinearLayout>
@@ -120,7 +121,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/feedbackCard"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:foreground="?attr/selectableItemBackground"
             android:clickable="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -135,7 +136,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@color/green"
-                    android:src="@drawable/review"
+                    app:srcCompat="@drawable/review"
                     android:padding="10dp"/>
 
             </LinearLayout>
@@ -144,7 +145,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/liveChallengeCard"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:foreground="?attr/selectableItemBackground"
             android:clickable="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -159,11 +160,76 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@color/themeBlue"
-                    android:src="@drawable/live_streaming"
+                    app:srcCompat="@drawable/live_streaming"
                     android:padding="10dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/craft_questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Craft questions for our users!"
+        android:textAppearance="?android:attr/textAppearanceButton"
+        />
+
+    <LinearLayout
+        android:layout_margin="8px"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8px"
+        android:background="@color/lightGray">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/craftSurveysCard"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/comboBrown"
+                    app:srcCompat="@drawable/survey"
+                    android:padding="10dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/craftFeedbackCard"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/comboGreen"
+                    app:srcCompat="@drawable/review"
+                    android:padding="10dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
 
     <!-- heading for news flash -->
     <TextView
