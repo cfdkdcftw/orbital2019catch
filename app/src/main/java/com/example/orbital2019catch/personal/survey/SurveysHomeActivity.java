@@ -3,19 +3,33 @@ package com.example.orbital2019catch.personal.survey;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.orbital2019catch.personal.MainActivity;
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.personal.survey.workinprogress.SurveyArrayAdapter;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class SurveysHomeActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button survey1, survey2, survey3;
+    private CardView survey1, survey2, survey3;
+    private TextView r1, r2, r3;
+    private ProgressBar pb1, pb2, pb3;
+    private Firebase survey1Quota, survey2Quota, survey3Quota;
     private ListView listView;
     private SurveyArrayAdapter surveyArrayAdapter;
+    private FirebaseDatabase mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,16 +56,42 @@ public class SurveysHomeActivity extends AppCompatActivity implements View.OnCli
         // list the card views in sequence then set the survey before starting the intent
 
         */
-        // survey1
-        survey1 = (Button) findViewById(R.id.start_feedback_btn1);
+
+        survey1 = (CardView) findViewById(R.id.surveysCard1);
         survey1.setOnClickListener(this);
 
-        // survey2
-        survey2 = (Button) findViewById(R.id.survey_btn2);
+        survey2 = (CardView) findViewById(R.id.surveysCard2);
         survey2.setOnClickListener(this);
 
-        survey2 = (Button) findViewById(R.id.survey_btn3);
-        survey2.setOnClickListener(this);
+        survey3 = (CardView) findViewById(R.id.surveysCard3);
+        survey3.setOnClickListener(this);
+
+        r1 = (TextView) findViewById(R.id.respondents1);
+        r2 = (TextView) findViewById(R.id.respondents2);
+        r3 = (TextView) findViewById(R.id.respondents3);
+
+        pb1 = (ProgressBar) findViewById(R.id.quota1);
+        pb2 = (ProgressBar) findViewById(R.id.quota2);
+        pb3 = (ProgressBar) findViewById(R.id.quota3);
+
+//        survey1Quota = new Firebase("https://orbital2019catch.firebaseio.com/surveys/spotify/quota");
+//        survey1Quota.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                SurveyQuota surveyQuota = dataSnapshot.getValue(SurveyQuota.class);
+//                int max = surveyQuota.getMax();
+//                int curr = surveyQuota.getCurr();
+//                pb1.setProgress(curr);
+//                r1.setText("" + curr + " responded" );
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//
+//            }
+//        });
+
+
     }
 
     @Override
@@ -59,17 +99,17 @@ public class SurveysHomeActivity extends AppCompatActivity implements View.OnCli
         Intent intent;
 
         switch (v.getId()) {
-            case R.id.start_feedback_btn1:
+            case R.id.surveysCard1:
                 intent = new Intent(this, SurveyLocalSpotify.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 break;
-            case R.id.survey_btn2:
+            case R.id.surveysCard2:
                 intent = new Intent(this, SurveyFirebaseNike.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 break;
-            case R.id.survey_btn3:
+            case R.id.surveysCard3:
                 intent = new Intent(this, SurveyFirebaseUniqlo.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
