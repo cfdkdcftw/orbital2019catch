@@ -20,6 +20,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -50,6 +53,12 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
     private String companyName = "Uniqlo";
 
     DatabaseReference databaseSurvey = FirebaseDatabase.getInstance().getReference("surveys/uniqlo0519/answers");
+
+    private static final String KEY_MAX = "max";
+    private static final String KEY_CURR = "curr";
+    private static long max, curr;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private DocumentReference quotaRef = db.collection("surveys").document("uniqlo");
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -109,8 +118,9 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
 
     public void updateQuestion() {
         if (mQuestionNumber == 5) {
-            Toast.makeText(this, "Thank you for completing the survey!", Toast.LENGTH_SHORT).show();
             uploadUserInput();
+            updateQuota();
+            Toast.makeText(this, "Thank you for completing the survey!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, SurveysHomeActivity.class);
             startActivity(intent);
             overridePendingTransition(0, 0);
@@ -211,6 +221,10 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
         DatabaseReference balanceRef = mDatabase.getReference("users/" + mAuth.getUid()).child("balance");
         balanceRef.setValue(balance + amount);
         // addCredits(); null obj ref for balance
+    }
+
+    private void updateQuota() {
+        quotaRef.update("curr", FieldValue.increment(1));
     }
 
     public void onPause() {

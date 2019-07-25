@@ -12,12 +12,20 @@ import android.widget.Toast;
 
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.personal.profile.UserProfile;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SurveyLocalSpotify extends AppCompatActivity {
 
@@ -44,6 +52,11 @@ public class SurveyLocalSpotify extends AppCompatActivity {
     private int mQuestionNumber = 0;
     DatabaseReference databaseSurvey = FirebaseDatabase.getInstance().getReference("surveys/spotify/answers");
 
+    private static final String KEY_MAX = "max";
+    private static final String KEY_CURR = "curr";
+    private static long max, curr;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private DocumentReference quotaRef = db.collection("surveys").document("spotify");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,9 +118,13 @@ public class SurveyLocalSpotify extends AppCompatActivity {
 
     private void updateQuestion() {
         if (mQuestionNumber == 5) {
-            Toast.makeText(SurveyLocalSpotify.this, "Thank you for completing the survey!", Toast.LENGTH_SHORT).show();
             uploadUserInput();
+            updateQuota();
+
+            Toast.makeText(SurveyLocalSpotify.this, "Thank you for completing the survey!", Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent(this, SurveysHomeActivity.class);
+            finish();
             startActivity(intent);
             overridePendingTransition(0,0);
         } else {
@@ -138,13 +155,17 @@ public class SurveyLocalSpotify extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(SurveyLocalSpotify.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SurveyLocalSpotify.this, databaseError.getCode(), Toast.LENGTH_LONG).show();
             }
         });
 
         DatabaseReference balanceRef = mDatabase.getReference("users/" + mAuth.getUid()).child("balance");
         balanceRef.setValue(balance + 1.0);
 
+    }
+
+    private void updateQuota() {
+        quotaRef.update("curr", FieldValue.increment(1));
     }
 
     public void onPause() {

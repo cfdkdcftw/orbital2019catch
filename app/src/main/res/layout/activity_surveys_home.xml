@@ -119,7 +119,7 @@
                         android:layout_marginTop="3dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:progress="78"
+                        android:progress="0"
                         android:progressBackgroundTint="@color/lightBlue"
                         android:progressTint="@color/themeBlue"/>
 
@@ -133,7 +133,7 @@
                         android:textAlignment="center"
                         android:layout_marginTop="-13dp"
                         android:background="@android:color/transparent"
-                        android:text="87 responded "/>
+                        android:text="0 responded "/>
 
                 </LinearLayout>
 
@@ -223,7 +223,7 @@
                     android:layout_marginTop="3dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:progress="29"
+                    android:progress="0"
                     android:progressBackgroundTint="@color/lightBlue"
                     android:progressTint="@color/themeBlue"/>
 
@@ -237,7 +237,7 @@
                     android:textAlignment="center"
                     android:layout_marginTop="-13dp"
                     android:background="@android:color/transparent"
-                    android:text="29 responded "/>
+                    android:text="0 responded "/>
 
             </LinearLayout>
 
@@ -313,7 +313,7 @@
                 android:layout_marginTop="3dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:progress="42"
+                android:progress="0"
                 android:progressBackgroundTint="@color/lightBlue"
                 android:progressTint="@color/themeBlue"/>
 
@@ -327,7 +327,7 @@
                 android:textAlignment="center"
                 android:layout_marginTop="-13dp"
                 android:background="@android:color/transparent"
-                android:text="42 responded "/>
+                android:text="0 responded "/>
 
         </LinearLayout>
 

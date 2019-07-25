@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -18,8 +19,12 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class SurveysHomeActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,6 +35,13 @@ public class SurveysHomeActivity extends AppCompatActivity implements View.OnCli
     private ListView listView;
     private SurveyArrayAdapter surveyArrayAdapter;
     private FirebaseDatabase mDatabase;
+
+    private static final String KEY_MAX = "max";
+    private static final String KEY_CURR = "curr";
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private DocumentReference quotaRef1 = db.collection("surveys").document("spotify");
+    private DocumentReference quotaRef2 = db.collection("surveys").document("nike");
+    private DocumentReference quotaRef3 = db.collection("surveys").document("uniqlo");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,25 +86,50 @@ public class SurveysHomeActivity extends AppCompatActivity implements View.OnCli
         pb2 = (ProgressBar) findViewById(R.id.quota2);
         pb3 = (ProgressBar) findViewById(R.id.quota3);
 
-//        survey1Quota = new Firebase("https://orbital2019catch.firebaseio.com/surveys/spotify/quota");
-//        survey1Quota.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                SurveyQuota surveyQuota = dataSnapshot.getValue(SurveyQuota.class);
-//                int max = surveyQuota.getMax();
-//                int curr = surveyQuota.getCurr();
-//                pb1.setProgress(curr);
-//                r1.setText("" + curr + " responded" );
-//            }
-//
-//            @Override
-//            public void onCancelled(FirebaseError firebaseError) {
-//
-//            }
-//        });
+        quotaRef1.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            long max = documentSnapshot.getLong(KEY_MAX);
+                            long curr = documentSnapshot.getLong(KEY_CURR);
+                            pb1.setMax((int)max);
+                            pb1.setProgress((int)curr);
+                            r1.setText(""+ curr + " responded" );
+                        }
+                    }
+                });
 
+        quotaRef2.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            long max = documentSnapshot.getLong(KEY_MAX);
+                            long curr = documentSnapshot.getLong(KEY_CURR);
+                            pb2.setMax((int)max);
+                            pb2.setProgress((int)curr);
+                            r2.setText(""+ curr + " responded" );
+                        }
+                    }
+                });
+
+        quotaRef3.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            long max = documentSnapshot.getLong(KEY_MAX);
+                            long curr = documentSnapshot.getLong(KEY_CURR);
+                            pb3.setMax((int)max);
+                            pb3.setProgress((int)curr);
+                            r3.setText(""+ curr + " responded" );
+                        }
+                    }
+                });
 
     }
+
 
     @Override
     public void onClick(View v) {
