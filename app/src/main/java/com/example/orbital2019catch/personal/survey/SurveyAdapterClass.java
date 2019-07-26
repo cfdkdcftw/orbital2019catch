@@ -45,7 +45,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.surveyDescription.setText(surveyList.get(position).getName());
         holder.expiryDate.setText("Ends on " + surveyList.get(position).getExpiry());
-        holder.earnRate.setText(surveyList.get(position).getCashout());
+        holder.earnRate.setText(String.format("$%.2f", surveyList.get(position).getCashout()));
         holder.quota.setMax((int)surveyList.get(position).getMax());
         holder.quota.setProgress((int)surveyList.get(position).getCurr());
         holder.respondents.setText(""+ surveyList.get(position).getCurr() + " responded" );

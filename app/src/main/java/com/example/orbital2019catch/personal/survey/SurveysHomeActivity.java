@@ -38,15 +38,9 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 import javax.annotation.Nullable;
 
-//implements View.OnClickListener
 public class SurveysHomeActivity extends AppCompatActivity  {
     private ListView listView;
     private SurveyArrayAdapter surveyArrayAdapter;
@@ -61,27 +55,6 @@ public class SurveysHomeActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surveys_home);
-        /*
-        listView = (ListView) findViewById(R.id.survey_list_view);
-        surveyArrayAdapter = new SurveyArrayAdapter(getApplicationContext(), R.layout.single_survey_list_view);
-        CSVReader csvReader = new CSVReader();
-        InputStream inputStreamSurveys = getResources().openRawResource(R.raw.firebase_survey);
-        List<String[]> surveyData = csvReader.read(inputStreamSurveys);
-        List<Survey> surveys = new ArrayList<>();
-        for (int i = 0; i < surveyData.size(); i++){
-            String[] surveyInfo = surveyData.get(i);
-            Survey currSurvey = new FirebaseSurvey(surveyInfo[0], surveyInfo[1],
-                    surveyInfo[2], Double.parseDouble(surveyInfo[3]), surveyInfo[4]);
-            surveys.add(currSurvey);
-            surveyArrayAdapter.add(currSurvey);
-        }
-
-        Parcelable state = listView.onSaveInstanceState();
-        listView.setAdapter(surveyArrayAdapter);
-        listView.onRestoreInstanceState(state);
-        // list the card views in sequence then set the survey before starting the intent
-
-        */
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         searchBar = (EditText)findViewById(R.id.searchbar);
 

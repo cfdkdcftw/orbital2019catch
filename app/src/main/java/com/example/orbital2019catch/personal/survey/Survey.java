@@ -1,15 +1,18 @@
 package com.example.orbital2019catch.personal.survey;
 
+import java.util.Date;
 import java.util.List;
 
 public class Survey {
-    private String name, expiry, cashout, brand;
+    private String name, expiry, brand;
     private List<String> usersWhoCompleted;
+    private double cashout;
     private long max, curr;
+    private Date expiryDF;
 
     public Survey () {}
 
-    public Survey(String name, String expiry, String cashout, String brand, List<String> usersWhoCompleted, long max, long curr) {
+    public Survey(String name, String expiry, double cashout, String brand, List<String> usersWhoCompleted, long max, long curr, Date expiryDF) {
         this.name = name;
         this.expiry = expiry;
         this.cashout = cashout;
@@ -17,6 +20,7 @@ public class Survey {
         this.usersWhoCompleted = usersWhoCompleted;
         this.max = max;
         this.curr = curr;
+        this.expiryDF = expiryDF;
     }
 
     public String getName() {
@@ -27,7 +31,7 @@ public class Survey {
         return expiry;
     }
 
-    public String getCashout() {
+    public double getCashout() {
         return cashout;
     }
 
@@ -44,4 +48,6 @@ public class Survey {
     }
 
     public List<String> getUsersWhoCompleted() { return usersWhoCompleted; }
+
+    public Date getExpiryDF() { return expiryDF; }
 }
