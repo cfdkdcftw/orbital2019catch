@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/surveysCard3"
+    android:foreground="?attr/selectableItemBackground"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/survey_company_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:padding="8dp"
+            android:src="@drawable/uniqlo" />
+
+        <TextView
+            android:id="@+id/survey_description"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="60dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Uniqlo consumer survey"
+            android:textAlignment="gravity"
+            android:textSize="12dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/expiry_date"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Ends on 12 Aug"
+                android:textAlignment="gravity"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/earn_rate"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="$0.60"
+                android:textColor="@color/deepBlue"
+                android:textAlignment="gravity"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:textSize="15dp" />
+
+            <ProgressBar
+                android:id="@+id/quota"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="125dp"
+                android:layout_height="12dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:max="100"
+                android:layout_marginTop="3dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:progress="0"
+                android:progressBackgroundTint="@color/lightBlue"
+                android:progressTint="@color/themeBlue"/>
+
+            <TextView
+                android:id="@+id/respondents"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:textSize="8dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:layout_marginTop="-13dp"
+                android:background="@android:color/transparent"
+                android:text="0 responded "/>
+
+        </LinearLayout>
+
+</androidx.cardview.widget.CardView>

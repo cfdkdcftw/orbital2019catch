@@ -79,11 +79,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="Forgot your password?"
         android:textAllCaps="false"
-        android:textColor="@color/comboBrown"
-        android:textSize="16dp"/>
+        android:textColor="@color/deepBlue"
+        android:textSize="13dp"/>
 
     <ProgressBar
         android:id="@+id/loginProgress"
