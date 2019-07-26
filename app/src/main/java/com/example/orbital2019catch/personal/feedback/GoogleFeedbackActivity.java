@@ -120,7 +120,7 @@ public class GoogleFeedbackActivity extends AppCompatActivity {
 
     @Override // over-riding so that back does not lead to the previously done survey
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, FeedbackHomeActivity.class);
         startActivity(intent);
         overridePendingTransition(0,0);
     }
