@@ -29,6 +29,7 @@ import java.util.ArrayList;
 public class SurveyFirebaseUniqlo extends AppCompatActivity {
 
     private TextView mCompanyNameView;
+    private TextView mCompanySurveyDesc;
     private ImageView mCompanyLogoView;
     private TextView mQuestion;
     private Button mButtonChoice1;
@@ -51,8 +52,9 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
     private ArrayList<String> answers = new ArrayList<>();
     private int mQuestionNumber = 0;
     private String companyName = "Uniqlo";
+    private String companySurveyDesc = "Uniqlo Consumer Survey";
 
-    DatabaseReference databaseSurvey = FirebaseDatabase.getInstance().getReference("surveys/uniqlo0519/answers");
+            DatabaseReference databaseSurvey = FirebaseDatabase.getInstance().getReference("surveys/uniqlo0519/answers");
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference quotaRef = db.collection("surveys").document("uniqlo");
@@ -63,6 +65,8 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
         setContentView(R.layout.activity_surveys);
         mCompanyNameView = (TextView)findViewById(R.id.survey_company_name);
         mCompanyNameView.setText(companyName);
+        mCompanySurveyDesc = (TextView) findViewById(R.id.survey_description);
+        mCompanySurveyDesc.setText(companySurveyDesc);
         mCompanyLogoView = (ImageView)findViewById(R.id.survey_company_logo);
         mCompanyLogoView.setImageResource(R.drawable.uniqlo);
         mQuestion = (TextView)findViewById(R.id.question);

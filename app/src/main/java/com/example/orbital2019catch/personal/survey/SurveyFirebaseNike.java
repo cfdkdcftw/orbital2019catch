@@ -29,6 +29,7 @@ import java.util.ArrayList;
 public class SurveyFirebaseNike extends AppCompatActivity {
 
     private TextView mCompanyNameView;
+    private TextView mCompanySurveyDesc;
     private ImageView mCompanyLogoView;
     private TextView mQuestion;
     private Button mButtonChoice1;
@@ -51,6 +52,7 @@ public class SurveyFirebaseNike extends AppCompatActivity {
     private ArrayList<String> answers = new ArrayList<>();
     private int mQuestionNumber = 0;
     private String companyName = "Nike";
+    private String companySurveyDesc = "Nike Consumer Survey on Shoes";
 
     DatabaseReference databaseSurvey = FirebaseDatabase.getInstance().getReference("surveys/nike0519/answers");
 
@@ -63,6 +65,8 @@ public class SurveyFirebaseNike extends AppCompatActivity {
         setContentView(R.layout.activity_surveys);
         mCompanyNameView = (TextView)findViewById(R.id.survey_company_name);
         mCompanyNameView.setText(companyName);
+        mCompanySurveyDesc = (TextView) findViewById(R.id.survey_description);
+        mCompanySurveyDesc.setText(companySurveyDesc);
         mCompanyLogoView = (ImageView)findViewById(R.id.survey_company_logo);
         mCompanyLogoView.setImageResource(R.drawable.nike_logo);
         mQuestion = (TextView)findViewById(R.id.question);

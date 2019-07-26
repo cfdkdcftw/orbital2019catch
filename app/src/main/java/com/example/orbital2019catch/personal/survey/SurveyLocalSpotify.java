@@ -33,6 +33,7 @@ public class SurveyLocalSpotify extends AppCompatActivity {
     // if we want to track question number
     // private TextView mQuestionNumberView;
     private ImageView mCompanyLogoView;
+    private TextView mCompanySurveyDesc;
     private TextView mCompanyNameView;
     private TextView mQuestionView;
     private Button mButtonChoice1;
@@ -61,6 +62,8 @@ public class SurveyLocalSpotify extends AppCompatActivity {
         setContentView(R.layout.activity_surveys);
         mCompanyLogoView = (ImageView)findViewById(R.id.survey_company_logo);
         mCompanyLogoView.setImageResource(companyLogoId);
+        mCompanySurveyDesc = (TextView) findViewById(R.id.survey_description);
+        mCompanySurveyDesc.setText("Spotify Consumer Patterns Survey");
         mCompanyNameView = (TextView)findViewById(R.id.survey_company_name);
         mCompanyNameView.setText(companyName);
         // mQuestionNumberView = (TextView)findViewById(R.id.question_number);
