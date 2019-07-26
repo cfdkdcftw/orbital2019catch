@@ -52,9 +52,6 @@ public class SurveyLocalSpotify extends AppCompatActivity {
     private int mQuestionNumber = 0;
     DatabaseReference databaseSurvey = FirebaseDatabase.getInstance().getReference("surveys/spotify/answers");
 
-    private static final String KEY_MAX = "max";
-    private static final String KEY_CURR = "curr";
-    private static long max, curr;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference quotaRef = db.collection("surveys").document("spotify");
 
@@ -119,7 +116,7 @@ public class SurveyLocalSpotify extends AppCompatActivity {
     private void updateQuestion() {
         if (mQuestionNumber == 5) {
             uploadUserInput();
-            updateQuota();
+            updateDatabase();
 
             Toast.makeText(SurveyLocalSpotify.this, "Thank you for completing the survey!", Toast.LENGTH_SHORT).show();
 
@@ -164,8 +161,12 @@ public class SurveyLocalSpotify extends AppCompatActivity {
 
     }
 
-    private void updateQuota() {
+    private void updateDatabase() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+        String userID = mAuth.getUid();
         quotaRef.update("curr", FieldValue.increment(1));
+        quotaRef.update("usersWhoCompleted", FieldValue.arrayUnion(userID));
     }
 
     public void onPause() {

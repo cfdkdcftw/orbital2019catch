@@ -14,13 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.orbital2019catch.R;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.annotation.Nullable;
 
@@ -50,27 +55,84 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
             holder.surveyCompanyIcon.setImageResource(R.drawable.spotify_logo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View itemView) {
-                    Intent intent = new Intent(itemView.getContext(), SurveyLocalSpotify.class);
-                    itemView.getContext().startActivity(intent);
+                public void onClick(final View itemView) {
+
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+                    final String userID = mAuth.getUid();
+
+                    final FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("surveys").document("spotify").get()
+                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    Survey survey = documentSnapshot.toObject(Survey.class);
+                                    List<String> usersWhoCompleted = survey.getUsersWhoCompleted();
+
+                                    if (usersWhoCompleted.contains(userID)) {
+                                        Toast.makeText(itemView.getContext(), "You have already completed this survey.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Intent intent = new Intent(itemView.getContext(), SurveyLocalSpotify.class);
+                                        itemView.getContext().startActivity(intent);
+                                    }
+                                }
+                            });
                 } });
 
         } else if (brand.equals("nike")) {
             holder.surveyCompanyIcon.setImageResource(R.drawable.nike_logo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View itemView) {
-                    Intent intent = new Intent(itemView.getContext(), SurveyFirebaseNike.class);
-                    itemView.getContext().startActivity(intent);
+                public void onClick(final View itemView) {
+
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+                    final String userID = mAuth.getUid();
+
+                    final FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("surveys").document("nike").get()
+                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    Survey survey = documentSnapshot.toObject(Survey.class);
+                                    List<String> usersWhoCompleted = survey.getUsersWhoCompleted();
+
+                                    if (usersWhoCompleted.contains(userID)) {
+                                        Toast.makeText(itemView.getContext(), "You have already completed this survey.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Intent intent = new Intent(itemView.getContext(), SurveyFirebaseNike.class);
+                                        itemView.getContext().startActivity(intent);
+                                    }
+                                }
+                            });
                 } });
 
         } else if (brand.equals("uniqlo")) {
             holder.surveyCompanyIcon.setImageResource(R.drawable.uniqlo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View itemView) {
-                    Intent intent = new Intent(itemView.getContext(), SurveyFirebaseUniqlo.class);
-                    itemView.getContext().startActivity(intent);
+                public void onClick(final View itemView) {
+
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+                    final String userID = mAuth.getUid();
+
+                    final FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("surveys").document("uniqlo").get()
+                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    Survey survey = documentSnapshot.toObject(Survey.class);
+                                    List<String> usersWhoCompleted = survey.getUsersWhoCompleted();
+
+                                    if (usersWhoCompleted.contains(userID)) {
+                                        Toast.makeText(itemView.getContext(), "You have already completed this survey.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Intent intent = new Intent(itemView.getContext(), SurveyFirebaseUniqlo.class);
+                                        itemView.getContext().startActivity(intent);
+                                    }
+                                }
+                            });
                 } });
 
         }

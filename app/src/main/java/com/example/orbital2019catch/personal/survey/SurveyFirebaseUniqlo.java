@@ -54,9 +54,6 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
 
     DatabaseReference databaseSurvey = FirebaseDatabase.getInstance().getReference("surveys/uniqlo0519/answers");
 
-    private static final String KEY_MAX = "max";
-    private static final String KEY_CURR = "curr";
-    private static long max, curr;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference quotaRef = db.collection("surveys").document("uniqlo");
 
@@ -119,7 +116,7 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
     public void updateQuestion() {
         if (mQuestionNumber == 5) {
             uploadUserInput();
-            updateQuota();
+            updateDatabase();
             Toast.makeText(this, "Thank you for completing the survey!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, SurveysHomeActivity.class);
             startActivity(intent);
@@ -223,8 +220,12 @@ public class SurveyFirebaseUniqlo extends AppCompatActivity {
         // addCredits(); null obj ref for balance
     }
 
-    private void updateQuota() {
+    private void updateDatabase() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+        String userID = mAuth.getUid();
         quotaRef.update("curr", FieldValue.increment(1));
+        quotaRef.update("usersWhoCompleted", FieldValue.arrayUnion(userID));
     }
 
     public void onPause() {

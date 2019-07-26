@@ -54,9 +54,6 @@ public class SurveyFirebaseNike extends AppCompatActivity {
 
     DatabaseReference databaseSurvey = FirebaseDatabase.getInstance().getReference("surveys/nike0519/answers");
 
-    private static final String KEY_MAX = "max";
-    private static final String KEY_CURR = "curr";
-    private static long max, curr;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference quotaRef = db.collection("surveys").document("nike");
 
@@ -119,7 +116,7 @@ public class SurveyFirebaseNike extends AppCompatActivity {
     public void updateQuestion() {
         if (mQuestionNumber == 5) {
             uploadUserInput();
-            updateQuota();
+            updateDatabase();
             Toast.makeText(this, "Thank you for completing the survey!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, SurveysHomeActivity.class);
             startActivity(intent);
@@ -222,8 +219,12 @@ public class SurveyFirebaseNike extends AppCompatActivity {
         balanceRef.setValue(balance + amount);
     }
 
-    private void updateQuota() {
+    private void updateDatabase() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+        String userID = mAuth.getUid();
         quotaRef.update("curr", FieldValue.increment(1));
+        quotaRef.update("usersWhoCompleted", FieldValue.arrayUnion(userID));
     }
 
     public void onPause() {
