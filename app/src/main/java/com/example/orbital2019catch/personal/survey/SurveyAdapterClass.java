@@ -43,6 +43,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.surveyBrand.setText(surveyList.get(position).getBrand());
         holder.surveyDescription.setText(surveyList.get(position).getName());
         holder.expiryDate.setText("Ends on " + surveyList.get(position).getExpiry());
         holder.earnRate.setText(String.format("$%.2f", surveyList.get(position).getCashout()));
@@ -51,7 +52,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
         holder.respondents.setText(""+ surveyList.get(position).getCurr() + " responded" );
 
         String brand = surveyList.get(position).getBrand();
-        if (brand.equals("spotify")) {
+        if (brand.equals("Spotify")) {
             holder.surveyCompanyIcon.setImageResource(R.drawable.spotify_logo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -79,7 +80,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
                             });
                 } });
 
-        } else if (brand.equals("nike")) {
+        } else if (brand.equals("Nike")) {
             holder.surveyCompanyIcon.setImageResource(R.drawable.nike_logo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -107,7 +108,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
                             });
                 } });
 
-        } else if (brand.equals("uniqlo")) {
+        } else if (brand.equals("Uniqlo")) {
             holder.surveyCompanyIcon.setImageResource(R.drawable.uniqlo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -145,11 +146,12 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView surveyCompanyIcon;
-        TextView surveyDescription, expiryDate, earnRate, respondents;
+        TextView surveyBrand, surveyDescription, expiryDate, earnRate, respondents;
         ProgressBar quota;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             surveyCompanyIcon = itemView.findViewById(R.id.survey_company_icon);
+            surveyBrand = itemView.findViewById(R.id.survey_brand);
             surveyDescription = itemView.findViewById(R.id.survey_description);
             expiryDate = itemView.findViewById(R.id.expiry_date);
             earnRate = itemView.findViewById(R.id.earn_rate);

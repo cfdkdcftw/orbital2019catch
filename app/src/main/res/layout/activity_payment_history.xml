@@ -11,53 +11,54 @@
         android:id="@+id/payment_history_header"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:gravity="center_vertical"
         android:text="Payment History"
         android:textColor="@color/themeBlue"
-        android:textSize="18pt"
         android:textAlignment="center"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textSize="13pt"/>
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_below="@+id/payment_history_header"
-        android:background="@color/comboBrown"
+        android:background="@color/lightBlue"
         android:id="@+id/payment_history_header_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="20dp">
+        android:padding="10dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Date"
-            android:layout_gravity="center"
+            android:layout_gravity="center|center_vertical"
             android:gravity="center_horizontal"
-            android:textColor="@color/lightGray"
-            android:textSize="20sp"/>
+            android:textColor="@color/deepBlue"
+            android:textSize="7pt"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Time"
-            android:layout_gravity="center"
+            android:layout_gravity="center|center_vertical"
             android:gravity="center_horizontal"
             android:inputType="textMultiLine"
-            android:textColor="@color/lightGray"
-            android:textSize="20sp"/>
+            android:textColor="@color/deepBlue"
+            android:textSize="7pt"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Amount requested"
+            android:text="Amount Requested"
             android:inputType="textMultiLine"
-            android:layout_gravity="center"
+            android:layout_gravity="center|center_vertical"
             android:gravity="center_horizontal"
-            android:textColor="@color/lightGray"
-            android:textSize="20sp"/>
+            android:textColor="@color/deepBlue"
+            android:textSize="7pt"/>
 
         <TextView
             android:id="@+id/payment_item_phone"
@@ -66,10 +67,10 @@
             android:layout_height="wrap_content"
             android:text="Phone Number"
             android:inputType="textMultiLine"
-            android:layout_gravity="center"
+            android:layout_gravity="center|center_vertical"
             android:gravity="center_horizontal"
-            android:textColor="@color/lightGray"
-            android:textSize="20sp"/>
+            android:textColor="@color/deepBlue"
+            android:textSize="7pt"/>
     </LinearLayout>
 
     <ListView
@@ -77,9 +78,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/payment_history_header_row"
-        android:background="@android:color/darker_gray"
-        android:clipToPadding="false"
-        android:paddingTop="16dip"
-        android:paddingBottom="16dip" />
+        android:background="@android:color/background_light"
+        android:clipToPadding="false" />
+        <!--android:paddingTop="16dip"-->
+        <!--android:paddingBottom="16dip" />-->
 
 </RelativeLayout>

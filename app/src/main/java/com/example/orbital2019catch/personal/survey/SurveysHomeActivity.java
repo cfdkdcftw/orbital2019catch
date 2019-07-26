@@ -38,14 +38,14 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.annotation.Nullable;
 
-public class SurveysHomeActivity extends AppCompatActivity  {
-    private ListView listView;
-    private SurveyArrayAdapter surveyArrayAdapter;
-    private FirebaseDatabase mDatabase;
-
+public class SurveysHomeActivity extends AppCompatActivity implements View.OnClickListener {
+    Button brandFilter, expiryFilter, payoutFilter;
+    public static int BRAND_FILTER_STATE = 0, EXPIRY_FILTER_STATE = 0, PAYOUT_FILTER_STATE = 0;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ArrayList<Survey> surveys;
     RecyclerView recyclerView;
@@ -85,6 +85,15 @@ public class SurveysHomeActivity extends AppCompatActivity  {
 
             }
         });
+
+        brandFilter = (Button) findViewById(R.id.brandNameFilterBtn);
+        expiryFilter = (Button) findViewById(R.id.expiryDateFilterBtn);
+        payoutFilter = (Button) findViewById(R.id.payoutFilterBtn);
+
+        brandFilter.setOnClickListener(this);
+        expiryFilter.setOnClickListener(this);
+        payoutFilter.setOnClickListener(this);
+
     }
 
     private void search(String str) {
@@ -96,6 +105,80 @@ public class SurveysHomeActivity extends AppCompatActivity  {
         }
         SurveyAdapterClass surveyAdapterClass = new SurveyAdapterClass(list);
         recyclerView.setAdapter(surveyAdapterClass);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.brandNameFilterBtn) {
+            if (BRAND_FILTER_STATE == 0) {
+                Collections.sort(surveys, new Comparator<Survey>() {
+                    @Override
+                    public int compare(Survey s1, Survey s2) {
+                        return s1.getBrand().compareTo(s2.getBrand());
+                    }
+                });
+            } else {
+                Collections.sort(surveys, new Comparator<Survey>() {
+                    @Override
+                    public int compare(Survey s1, Survey s2) {
+                        return s2.getBrand().compareTo(s1.getBrand());
+                    }
+                });
+            }
+            SurveyAdapterClass surveyAdapterClass = new SurveyAdapterClass(surveys);
+            recyclerView.setAdapter(surveyAdapterClass);
+            BRAND_FILTER_STATE = 1 - BRAND_FILTER_STATE;
+        } else if (v.getId() == R.id.expiryDateFilterBtn) {
+            if (EXPIRY_FILTER_STATE == 0) {
+                Collections.sort(surveys, new Comparator<Survey>() {
+                    @Override
+                    public int compare(Survey s1, Survey s2) {
+                        return s1.getExpiryDF().compareTo(s2.getExpiryDF());
+                    }
+                });
+            } else {
+                Collections.sort(surveys, new Comparator<Survey>() {
+                    @Override
+                    public int compare(Survey s1, Survey s2) {
+                        return s2.getExpiryDF().compareTo(s1.getExpiryDF());
+                    }
+                });
+            }
+            SurveyAdapterClass surveyAdapterClass = new SurveyAdapterClass(surveys);
+            recyclerView.setAdapter(surveyAdapterClass);
+            EXPIRY_FILTER_STATE = 1 - EXPIRY_FILTER_STATE;
+        } else if (v.getId() == R.id.payoutFilterBtn) {
+            if (PAYOUT_FILTER_STATE == 0) {
+                Collections.sort(surveys, new Comparator<Survey>() {
+                    @Override
+                    public int compare(Survey s1, Survey s2) {
+                        if (s1.getCashout() - s2.getCashout() > 0) {
+                            return -1;
+                        } else if (s1.getCashout() - s2.getCashout() < 0) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                });
+            } else {
+                Collections.sort(surveys, new Comparator<Survey>() {
+                    @Override
+                    public int compare(Survey s1, Survey s2) {
+                        if (s2.getCashout() - s1.getCashout() > 0) {
+                            return -1;
+                        } else if (s2.getCashout() - s1.getCashout() < 0) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                });
+            }
+            SurveyAdapterClass surveyAdapterClass = new SurveyAdapterClass(surveys);
+            recyclerView.setAdapter(surveyAdapterClass);
+            PAYOUT_FILTER_STATE = 1 - PAYOUT_FILTER_STATE;
+        }
     }
 
     public void onPause() {

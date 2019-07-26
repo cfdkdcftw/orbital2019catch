@@ -14,17 +14,36 @@
             android:padding="8dp"
             android:src="@drawable/uniqlo" />
 
-        <TextView
-            android:id="@+id/survey_description"
-            android:layout_width="170dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="60dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="Uniqlo consumer survey"
-            android:textAlignment="gravity"
-            android:textSize="12dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/survey_brand"
+                android:layout_width="170dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="60dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Uniqlo"
+                android:textAlignment="gravity"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/survey_description"
+                android:layout_width="170dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="60dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Uniqlo consumer survey"
+                android:textAlignment="gravity"
+                android:textSize="12dp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
