@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.company.CompanyMainActivity;
+import com.example.orbital2019catch.company.CompanyMainActivity2;
 import com.example.orbital2019catch.deprecated.UserBalanceActivity;
 import com.example.orbital2019catch.personal.feedback.FeedbackHomeActivity;
 import com.example.orbital2019catch.personal.livechallenge.WowzaPlayerActivity;
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.getValue(String.class).equals("company")) {
                         // is company account
-                        Intent intent = new Intent(getApplicationContext(), CompanyMainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), CompanyMainActivity2.class);
                         startActivity(intent);
                         overridePendingTransition(0,0);
                     }

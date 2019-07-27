@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.orbital2019catch.R;
 import com.example.orbital2019catch.company.CompanyMainActivity;
+import com.example.orbital2019catch.company.CompanyMainActivity2;
 import com.example.orbital2019catch.personal.profile.UserProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -94,7 +95,7 @@ public class RegisterBusinessActivity extends AppCompatActivity {
 
                             Toast.makeText(RegisterBusinessActivity.this.getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
                             mRegisterProgress.setVisibility(View.INVISIBLE);
-                            Intent intent = new Intent(RegisterBusinessActivity.this, CompanyMainActivity.class);
+                            Intent intent = new Intent(RegisterBusinessActivity.this, CompanyMainActivity2.class);
                             startActivity(intent);
                             overridePendingTransition(0,0);
                         }
