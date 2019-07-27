@@ -11,6 +11,10 @@ import android.widget.Toast;
 
 import com.example.orbital2019catch.personal.MainActivity;
 import com.example.orbital2019catch.R;
+import com.example.orbital2019catch.personal.feedback.GongchaFeedbackActivity;
+import com.example.orbital2019catch.personal.feedback.GoogleFeedbackActivity;
+import com.example.orbital2019catch.personal.location.SurveyFirebaseMCD;
+import com.example.orbital2019catch.personal.location.SurveyFirebaseNTUC;
 import com.example.orbital2019catch.personal.survey.SurveyLocalSpotify;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.database.DatabaseReference;
@@ -45,7 +49,23 @@ public class QrCodeActivity extends AppCompatActivity implements BarcodeReader.B
         if (result.equals("catch_spotify_survey")) {
             intent = new Intent(this, SurveyLocalSpotify.class);
             startActivity(intent);
-            overridePendingTransition(0,0);
+            overridePendingTransition(0, 0);
+        } else if (result.equals("catch_mcd_survey")) {
+            intent = new Intent(this, SurveyFirebaseMCD.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        } else if (result.equals("catch_fairprice_survey")) {
+            intent = new Intent(this, SurveyFirebaseNTUC.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        } else if (result.equals("catch_google_feedback")) {
+            intent = new Intent(this, GoogleFeedbackActivity.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        } else if (result.equals("catch_gongcha_feedback")) {
+            intent = new Intent(this, GongchaFeedbackActivity.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
         } else {
             Toast.makeText(getApplicationContext(), "Not a Catch QR code!", Toast.LENGTH_LONG).show();
         }
