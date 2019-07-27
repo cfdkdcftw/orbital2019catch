@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".personal.survey.SurveysHomeActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingHorizontal="15dp"
+            android:paddingBottom="55dp"
+            android:background="@color/lightBlue">
+
+            <!-- app logo -->
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/catch_logo"
+                android:layout_gravity="left" />
+
+            <!-- user profile access button -->
+            <Button
+                android:id="@+id/profile_settings_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_profile_icon"
+                android:layout_marginLeft="220dp"/>
+
+        </LinearLayout>
+
+        <!-- user balance button + welcome message -->
+        <RelativeLayout
+            android:id="@+id/user_balance_btn"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:layout_marginTop="-42dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/welcome_text"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/welcome_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="1dp"
+                        android:text="welcome back "
+                        android:textSize="6pt"
+                        android:textAppearance="?android:attr/textAppearanceButton"
+                        />
+
+                    <TextView
+                        android:id="@+id/user_display_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/welcome_message"
+                        android:layout_gravity="top"
+                        android:text="lorem ipsum"
+                        android:textSize="6pt"
+                        android:textAppearance="?android:attr/textAppearanceButton" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Surveys"
+            android:textColor="@color/headingBlue2"
+            android:textSize="10pt"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:paddingHorizontal="15dp"
+            />
+
+        <!-- app functionality menu -->
+        <LinearLayout
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/create_new_survey_btn"
+                    android:layout_width="120dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/rounded_corners_purple"
+                    android:text="Create a New Survey"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/deepPurple"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"/>
+
+                <TextView
+                    android:id="@+id/view_curr_survey_btn"
+                    android:layout_width="120dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/rounded_corners_purple"
+                    android:text="View Current Surveys"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/deepPurple"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"/>
+                <TextView
+                    android:id="@+id/edit_curr_survey_btn"
+                    android:layout_width="120dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/rounded_corners_purple"
+                    android:text="Edit Current Surveys"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/deepPurple"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feedback"
+            android:textColor="@color/headingBlue2"
+            android:textSize="10pt"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:paddingHorizontal="15dp"
+            />
+
+        <!-- app functionality menu -->
+        <LinearLayout
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/create_feedback_qn_btn"
+                    android:layout_width="120dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/rounded_corners_pink"
+                    android:text="Create Feedback Question"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/deepPink"
+                    android:paddingVertical="10dp"
+                    android:paddingHorizontal="7dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"/>
+
+                <TextView
+                    android:id="@+id/edit_feedback_qn_btn"
+                    android:layout_width="120dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/rounded_corners_pink"
+                    android:text="Edit Feedback Question"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/deepPink"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"/>
+
+                <TextView
+                    android:id="@+id/view_feedback_btn"
+                    android:layout_width="120dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/rounded_corners_pink"
+                    android:text="View Feedback Gathered"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/deepPink"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live Challenge"
+            android:textColor="@color/headingBlue2"
+            android:textSize="10pt"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:paddingHorizontal="15dp"
+            />
+
+
+        <LinearLayout
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/go_live_btn"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/rounded_corners_orange"
+                    android:text="Go Live Now"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/deepOrange2"
+                    android:padding="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="5dp"/>
+
+                <TextView
+                    android:id="@+id/view_archived_broadcasts_btn"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/rounded_corners_orange"
+                    android:text="View Archived Broadcasts"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/deepOrange"
+                    android:padding="10dp"
+                    android:layout_marginHorizontal="5dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

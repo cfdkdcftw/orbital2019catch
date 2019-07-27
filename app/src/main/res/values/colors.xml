@@ -26,4 +26,9 @@
     <color name="backgroundBlue1">#f5faff</color>
     <color name="backgroundBlue2">#f2f7ff</color>
     <color name="bannerBackground">#2381d8</color>
+    <color name="lightPurple">#fcfcff</color>
+    <color name="lightPink">#fffcff</color>
+    <color name="deepPink">#ba66b6</color>
+    <color name="lightOrange">#fffcfa</color>
+    <color name="deepOrange2">#ff961c</color>
 </resources>

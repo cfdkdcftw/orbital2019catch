@@ -5,21 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.orbital2019catch.R;
 
 public class SelectAccountTypeActivity extends AppCompatActivity implements View.OnClickListener{
 
-    LinearLayout personalLayout;
-    LinearLayout businessLayout;
+    Button personalLayout;
+    Button businessLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_account_type);
-        LinearLayout personalLayout = (LinearLayout) findViewById(R.id.select_personal_layout);
-        LinearLayout businessLayout = (LinearLayout) findViewById(R.id.select_business_layout);
+        Button personalLayout = (Button) findViewById(R.id.personal_account_btn);
+        Button businessLayout = (Button) findViewById(R.id.company_account_btn);
         personalLayout.setOnClickListener(this);
         businessLayout.setOnClickListener(this);
     }
@@ -28,12 +29,12 @@ public class SelectAccountTypeActivity extends AppCompatActivity implements View
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()) {
-            case R.id.select_personal_layout:
+            case R.id.personal_account_btn:
                 intent = new Intent(this, RegisterPersonalActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 break;
-            case R.id.select_business_layout:
+            case R.id.company_account_btn:
                 intent = new Intent(this, RegisterBusinessActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);

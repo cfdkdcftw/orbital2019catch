@@ -42,7 +42,7 @@ public class CompanyProfileSettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_profile_settings);
-        profileCompany = findViewById(R.id.company_name_display);
+        profileCompany = findViewById(R.id.companyname_display);
         profileName = findViewById(R.id.username_display);
         profileEmail = findViewById(R.id.email_display);
 

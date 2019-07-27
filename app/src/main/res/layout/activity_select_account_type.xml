@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".personal.loginandregister.SelectAccountTypeActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/select_type_logo"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             app:srcCompat="@drawable/catch_logo"
             android:layout_centerHorizontal="true"/>
 
@@ -22,51 +24,78 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/select_type_logo"
-            android:text="Select your account type!"
+            android:text="Select your account type."
             android:textSize="16dp"
-            android:padding="16dp"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true"/>
 
-        <LinearLayout
-            android:id="@+id/select_personal_layout"
-            android:layout_below="@+id/select_type_text"
-            android:background="@color/comboBlue"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:padding="8dp"
-            android:layout_weight="2"
-            android:clickable="true">
+        <Button
+            android:id="@+id/personal_account_btn"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_button_background"
+            android:ems="10"
+            android:layout_marginTop="10dp"
+            android:text="Personal Account"
+            android:textAllCaps="false"
+            android:textColor="@color/deepBlue"
+            android:textSize="16dp"/>
 
-            <ImageView
-                android:id="@+id/personal_icon"
-                android:layout_width="match_parent"
-                android:layout_height="600px"
-                app:srcCompat="@drawable/personal_account" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/company_account_btn"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_button_background"
+            android:ems="10"
+            android:layout_marginTop="10dp"
+            android:text="Company Account"
+            android:textAllCaps="false"
+            android:textColor="@color/deepBlue"
+            android:textSize="16dp"/>
 
-        <TextView
-            android:id="@+id/select_type_gap_2"
-            android:layout_below="@+id/select_personal_layout"
-            android:layout_width="match_parent"
-            android:layout_height="60px" />
+        <!--<LinearLayout-->
+            <!--android:id="@+id/select_personal_layout"-->
+            <!--android:layout_below="@+id/select_type_text"-->
+            <!--android:background="@color/comboBlue"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:padding="8dp"-->
+            <!--android:layout_weight="2"-->
+            <!--android:clickable="true">-->
 
-        <LinearLayout
-            android:layout_below="@+id/select_type_gap_2"
-            android:id="@+id/select_business_layout"
-            android:background="@color/comboGreen"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:padding="8dp"
-            android:layout_weight="1"
-            android:clickable="true">
+            <!--<ImageView-->
+                <!--android:id="@+id/personal_icon"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="600px"-->
+                <!--app:srcCompat="@drawable/personal_account" />-->
+        <!--</LinearLayout>-->
 
-            <ImageView
-                android:id="@+id/business_icon"
-                android:layout_width="match_parent"
-                android:layout_height="600px"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/business_account" />
-        </LinearLayout>
+        <!--<TextView-->
+            <!--android:id="@+id/select_type_gap_2"-->
+            <!--android:layout_below="@+id/select_personal_layout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60px" />-->
 
-    </RelativeLayout>
+        <!--<LinearLayout-->
+            <!--android:layout_below="@+id/select_type_gap_2"-->
+            <!--android:id="@+id/select_business_layout"-->
+            <!--android:background="@color/comboGreen"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:padding="8dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:clickable="true">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/business_icon"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="600px"-->
+                <!--android:layout_gravity="center"-->
+                <!--app:srcCompat="@drawable/business_account" />-->
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
