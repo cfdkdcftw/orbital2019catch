@@ -69,6 +69,24 @@ public class FeedbackAdapterClass extends RecyclerView.Adapter<FeedbackAdapterCl
                     itemView.getContext().startActivity(intent);
 
                 } });
+        } else if (brand.equals("Apple")) {
+            holder.feedbackCompanyLogo.setImageResource(R.drawable.apple_logo);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View itemView) {
+                    Intent intent = new Intent(itemView.getContext(), AppleFeedbackActivity.class);
+                    itemView.getContext().startActivity(intent);
+
+                } });
+        } else if (brand.equals("Samsung")) {
+            holder.feedbackCompanyLogo.setImageResource(R.drawable.samsung_logo);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View itemView) {
+                    Intent intent = new Intent(itemView.getContext(), SamsungFeedbackActivity.class);
+                    itemView.getContext().startActivity(intent);
+
+                } });
         }
     }
 

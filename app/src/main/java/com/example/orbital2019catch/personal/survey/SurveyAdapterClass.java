@@ -108,7 +108,91 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
                             });
                 } });
 
-        } else if (brand.equals("Uniqlo")) {
+        } else if (brand.equals("Shaw")) {
+            holder.surveyCompanyIcon.setImageResource(R.drawable.shaw_logo);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View itemView) {
+
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+                    final String userID = mAuth.getUid();
+
+                    final FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("surveys").document("shaw").get()
+                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    Survey survey = documentSnapshot.toObject(Survey.class);
+                                    List<String> usersWhoCompleted = survey.getUsersWhoCompleted();
+
+                                    if (usersWhoCompleted.contains(userID)) {
+                                        Toast.makeText(itemView.getContext(), "You have already completed this survey.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Intent intent = new Intent(itemView.getContext(), SurveyFirebaseShaw.class);
+                                        itemView.getContext().startActivity(intent);
+                                    }
+                                }
+                            });
+                } });
+
+        } else if (brand.equals("Filmgarde")) {
+            holder.surveyCompanyIcon.setImageResource(R.drawable.filmgarde_logo);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View itemView) {
+
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+                    final String userID = mAuth.getUid();
+
+                    final FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("surveys").document("filmgarde").get()
+                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    Survey survey = documentSnapshot.toObject(Survey.class);
+                                    List<String> usersWhoCompleted = survey.getUsersWhoCompleted();
+
+                                    if (usersWhoCompleted.contains(userID)) {
+                                        Toast.makeText(itemView.getContext(), "You have already completed this survey.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Intent intent = new Intent(itemView.getContext(), SurveyFirebaseFilmgarde.class);
+                                        itemView.getContext().startActivity(intent);
+                                    }
+                                }
+                            });
+                } });
+
+        } else if (brand.equals("Cathay")) {
+            holder.surveyCompanyIcon.setImageResource(R.drawable.cathay_logo);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View itemView) {
+
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+                    final String userID = mAuth.getUid();
+
+                    final FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("surveys").document("cathay").get()
+                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    Survey survey = documentSnapshot.toObject(Survey.class);
+                                    List<String> usersWhoCompleted = survey.getUsersWhoCompleted();
+
+                                    if (usersWhoCompleted.contains(userID)) {
+                                        Toast.makeText(itemView.getContext(), "You have already completed this survey.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Intent intent = new Intent(itemView.getContext(), SurveyFirebaseCathay.class);
+                                        itemView.getContext().startActivity(intent);
+                                    }
+                                }
+                            });
+                } });
+
+        } else if (brand.equals("Shaw")) {
             holder.surveyCompanyIcon.setImageResource(R.drawable.uniqlo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

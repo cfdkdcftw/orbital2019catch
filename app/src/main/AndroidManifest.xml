@@ -85,6 +85,8 @@
             android:name=".personal.loginandregister.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".personal.feedback.AppleFeedbackActivity" />
+        <activity android:name=".personal.feedback.SamsungFeedbackActivity" />
         <activity android:name=".personal.survey.SurveyFirebaseCathay" />
         <activity android:name=".personal.survey.SurveyFirebaseShaw" />
         <activity android:name=".personal.survey.SurveyFirebaseFilmgarde" />

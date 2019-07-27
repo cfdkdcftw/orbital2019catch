@@ -48,7 +48,7 @@ public class SurveyFirebaseCathay extends AppCompatActivity {
     private FirebaseDatabase mDatabase;
     private FirebaseAuth mAuth;
     private double balance;
-    private double amount = 0.8;
+    private double amount = 0.3;
 
     private ArrayList<String> answers = new ArrayList<>();
     private int mQuestionNumber = 0;
