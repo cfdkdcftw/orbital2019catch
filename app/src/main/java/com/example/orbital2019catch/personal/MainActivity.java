@@ -20,6 +20,7 @@ import com.example.orbital2019catch.company.CompanyMainActivity;
 import com.example.orbital2019catch.company.CompanyMainActivity2;
 import com.example.orbital2019catch.deprecated.UserBalanceActivity;
 import com.example.orbital2019catch.personal.feedback.FeedbackHomeActivity;
+import com.example.orbital2019catch.personal.livechallenge.LiveChallengeActivity;
 import com.example.orbital2019catch.personal.livechallenge.WowzaPlayerActivity;
 import com.example.orbital2019catch.personal.location.LocationBasedActivity;
 import com.example.orbital2019catch.personal.loginandregister.LoginActivity;
@@ -196,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 overridePendingTransition(0,0);
                 break;
             case R.id.liveChallengeCard :
-                intent = new Intent(this, WowzaPlayerActivity.class);
+                intent = new Intent(this, LiveChallengeActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 break;

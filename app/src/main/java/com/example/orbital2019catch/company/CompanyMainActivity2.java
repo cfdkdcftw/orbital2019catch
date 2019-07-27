@@ -36,6 +36,7 @@ public class CompanyMainActivity2 extends AppCompatActivity implements View.OnCl
     TextView createSurveyBtn, viewCurrSurveysBtn, editCurrSurveysBtn,
             createFeedbackBtn, editFeedbackBtn, viewFeedbackBtn,
             goLiveBtn, archivedLiveBtn;
+    private Button profileSettingsBtn;
     private TextView mDisplayName;
     FirebaseAuth mAuth;
     private String email, displayName, companyName;
@@ -95,6 +96,8 @@ public class CompanyMainActivity2 extends AppCompatActivity implements View.OnCl
             goLiveBtn.setOnClickListener(this);
             archivedLiveBtn = (TextView) findViewById(R.id.view_archived_broadcasts_btn);
             archivedLiveBtn.setOnClickListener(this);
+            profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
+            profileSettingsBtn.setOnClickListener(this);
         }
     }
 
@@ -135,6 +138,11 @@ public class CompanyMainActivity2 extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.create_feedback_qn_btn:
                 intent = new Intent(this, CraftFeedbackActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                break;
+            case R.id.profile_settings_btn:
+                intent = new Intent(this, CompanyProfileSettingsActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 break;

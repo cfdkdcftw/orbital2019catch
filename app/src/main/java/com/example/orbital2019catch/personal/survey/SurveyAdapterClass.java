@@ -17,17 +17,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import javax.annotation.Nullable;
 
 public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.MyViewHolder> {
     ArrayList<Survey> surveyList;
@@ -109,7 +102,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
                 } });
 
         } else if (brand.equals("Shaw")) {
-            holder.surveyCompanyIcon.setImageResource(R.drawable.shaw_logo);
+            holder.surveyCompanyIcon.setImageResource(R.drawable.shaw_organisation_logo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View itemView) {
@@ -137,7 +130,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
                 } });
 
         } else if (brand.equals("Filmgarde")) {
-            holder.surveyCompanyIcon.setImageResource(R.drawable.filmgarde_logo);
+            holder.surveyCompanyIcon.setImageResource(R.drawable.filmgarde2);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View itemView) {
@@ -165,7 +158,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
                 } });
 
         } else if (brand.equals("Cathay")) {
-            holder.surveyCompanyIcon.setImageResource(R.drawable.cathay_logo);
+            holder.surveyCompanyIcon.setImageResource(R.drawable.unnamed);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View itemView) {

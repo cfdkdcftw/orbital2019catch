@@ -60,7 +60,7 @@ public class LiveChallengeActivity extends AppCompatActivity {
         sendMessage = (FloatingActionButton) findViewById(R.id.sendMessage);
         bufferProgress = (ProgressBar) findViewById(R.id.videoProgressBar);
         mainVideoView = (VideoView) findViewById(R.id.mainVideoView);
-        videoUri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/orbital2019catch.appspot.com/o/IMG_0788.MP4?alt=media&token=100be5ef-ba86-4b9a-a337-d0464fa3cef5");
+        videoUri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/orbital2019catch.appspot.com/o/milestone3_livestream.mp4?alt=media&token=ddc79e8f-14b1-47d9-b592-83c7724a81f9");
         mainVideoView.setVideoURI(videoUri);
         mainVideoView.requestFocus();
         // to check whether to show buffering image
