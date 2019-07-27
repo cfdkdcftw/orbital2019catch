@@ -102,9 +102,8 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/imageSliderMainActivity"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/topshop_banner" />
+        android:layout_height="520px"
+        android:layout_marginTop="16dp" />
 
     <!--<TextView-->
         <!--android:layout_width="wrap_content"-->

@@ -17,7 +17,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private Integer[] images = {R.drawable.spotify_logo, R.drawable.catch_logo, R.drawable.uniqlo};
+    private Integer[] images = {R.drawable.surveyslider1, R.drawable.surveyslider2, R.drawable.surveyslider3, R.drawable.surveyslider4};
 
     public ViewPagerAdapter(Context context) {
         this.context = context;

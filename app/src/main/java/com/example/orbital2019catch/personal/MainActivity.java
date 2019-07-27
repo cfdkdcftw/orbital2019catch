@@ -215,9 +215,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void getImages(){
-        mImageUrls.add("https://i.ibb.co/HH8wZcW/Add-a-heading.png");
-        mImageUrls.add("https://i.ibb.co/kg0g281/Ma-La-Xiang-Guo.png");
-        mImageUrls.add("https://i.ibb.co/x7PNHWP/Ma-La-Xiang-Guo-1.png");
+        mImageUrls.add("https://i.ibb.co/Nt0GY3J/3.png");
+        mImageUrls.add("https://i.ibb.co/3YKNxm4/1.png");
+        mImageUrls.add("https://i.ibb.co/syj3P93/4.png");
+        mImageUrls.add("https://i.ibb.co/pnQWRRK/2.png");
+        mImageUrls.add("https://i.ibb.co/b2VB1Bd/5.png");
+        mImageUrls.add("https://i.ibb.co/c6b2v7B/6.png");
+        mImageUrls.add("https://i.ibb.co/wMVrhxY/7.png");
 
         initRecyclerView();
     }

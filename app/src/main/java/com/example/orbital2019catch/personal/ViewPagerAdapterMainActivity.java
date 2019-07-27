@@ -17,7 +17,7 @@ public class ViewPagerAdapterMainActivity extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private Integer[] images = {R.drawable.gongcha_logo, R.drawable.nike_logo, R.drawable.g2000_logo};
+    private Integer[] images = {R.drawable.homeslider1, R.drawable.homeslider2, R.drawable.homeslider3};
 
     public ViewPagerAdapterMainActivity(Context context) {
         this.context = context;

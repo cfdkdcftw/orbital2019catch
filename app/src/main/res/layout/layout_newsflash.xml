@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="15dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     
     <androidx.cardview.widget.CardView
         android:layout_width="250dp"
@@ -11,20 +10,16 @@
         app:cardCornerRadius="10dp"
         app:cardMaxElevation="2dp"
         app:cardElevation="1dp"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="8dp">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/newsflash_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            
-            <ImageView
-                android:id="@+id/newsflash_image"
-                android:layout_width="250dp"
-                android:layout_height="350dp"
-                android:layout_centerInParent="true"
-                app:srcCompat="@drawable/ic_launcher_background"/>
-            
-        </RelativeLayout>
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/ic_launcher_background"/>
 
     </androidx.cardview.widget.CardView>
 
