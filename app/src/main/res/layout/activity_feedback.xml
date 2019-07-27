@@ -95,7 +95,10 @@
         android:background="@color/lightGray"
         android:gravity="top"
         android:hint="Minimum 140 characters"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"/>
 
     <Button
         android:id="@+id/submit_feedback"

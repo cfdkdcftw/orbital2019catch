@@ -605,10 +605,9 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
     private void showDialog() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(LocationBasedActivity.this);
         AlertDialog.Builder builder = alertDialogBuilder
-                .setTitle("Instructions for Location Based Activity")
+                .setTitle("Instructions for Location Based Activities")
                 .setCancelable(false)
-                .setMessage("This will be shown every time Maps is launched! " +
-                        "To start a survey or feedback, you have to be within the GeoFence (<200m) of the marker. " +
+                .setMessage("To start a survey or feedback, you have to be within the GeoFence (<200m) of the marker. " +
                         "Click on the marker and a window containing name of the shop or attraction will appear with the payout amount. " +
                         "Click on the window again to start the survey or feedback activity! ")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {

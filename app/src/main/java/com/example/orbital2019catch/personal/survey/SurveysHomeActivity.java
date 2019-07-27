@@ -115,8 +115,8 @@ public class SurveysHomeActivity extends AppCompatActivity implements View.OnCli
         payoutFilter.setOnClickListener(this);
         detailedFilter.setOnClickListener(this);
 
-        categories = new String[]{"Lifestyle", "Sports", "Service", "Fashion"};
-        categoryIndexes = new Integer[]{0, 1, 2, 3};
+        categories = new String[]{"Lifestyle", "Sports", "Service", "Fashion", "Entertainment"};
+        categoryIndexes = new Integer[]{0, 1, 2, 3, 4};
         checkedCategories = new boolean[categories.length];
         for (int i = 0; i < categories.length; i++) {
             checkedCategories[i] = true;
