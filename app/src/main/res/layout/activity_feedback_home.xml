@@ -68,7 +68,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="Brand Name"
-                android:textSize="10dp"
+                android:textSize="11dp"
                 android:paddingLeft="8dp"
                 android:textAlignment="center"
                 android:drawableRight="@drawable/ic_toggle_black_24dp"
@@ -76,20 +76,24 @@
                 android:foreground="?attr/selectableItemBackground"
                 android:clickable="true"/>
 
-            <Button
-                android:id="@+id/categoryFilterBtn"
-                android:layout_width="170dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="Category"
-                android:textSize="10dp"
-                android:paddingLeft="8dp"
-                android:textAlignment="center"
-                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@drawable/filter_btn_background"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <Spinner
+                    android:id="@+id/categoryFilterBtn"
+                    android:layout_width="170dp"
+                    android:layout_height="35dp"
+                    android:text="Category"
+                    android:paddingLeft="30dp"
+                    android:textAlignment="center"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"/>
+
+            </RelativeLayout>
 
         </LinearLayout>
 

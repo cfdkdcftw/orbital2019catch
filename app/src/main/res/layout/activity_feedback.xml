@@ -10,26 +10,48 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_marginBottom="40dp">
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="10dp">
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:srcCompat="@drawable/survey"
-            android:id="@+id/feedback_company_logo"
-            android:padding="10dp"/>
-
-        <TextView
-            android:id="@+id/feedback_company_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_toEndOf="@+id/feedback_company_logo"
-            android:layout_toRightOf="@+id/feedback_company_logo"
-            android:gravity="center_vertical"
-            android:text="Placeholder Company Name"
-            android:textColor="@color/themeBlue"
-            android:textSize="24sp" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="10dp"
+                app:srcCompat="@drawable/survey"
+                android:id="@+id/feedback_company_logo"
+                android:padding="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_toEndOf="@+id/feedback_company_logo"
+                android:layout_toRightOf="@+id/feedback_company_logo"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/feedback_company_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="Placeholder Company Name"
+                    android:textStyle="bold"
+                    android:textSize="10pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Feedback"
+                    android:textSize="6pt"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <!-- To consider tracking the question number?
         <TextView
@@ -53,13 +75,15 @@
 
     </RelativeLayout>
 
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:text="Loading..."
-        android:textSize="20sp"
-        android:padding="8dp"
-        android:layout_marginBottom="40dp"
+        android:textSize="7pt"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="20dp"
         android:id="@+id/feedback_question"/>
 
 
@@ -79,8 +103,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_gravity="right"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="24dp"
         android:clickable="true"
+        android:paddingHorizontal="15dp"
         android:text="Submit feedback"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:background="@drawable/filter_btn_background"/>
 </LinearLayout>

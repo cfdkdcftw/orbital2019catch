@@ -51,7 +51,24 @@ public class FeedbackAdapterClass extends RecyclerView.Adapter<FeedbackAdapterCl
                     itemView.getContext().startActivity(intent);
 
                 } });
+        } else if (brand.equals("G2000")) {
+            holder.feedbackCompanyLogo.setImageResource(R.drawable.g2000_logo);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View itemView) {
+                    Intent intent = new Intent(itemView.getContext(), G2000FeedbackActivity.class);
+                    itemView.getContext().startActivity(intent);
 
+                } });
+        } else if (brand.equals("Gong Cha")) {
+            holder.feedbackCompanyLogo.setImageResource(R.drawable.gongcha_logo);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View itemView) {
+                    Intent intent = new Intent(itemView.getContext(), GongchaFeedbackActivity.class);
+                    itemView.getContext().startActivity(intent);
+
+                } });
         }
     }
 

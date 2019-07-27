@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.orbital2019catch.personal.MainActivity;
 import com.example.orbital2019catch.R;
@@ -22,18 +25,21 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import javax.annotation.Nullable;
 
 public class FeedbackHomeActivity extends AppCompatActivity implements View.OnClickListener {
-    Button brandFilter, categoryFilter;
+    Button brandFilter;
+    Spinner categorySpinner;
     public static int BRAND_FILTER_STATE = 0, CATEGORY_FILTER_STATE = 0;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private ArrayList<BrandFeedback> originalFeedbacks;
-    private ArrayList<BrandFeedback> currFeedbacks;
+    private ArrayList<BrandFeedback> originalFeedbacks = new ArrayList<>();;
+    private ArrayList<BrandFeedback> currFeedbacks = new ArrayList<>();;
     RecyclerView recyclerView;
     EditText searchBar;
 
@@ -49,8 +55,6 @@ public class FeedbackHomeActivity extends AppCompatActivity implements View.OnCl
         db.collection("feedback").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                originalFeedbacks = new ArrayList<>();
-                currFeedbacks = new ArrayList<>();
                 for (DocumentSnapshot snapshot : queryDocumentSnapshots) {
                     originalFeedbacks.add(snapshot.toObject(BrandFeedback.class));
                     currFeedbacks.add(snapshot.toObject(BrandFeedback.class));
@@ -77,10 +81,52 @@ public class FeedbackHomeActivity extends AppCompatActivity implements View.OnCl
         });
 
         brandFilter = (Button) findViewById(R.id.brandNameFilterBtn);
-        categoryFilter = (Button) findViewById(R.id.categoryFilterBtn);
+        categorySpinner = (Spinner) findViewById(R.id.categoryFilterBtn);
 
         brandFilter.setOnClickListener(this);
-        categoryFilter.setOnClickListener(this);
+
+        String[] categoriesArr = new String[]{"Technology", "Fashion", "F&B"};
+        List<String> categories = new ArrayList<>();
+        categories.add(0,"All Categories");
+        categories.addAll(Arrays.asList(categoriesArr));
+
+        // style and populate spinner
+        ArrayAdapter<String> dataAdapter;
+        dataAdapter = new ArrayAdapter(this, R.layout.feedback_spinner_layout, categories);
+
+        // dropdown layout style
+        dataAdapter.setDropDownViewResource(R.layout.feedback_spinner_dropdown_layout);
+
+        // attaching data adapter to spinner
+        categorySpinner.setAdapter(dataAdapter);
+        categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getItemAtPosition(position).equals("All Categories")) {
+                    if (!originalFeedbacks.isEmpty() && recyclerView.getChildCount() != originalFeedbacks.size()) {
+                        currFeedbacks = cloneArray(originalFeedbacks);
+                        FeedbackAdapterClass feedbackAdapterClass = new FeedbackAdapterClass(originalFeedbacks);
+                        recyclerView.setAdapter(feedbackAdapterClass);
+                    }
+                } else {
+                    String category = parent.getItemAtPosition(position).toString();
+                    ArrayList<BrandFeedback> selected = new ArrayList<>();
+                    for (BrandFeedback f : originalFeedbacks) {
+                        if (f.getCategories().contains(category)) {
+                            selected.add(f);
+                        }
+                    }
+                    currFeedbacks = cloneArray(selected);
+                    FeedbackAdapterClass feedbackAdapterClass = new FeedbackAdapterClass(selected);
+                    recyclerView.setAdapter(feedbackAdapterClass);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 //        feedback1 = (CardView) findViewById(R.id.feedbackCard1);
 //        feedback1.setOnClickListener(this);
