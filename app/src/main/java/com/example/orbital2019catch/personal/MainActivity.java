@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ import com.example.orbital2019catch.personal.profile.UserProfile;
 import com.example.orbital2019catch.personal.profile.ProfileSettingsActivity;
 import com.example.orbital2019catch.personal.qrcode.QrCodeActivity;
 import com.example.orbital2019catch.personal.survey.SurveysHomeActivity;
+import com.example.orbital2019catch.personal.survey.ViewPagerAdapter;
 import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,6 +36,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button profileSettingsBtn;
@@ -44,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DatabaseReference mRef;
     private TextView displayName, displayBalance;
     String email;
+    ViewPager viewPager;
 
     @Override
     protected void onStart() {
@@ -129,6 +135,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // for news flash recycler view
         getImages();
+
+        // for image slider
+        viewPager = (ViewPager)findViewById(R.id.imageSliderMainActivity);
+        ViewPagerAdapterMainActivity viewPagerAdapterMainActivity = new ViewPagerAdapterMainActivity(this);
+        viewPager.setAdapter(viewPagerAdapterMainActivity);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new MainActivity.MyTimerTask(), 2000, 4000);
+    }
+
+    public class MyTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+            MainActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (viewPager.getCurrentItem() == 0) {
+                        viewPager.setCurrentItem(1);
+                    } else if (viewPager.getCurrentItem() == 1) {
+                        viewPager.setCurrentItem(2);
+                    } else {
+                        viewPager.setCurrentItem(0);
+                    }
+                }
+            });
+        }
     }
 
     @Override

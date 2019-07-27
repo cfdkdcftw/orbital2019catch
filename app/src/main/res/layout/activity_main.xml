@@ -88,11 +88,18 @@
     </RelativeLayout>
 
     <!-- to be replaced by scrolling banners -->
-    <TextView
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/imageSliderMainActivity"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/topshop_banner" />
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:background="@drawable/topshop_banner" />-->
 
     <!-- heading for app functionality menu -->
     <TextView

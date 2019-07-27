@@ -33,7 +33,15 @@
     </LinearLayout>
 
     <!-- to be replaced by scrolling banners -->
-    <TextView
+    <!--<TextView-->
+        <!--android:layout_width="350dp"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:background="@drawable/topshop_banner"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:layout_gravity="center"/>-->
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/imageSlider"
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:background="@drawable/topshop_banner"

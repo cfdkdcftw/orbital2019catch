@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -46,6 +47,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.annotation.Nullable;
 
@@ -56,6 +59,7 @@ public class SurveysHomeActivity extends AppCompatActivity implements View.OnCli
     Integer[] categoryIndexes;
     boolean[] checkedCategories;
     ArrayList<Integer> userSelectedSurveys;
+    ViewPager viewPager;
 
     public static int BRAND_FILTER_STATE = 0, EXPIRY_FILTER_STATE = 0, PAYOUT_FILTER_STATE = 0;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -118,6 +122,32 @@ public class SurveysHomeActivity extends AppCompatActivity implements View.OnCli
             checkedCategories[i] = true;
         }
         userSelectedSurveys = new ArrayList<Integer>(Arrays.asList(categoryIndexes));
+
+        // for image slider
+        viewPager = (ViewPager)findViewById(R.id.imageSlider);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(viewPagerAdapter);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
+    }
+
+    public class MyTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+            SurveysHomeActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (viewPager.getCurrentItem() == 0) {
+                        viewPager.setCurrentItem(1);
+                    } else if (viewPager.getCurrentItem() == 1) {
+                        viewPager.setCurrentItem(2);
+                    } else {
+                        viewPager.setCurrentItem(0);
+                    }
+                }
+            });
+        }
     }
 
     private void search(String str) {
