@@ -1,20 +1,589 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".company.survey.CraftSurveyActivity">
 
-    <TextView
-        android:id="@+id/company_craft_feedback_banner"
-        android:gravity="center"
-        android:text="Create a new Survey form now!"
-        android:textAlignment="center"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:textColor="@color/themeBlue"
-        android:textSize="12pt"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/company_craft_survey_banner"
+            android:gravity="center"
+            android:text="Create a new Survey form now!"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/themeBlue"
+            android:textSize="12pt"
+            tools:ignore="MissingConstraints" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/craft_survey_type"
+        android:layout_below="@id/company_craft_survey_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/craft_feedback_type"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Select Feedback Type" />
+
+        <RadioButton android:id="@+id/craft_survey_radio_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal   "
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/craft_survey_radio_maps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maps      "
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/craft_survey_radio_qr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QR Code"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+        <EditText
+            android:id="@+id/craft_survey_payout"
+            android:layout_below="@+id/craft_survey_type"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/login_input_background"
+            android:ems="10"
+            android:hint="Enter the payout amount!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="numberDecimal"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <TextView
+            android:id="@+id/company_craft_survey_q1_header"
+            android:layout_below="@+id/craft_survey_payout"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:text="Question 1"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/themeBlue"
+            android:textSize="10pt"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/craft_survey_q1"
+            android:layout_below="@+id/company_craft_survey_q1_header"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/login_input_background"
+            android:ems="10"
+            android:hint="Enter the question!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="numberDecimal"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q1_choice1"
+            android:layout_below="@+id/craft_survey_q1"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the first choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q1_choice2"
+            android:layout_below="@+id/craft_survey_q1_choice1"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the second choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q1_choice3"
+            android:layout_below="@+id/craft_survey_q1_choice2"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the third choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q1_choice4"
+            android:layout_below="@+id/craft_survey_q1_choice3"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the fourth choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <TextView
+            android:id="@+id/company_craft_survey_q2_header"
+            android:layout_below="@+id/craft_survey_q1_choice4"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:text="Question 2"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/themeBlue"
+            android:textSize="10pt"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/craft_survey_q2"
+            android:layout_below="@+id/company_craft_survey_q2_header"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/login_input_background"
+            android:ems="10"
+            android:hint="Enter the question!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="numberDecimal"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q2_choice1"
+            android:layout_below="@+id/craft_survey_q2"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the first choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q2_choice2"
+            android:layout_below="@+id/craft_survey_q2_choice1"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the second choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q2_choice3"
+            android:layout_below="@+id/craft_survey_q2_choice2"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the third choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q2_choice4"
+            android:layout_below="@+id/craft_survey_q2_choice3"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the fourth choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <TextView
+            android:id="@+id/company_craft_survey_q3_header"
+            android:layout_below="@+id/craft_survey_q2_choice4"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:text="Question 3"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/themeBlue"
+            android:textSize="10pt"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/craft_survey_q3"
+            android:layout_below="@+id/company_craft_survey_q3_header"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/login_input_background"
+            android:ems="10"
+            android:hint="Enter the question!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="numberDecimal"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q3_choice1"
+            android:layout_below="@+id/craft_survey_q3"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the first choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q3_choice2"
+            android:layout_below="@+id/craft_survey_q3_choice1"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the second choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q3_choice3"
+            android:layout_below="@+id/craft_survey_q3_choice2"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the third choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q3_choice4"
+            android:layout_below="@+id/craft_survey_q3_choice3"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the fourth choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <TextView
+            android:id="@+id/company_craft_survey_q4_header"
+            android:layout_below="@+id/craft_survey_q3_choice4"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:text="Question 2"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/themeBlue"
+            android:textSize="10pt"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/craft_survey_q4"
+            android:layout_below="@+id/company_craft_survey_q4_header"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/login_input_background"
+            android:ems="10"
+            android:hint="Enter the question!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="numberDecimal"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q4_choice1"
+            android:layout_below="@+id/craft_survey_q4"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the first choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q4_choice2"
+            android:layout_below="@+id/craft_survey_q4_choice1"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the second choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q4_choice3"
+            android:layout_below="@+id/craft_survey_q4_choice2"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the third choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q4_choice4"
+            android:layout_below="@+id/craft_survey_q4_choice3"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the fourth choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <TextView
+            android:id="@+id/company_craft_survey_q5_header"
+            android:layout_below="@+id/craft_survey_q4_choice4"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:text="Question 2"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/themeBlue"
+            android:textSize="10pt"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/craft_survey_q5"
+            android:layout_below="@+id/company_craft_survey_q5_header"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/login_input_background"
+            android:ems="10"
+            android:hint="Enter the question!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="numberDecimal"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q5_choice1"
+            android:layout_below="@+id/craft_survey_q5"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the first choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q5_choice2"
+            android:layout_below="@+id/craft_survey_q5_choice1"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the second choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q5_choice3"
+            android:layout_below="@+id/craft_survey_q5_choice2"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the third choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <EditText
+            android:id="@+id/craft_survey_q5_choice4"
+            android:layout_below="@+id/craft_survey_q5_choice3"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userbalance_rounded_corners2"
+            android:ems="10"
+            android:hint="Enter the fourth choice!"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:digits=".0123456789"
+            android:textIsSelectable="true"
+            android:focusable="true"
+            android:longClickable="true"/>
+
+        <TextView
+            android:layout_below="@+id/craft_survey_q5_choice4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A request would be made to Catch to create this feedback form. Check your email for any updates!"
+            android:gravity="center"
+            android:padding="8dp"
+            android:id="@+id/craft_survey_disclaimer"/>
+
+        <Button
+            android:id="@+id/craft_survey_button"
+            android:layout_below="@id/craft_survey_disclaimer"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_button_background"
+            android:ems="10"
+            android:layout_marginTop="10dp"
+            android:text="Create Feedback Form request"
+            android:textAllCaps="false"
+            android:textColor="@color/deepBlue"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+</ScrollView>
