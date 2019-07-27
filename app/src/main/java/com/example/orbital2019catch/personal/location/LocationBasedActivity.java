@@ -378,24 +378,48 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        if (marker.equals(mJewel) && distance(currLocation.getPosition(), mJewel.getPosition()) <  FENCE_RADIUS) {
-            Intent intent = new Intent(this, JewelFeedbackActivity.class);
-            startActivity(intent);
-        } else if (marker.equals(mSOC) && distance(currLocation.getPosition(), mSOC.getPosition()) < FENCE_RADIUS) {
-            Intent intent = new Intent(this, SOCFeedbackActivity.class);
-            startActivity(intent);
-        } else if (marker.equals(mMCDCausewayPt) && distance(currLocation.getPosition(), mMCDCausewayPt.getPosition()) < FENCE_RADIUS) {
-            Intent intent = new Intent(this, SurveyFirebaseMCD.class);
-            startActivity(intent);
-        } else if (marker.equals(mMerlion) && distance(currLocation.getPosition(), mMerlion.getPosition()) < FENCE_RADIUS) {
-            Intent intent = new Intent(this, SurveyFirebaseMerlion.class);
-            startActivity(intent);
-        } else if (marker.equals(mNTUCJurongPt) && distance(currLocation.getPosition(), mNTUCJurongPt.getPosition()) < FENCE_RADIUS) {
-            Intent intent = new Intent(this, SurveyFirebaseNTUC.class);
-            startActivity(intent);
-        } else if (marker.equals(mPumaBugis) && distance(currLocation.getPosition(), mPumaBugis.getPosition()) < FENCE_RADIUS)  {
-            Intent intent = new Intent(this, SurveyFirebasePuma.class);
-            startActivity(intent);
+        if (marker.equals(mJewel)) {
+            if (distance(currLocation.getPosition(), mJewel.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, JewelFeedbackActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
+        } else if (marker.equals(mSOC)) {
+            if (distance(currLocation.getPosition(), mSOC.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, SOCFeedbackActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
+        } else if (marker.equals(mMCDCausewayPt)) {
+            if (distance(currLocation.getPosition(), mMCDCausewayPt.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, SurveyFirebaseMCD.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
+        } else if (marker.equals(mMerlion)) {
+            if (distance(currLocation.getPosition(), mMerlion.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, SurveyFirebaseMerlion.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
+        } else if (marker.equals(mNTUCJurongPt)) {
+                if (distance(currLocation.getPosition(), mNTUCJurongPt.getPosition()) < FENCE_RADIUS) {
+                    Intent intent = new Intent(this, SurveyFirebaseNTUC.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+                }
+        } else if (marker.equals(mPumaBugis)) {
+            if (distance(currLocation.getPosition(), mPumaBugis.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, SurveyFirebasePuma.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

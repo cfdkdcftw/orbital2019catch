@@ -39,6 +39,7 @@ public class CraftFeedbackActivity extends AppCompatActivity {
     private String qns, payout, type, company, userName, userEmail;
     private DatabaseReference mRef;
     private FirebaseAuth mAuth;
+    private boolean checked;
 
     // need company, user email, payout, question, location marker? or qr code?
     @Override
@@ -96,11 +97,11 @@ public class CraftFeedbackActivity extends AppCompatActivity {
     private boolean validate() {
         boolean result = false;
 
-        if(qns.isEmpty()) {
+        if (qns.isEmpty()) {
             Toast.makeText(CraftFeedbackActivity.this.getApplicationContext(), "Please enter your question!", Toast.LENGTH_LONG).show();
         } else if (payout.isEmpty()) {
             Toast.makeText(CraftFeedbackActivity.this.getApplicationContext(), "Please enter the payout amount!", Toast.LENGTH_LONG).show();
-        } else if (type.isEmpty()) {
+        } else if (!checked) {
             Toast.makeText(CraftFeedbackActivity.this.getApplicationContext(), "Please select a survey type!", Toast.LENGTH_LONG).show();
         } else {
             result = true;
@@ -115,6 +116,7 @@ public class CraftFeedbackActivity extends AppCompatActivity {
     }
 
     public void onRadioButtonClicked(View view) {
+        checked = true;
         switch (view.getId()) {
             case R.id.craft_feedback_radio_maps:
                 type = "maps";
