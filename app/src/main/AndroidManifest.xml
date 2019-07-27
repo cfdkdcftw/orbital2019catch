@@ -85,6 +85,12 @@
             android:name=".personal.loginandregister.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".personal.survey.SurveyFirebaseCathay" />
+        <activity android:name=".personal.survey.SurveyFirebaseShaw" />
+        <activity android:name=".personal.survey.SurveyFirebaseFilmgarde" />
+        <activity android:name=".personal.feedback.GoogleFeedbackActivity" />
+        <activity android:name=".personal.feedback.G2000FeedbackActivity" />
+        <activity android:name=".personal.feedback.GongchaFeedbackActivity" />
         <activity android:name=".company.CompanyProfileSettingsActivity" />
         <activity android:name=".company.CompanyMainActivity" />
         <activity android:name=".deprecated.PlayerFireKastActivity" />
@@ -100,9 +106,6 @@
         <activity android:name=".deprecated.BambuserBroadcastActivity" />
         <activity android:name=".personal.livechallenge.LiveChallengeActivity" />
         <activity android:name=".personal.feedback.FeedbackHomeActivity" />
-        <activity android:name=".personal.feedback.GoogleFeedbackActivity" />
-        <activity android:name=".personal.feedback.G2000FeedbackActivity" />
-        <activity android:name=".personal.feedback.GongchaFeedbackActivity" />
         <activity android:name=".personal.survey.SurveysHomeActivity" />
         <activity android:name=".personal.survey.SurveyLocalSpotify" />
         <activity android:name=".personal.survey.SurveyFirebaseNike" />

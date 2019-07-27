@@ -1,0 +1,31 @@
+[ {
+  "choice1" : "0",
+  "choice2" : "1",
+  "choice3" : "2",
+  "choice4" : "3 or more times",
+  "question" : "How often do you go to the cinema?"
+}, {
+  "choice1" : "Posters",
+  "choice2" : "Social media",
+  "choice3" : "Word of mouth",
+  "choice4" : "Trailers",
+  "question" : "How do you hear about new movies?"
+}, {
+  "choice1" : "Horror",
+  "choice2" : "Comedy",
+  "choice3" : "Action",
+  "choice4" : "Romance",
+  "question" : "What is your favorite genre"
+}, {
+  "choice1" : "Very likely",
+  "choice2" : "Somewhat likely",
+  "choice3" : "Somewhat unlikely",
+  "choice4" : "Very unlikely",
+  "question" : "How likely are you to watch a movie alone?"
+}, {
+  "choice1" : "Below 18",
+  "choice2" : "18 to 34",
+  "choice3" : "35 to 54",
+  "choice4" : "55 and above",
+  "question" : "What is your age?"
+} ]
