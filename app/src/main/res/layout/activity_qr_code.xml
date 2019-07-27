@@ -5,17 +5,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="15dp"
         tools:context=".personal.qrcode.QrCodeActivity">
 
         <!-- survey header -->
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Scan QR code!"
-            android:textColor="@color/themeBlue"
-            android:textSize="18pt"
+            android:layout_height="55dp"
+            android:text="Scan QR Code"
+            android:textColor="@color/white"
+            android:background="@color/lightBlue3"
+            android:textSize="12pt"
+            android:textStyle="bold"
             android:textAlignment="center"
+            android:gravity="center_vertical"
             android:layout_gravity="center" />
         
         <!-- camera preview
@@ -29,18 +31,48 @@
         android:id="@+id/barcode_fragment"
         android:name="info.androidhive.barcode.BarcodeReader"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="420dp"
         app:auto_focus="true"
         app:use_flash="false" />
 
-    <TextView
-        android:id="@+id/qrcode_instructions"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:gravity="center_vertical"
-        android:text="instructions"
-        android:textAlignment="center"
-        android:textColor="@color/themeBlue"
-        android:textSize="7pt" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text="Scan QR Code"
+            android:textAlignment="center"
+            android:textColor="@color/deepBlue"
+            android:textSize="8pt"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="10dp"
+            android:text="Hold your camera to scan a QR Code for a survey or feedback!"
+            android:textAlignment="center"
+            android:textSize="5pt"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="10dp"
+            android:text="Check store fronts or receipts for QR codes."
+            android:textAlignment="center"
+            android:textSize="5pt"/>
+    </LinearLayout>
+
 </LinearLayout>

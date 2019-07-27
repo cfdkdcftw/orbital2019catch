@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ import com.example.orbital2019catch.personal.feedback.FeedbackHomeActivity;
 import com.example.orbital2019catch.personal.livechallenge.WowzaPlayerActivity;
 import com.example.orbital2019catch.personal.location.LocationBasedActivity;
 import com.example.orbital2019catch.personal.loginandregister.LoginActivity;
+import com.example.orbital2019catch.personal.profile.PaymentActivity;
+import com.example.orbital2019catch.personal.profile.PaymentRequest;
 import com.example.orbital2019catch.personal.profile.UserProfile;
 import com.example.orbital2019catch.personal.profile.ProfileSettingsActivity;
 import com.example.orbital2019catch.personal.qrcode.QrCodeActivity;
@@ -41,6 +44,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button profileSettingsBtn;
+    private RelativeLayout walletBalance;
     private CardView surveysCard, feedbackCard, liveChallengeCard, locationBasedActivitiesCard,
             qrCodeScannerCard;
     private ArrayList<String> mImageUrls = new ArrayList<>();
@@ -122,9 +126,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // defining buttons
         profileSettingsBtn = (Button) findViewById(R.id.profile_settings_btn);
+        walletBalance = (RelativeLayout) findViewById(R.id.user_balance_btn);
 
         // add onClickListener to buttons
         profileSettingsBtn.setOnClickListener(this);
+        walletBalance.setOnClickListener(this);
 
         // add onClickListener to cards
         surveysCard.setOnClickListener(this);
@@ -174,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 overridePendingTransition(0,0);
                 break;
             case R.id.user_balance_btn :
-                intent = new Intent(this, UserBalanceActivity.class);
+                intent = new Intent(this, PaymentActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 break;

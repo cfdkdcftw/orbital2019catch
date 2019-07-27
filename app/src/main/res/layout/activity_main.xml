@@ -12,19 +12,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
     tools:context=".personal.survey.SurveysHomeActivity">
 
     <!-- for header area -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingHorizontal="15dp"
+        android:paddingBottom="55dp"
+        android:background="@color/lightBlue">
 
         <!-- app logo -->
         <ImageView
             android:layout_width="120dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             app:srcCompat="@drawable/catch_logo"
             android:layout_gravity="left" />
 
@@ -43,10 +46,11 @@
     <RelativeLayout
         android:id="@+id/user_balance_btn"
         android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:background="@drawable/userbalance_rounded_corners"
+        android:layout_height="70dp"
+        android:background="@drawable/userbalance_rounded_corners2"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp">
+        android:gravity="center_vertical"
+        android:layout_marginTop="-42dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,24 +59,31 @@
             android:orientation="horizontal"
             android:gravity="center_horizontal">
 
-            <TextView
-                android:id="@+id/welcome_message"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="welcome back "
-                android:textAppearance="?android:attr/textAppearanceButton"
-                />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/user_display_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/welcome_message"
-                android:layout_gravity="top"
-                android:layout_marginTop="20dp"
-                android:text="lorem ipsum"
-                android:textAppearance="?android:attr/textAppearanceButton" />
+                <TextView
+                    android:id="@+id/welcome_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:text="welcome back "
+                    android:textSize="6pt"
+                    android:textAppearance="?android:attr/textAppearanceButton"
+                    />
+
+                <TextView
+                    android:id="@+id/user_display_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/welcome_message"
+                    android:layout_gravity="top"
+                    android:text="lorem ipsum"
+                    android:textSize="6pt"
+                    android:textAppearance="?android:attr/textAppearanceButton" />
+            </LinearLayout>
 
         </RelativeLayout>
 
@@ -92,7 +103,7 @@
         android:id="@+id/imageSliderMainActivity"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/topshop_banner" />
 
     <!--<TextView-->
@@ -105,9 +116,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start earning!"
-        android:textSize="20dp"
+        android:text="Start Earning"
+        android:textColor="@color/headingBlue2"
+        android:textSize="10pt"
         android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:paddingHorizontal="15dp"
         />
 
     <!-- app functionality menu -->
@@ -117,8 +131,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
         android:layout_marginTop="5dp"
-        android:background="@color/lightGray">
+        android:background="@color/backgroundBlue2">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/surveysCard"
@@ -126,7 +141,8 @@
             android:clickable="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp">
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="14dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -150,7 +166,7 @@
             android:clickable="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp">
+            android:layout_marginHorizontal="14dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -174,7 +190,7 @@
             android:clickable="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp">
+            android:layout_marginHorizontal="14dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -198,7 +214,7 @@
             android:clickable="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp">
+            android:layout_marginHorizontal="14dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -222,7 +238,7 @@
             android:clickable="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp">
+            android:layout_marginHorizontal="14dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -247,8 +263,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="News Flash"
-        android:textSize="20dp"
+        android:textSize="10pt"
         android:layout_marginTop="15dp"
+        android:paddingHorizontal="15dp"
+        android:textColor="@color/headingBlue2"
+        android:textStyle="bold"
         />
 
     <!-- news flashes -->
