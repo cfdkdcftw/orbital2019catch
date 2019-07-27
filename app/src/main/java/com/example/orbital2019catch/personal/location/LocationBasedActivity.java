@@ -1,11 +1,14 @@
 package com.example.orbital2019catch.personal.location;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -22,6 +25,10 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 
 import com.example.orbital2019catch.R;
+import com.example.orbital2019catch.personal.feedback.G2000FeedbackActivity;
+import com.example.orbital2019catch.personal.feedback.GongchaFeedbackActivity;
+import com.example.orbital2019catch.personal.survey.SurveyFirebaseNike;
+import com.example.orbital2019catch.personal.survey.SurveyFirebaseUniqlo;
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
@@ -60,6 +67,10 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
     private static final LatLng mcdonaldsCauseway = new LatLng(1.4364, 103.7865);
     private static final LatLng ntucJurongPt = new LatLng(1.3398, 103.7071);
     private static final LatLng merlionPark = new LatLng(1.2868, 103.8545);
+    private static final LatLng gongChaFineFood = new LatLng(1.304070, 103.773561);
+    private static final LatLng g2000Vivo = new LatLng(1.264949, 103.821710);
+    private static final LatLng uniqloIon = new LatLng(1.303550, 103.831906);
+    private static final LatLng nikeWC = new LatLng(1.303553, 103.765686);
 
     private Marker mPumaBugis;
     private Marker mSOC;
@@ -67,6 +78,10 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
     private Marker mMCDCausewayPt;
     private Marker mNTUCJurongPt;
     private Marker mMerlion;
+    private Marker mGongChaFineFood;
+    private Marker mG2000Vivo;
+    private Marker mUniqloIon;
+    private Marker mNikeWC;
 
     private static final int MY_PERMISSION_REQUEST_CODE = 31297;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 270399;
@@ -79,7 +94,7 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
     private static int FASTEST_INTERVAL = 3000;
     private static int DISPLACEMENT = 10;
 
-    private static int FENCE_RADIUS = 500;
+    private static int FENCE_RADIUS = 200;
 
     DatabaseReference ref;
     GeoFire geoFire;
@@ -91,6 +106,11 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_based);
+        SharedPreferences preferences = getSharedPreferences("PREFS", 0);
+        boolean ifShowDialog = preferences.getBoolean("showDialog", true);
+        if (ifShowDialog) {
+            showDialog();
+        }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -294,7 +314,7 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
          //       .icon(BitmapDescriptorFactory.fromResource(R.drawable.ntuc)));
         addFence(ntucJurongPt);
         mNTUCJurongPt.setTag(0);
-        /*
+
         mMerlion = mMap.addMarker(new MarkerOptions()
                 .position(merlionPark)
                 .title("Merlion Park")
@@ -302,7 +322,39 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
         //        .icon(BitmapDescriptorFactory.fromResource(R.drawable.merlion)));
         addFence(merlionPark);
         mMerlion.setTag(0);
-        */
+
+        mGongChaFineFood = mMap.addMarker(new MarkerOptions()
+                .position(gongChaFineFood)
+                .title("Gong Cha at Fine Food")
+                .snippet("Payout: $1.00"));
+        //        .icon(BitmapDescriptorFactory.fromResource(R.drawable.merlion)));
+        addFence(gongChaFineFood);
+        mGongChaFineFood.setTag(0);
+
+        mG2000Vivo = mMap.addMarker(new MarkerOptions()
+                .position(g2000Vivo)
+                .title("G2000 at VivoCity")
+                .snippet("Payout: $1.00"));
+        //        .icon(BitmapDescriptorFactory.fromResource(R.drawable.merlion)));
+        addFence(g2000Vivo);
+        mG2000Vivo.setTag(0);
+
+        mUniqloIon = mMap.addMarker(new MarkerOptions()
+                .position(uniqloIon)
+                .title("Uniqlo at Ion Orchard")
+                .snippet("Payout: $0.60"));
+        //        .icon(BitmapDescriptorFactory.fromResource(R.drawable.merlion)));
+        addFence(uniqloIon);
+        mUniqloIon.setTag(0);
+
+        mNikeWC = mMap.addMarker(new MarkerOptions()
+                .position(nikeWC)
+                .title("Uniqlo at West Coast Plaza")
+                .snippet("Payout: $0.80"));
+        //        .icon(BitmapDescriptorFactory.fromResource(R.drawable.merlion)));
+        addFence(nikeWC);
+        mUniqloIon.setTag(0);
+
         //  Set a listener for marker click
         // mMap.setOnMarkerClickListener(this);
 
@@ -313,7 +365,7 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
     private void addFence(LatLng location) {
         mMap.addCircle(new CircleOptions()
                 .center(location)
-                .radius(500) // in metres
+                .radius(200) // in metres
                 .strokeColor(Color.BLUE)
                 .fillColor(0x220000FF)
                 .strokeWidth(5.0f)
@@ -420,6 +472,41 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
             } else {
                 Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
             }
+        } else if (marker.equals(mMerlion)) {
+            if (distance(currLocation.getPosition(), mMerlion.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, SurveyFirebaseMerlion.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
+        } else if (marker.equals(mGongChaFineFood)) {
+            if (distance(currLocation.getPosition(), mGongChaFineFood.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, GongchaFeedbackActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
+        } else if (marker.equals(mG2000Vivo)) {
+            if (distance(currLocation.getPosition(), mG2000Vivo.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, G2000FeedbackActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
+        } else if (marker.equals(mUniqloIon)) {
+            if (distance(currLocation.getPosition(), mUniqloIon.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, SurveyFirebaseUniqlo.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
+        } else if (marker.equals(mNikeWC)) {
+            if (distance(currLocation.getPosition(), mNikeWC.getPosition()) < FENCE_RADIUS) {
+                Intent intent = new Intent(this, SurveyFirebaseNike.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "You are not in the area!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -512,5 +599,36 @@ public class LocationBasedActivity extends AppCompatActivity implements OnMapRea
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    // never show again dialog
+    private void showDialog() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(LocationBasedActivity.this);
+        AlertDialog.Builder builder = alertDialogBuilder
+                .setTitle("Instructions for Location Based Activity")
+                .setCancelable(false)
+                .setMessage("This will be shown every time Maps is launched! " +
+                        "To start a survey or feedback, you have to be within the GeoFence (<200m) of the marker. " +
+                        "Click on the marker and a window containing name of the shop or attraction will appear with the payout amount. " +
+                        "Click on the window again to start the survey or feedback activity! ")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setNeutralButton("Never Show Again", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        SharedPreferences preferences = getSharedPreferences("PREFS", 0);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putBoolean("showDialog", false);
+                        editor.apply();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog.show();
     }
 }

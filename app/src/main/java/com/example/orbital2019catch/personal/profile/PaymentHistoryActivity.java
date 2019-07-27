@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import com.example.orbital2019catch.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 
 public class PaymentHistoryActivity extends AppCompatActivity {
 
+    private TextView emptyTextView;
     private ListView listView;
     private PaymentArrayAdapter paymentArrayAdapter;
     private FirebaseDatabase mDatabase;
@@ -44,6 +47,11 @@ public class PaymentHistoryActivity extends AppCompatActivity {
                     PaymentRequest paymentRequest = ds.getValue(PaymentRequest.class);
                     addRequest(paymentRequest);
                     Log.d("payment", paymentRequest.getPhoneNumber());
+                }
+
+                if (requests.size() == 0) {
+                    emptyTextView = (TextView) findViewById(R.id.payment_empty_text);
+                    emptyTextView.setText("There are no past transactions available to view!");
                 }
 
                 int idx = requests.size() - 1;

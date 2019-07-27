@@ -83,4 +83,16 @@
         <!--android:paddingTop="16dip"-->
         <!--android:paddingBottom="16dip" />-->
 
+    <TextView
+        android:id="@+id/payment_empty_text"
+        android:layout_below="@id/payment_history_header_row"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:padding="10dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"/>
+
 </RelativeLayout>
