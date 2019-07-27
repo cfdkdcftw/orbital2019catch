@@ -10,22 +10,43 @@
     <TextView
         android:id="@+id/activity_des"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_height="55dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textAllCaps="true"
-        android:textColor="@color/deepBlue"
+        android:textSize="12pt"
+        android:textStyle="bold"
+        android:background="@color/lightBlue3"
+        android:textColor="@color/white"
         android:text="Account Details"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp">
+
+    <TextView
+        android:id="@+id/personal_particulars_heading"
+        android:layout_below="@+id/email_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="5dp"
+        android:textSize="8pt"
+        android:textColor="@color/headingBlue2"
+        android:textStyle="bold"
+        android:text="Personal Particulars"/>
 
     <TextView
         android:id="@+id/username_heading"
         android:layout_below="@+id/activity_des"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="5dp"
+        android:textSize="6pt"
         android:textColor="@color/themeBlue"
         android:text="Name"/>
 
@@ -35,7 +56,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="7pt"
+        android:background="@color/backgroundBlue2"
         android:text="Lorem Ipsum"/>
 
     <TextView
@@ -45,7 +70,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="5dp"
+        android:textSize="6pt"
         android:textColor="@color/themeBlue"
         android:text="Email"/>
 
@@ -55,17 +82,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="7pt"
+        android:background="@color/backgroundBlue2"
         android:text="loremipsum@gmail.com"/>
+
+    <TextView
+        android:id="@+id/manage_balance_heading"
+        android:layout_below="@+id/email_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="5dp"
+        android:textSize="8pt"
+        android:textColor="@color/headingBlue2"
+        android:textStyle="bold"
+        android:text="Manage Wallet"/>
 
     <TextView
         android:id="@+id/balance_heading"
         android:layout_below="@+id/email_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="5dp"
+        android:textSize="6pt"
         android:textColor="@color/themeBlue"
         android:text="Wallet Balance"/>
 
@@ -75,39 +121,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="7pt"
+        android:background="@color/backgroundBlue2"
         android:text="0.00"/>
 
     <Button
         android:id="@+id/paymentBtn"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="40px"
-        android:onClick="onClick"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
+        android:onClick="onClick"
         android:text="Request Payment"
         android:textColor="@color/themeBlue"
-        android:background="@color/lightBlue"
+        android:background="@drawable/rounded_corners_3"
+        android:textStyle="bold"
         android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/paymentHistoryBtn"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="40px"
-        android:onClick="onClick"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
+        android:onClick="onClick"
         android:text="Check Payment History"
         android:textColor="@color/themeBlue"
-        android:background="@color/lightBlue"
+        android:background="@drawable/rounded_corners_3"
+        android:textStyle="bold"
         android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/logout_btn"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginHorizontal="20dp"
         android:background="@drawable/border_button_background"
         android:ems="10"
         android:text="Logout"
@@ -120,5 +173,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="name" />-->
+    </LinearLayout>
 
 </LinearLayout>

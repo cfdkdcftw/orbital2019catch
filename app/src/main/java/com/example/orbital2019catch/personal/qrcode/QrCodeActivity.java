@@ -35,8 +35,8 @@ public class QrCodeActivity extends AppCompatActivity implements BarcodeReader.B
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code);
-        instructions = (TextView) findViewById(R.id.qrcode_instructions);
-        instructions.setText(String.format("Check out storefronts and your receipts\n for QR codes!"));
+//        instructions = (TextView) findViewById(R.id.qrcode_instructions);
+//        instructions.setText(String.format("Check out storefronts and your receipts\n for QR codes!"));
         barcodeReader = (BarcodeReader) getSupportFragmentManager().findFragmentById(R.id.barcode_fragment);
     }
 

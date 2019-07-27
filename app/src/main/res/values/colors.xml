@@ -14,10 +14,16 @@
     <color name="black">#000000</color>
     <color name="themeBlue">#80b2fc</color>
     <color name="lightBlue">#e5edf9</color>
+    <color name="lightBlue2">#c0d3f0</color>
+    <color name="lightBlue3">#b0d0f7</color>
     <color name="deepBlue">#0b50ba</color>
     <color name="comboBrown">#593e1a</color>
     <color name="comboBlue">#6b78b4</color>
     <color name="comboGreen">#266a2e</color>
     <color name="exitRed">#b33a3a</color>
+    <color name="headingBlue1">#78abd6</color>
+    <color name="headingBlue2">#3585cc</color>
+    <color name="backgroundBlue1">#f5faff</color>
+    <color name="backgroundBlue2">#f2f7ff</color>
     <color name="bannerBackground">#2381d8</color>
 </resources>

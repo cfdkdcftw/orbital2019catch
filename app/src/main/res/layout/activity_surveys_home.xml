@@ -12,7 +12,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
     tools:context=".personal.survey.SurveysHomeActivity">
 
     <!-- for header area -->
@@ -24,12 +23,15 @@
         <!-- survey header -->
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center_vertical"
             android:layout_gravity="center"
             android:text="Surveys"
             android:textAlignment="center"
-            android:textColor="@color/themeBlue"
-            android:textSize="13pt" />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@color/lightBlue3"
+            android:textSize="12pt" />
     </LinearLayout>
 
     <!-- to be replaced by scrolling banners -->
