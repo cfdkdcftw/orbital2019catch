@@ -13,12 +13,14 @@
         <TextView
             android:id="@+id/company_craft_survey_banner"
             android:gravity="center"
-            android:text="Create a new Survey form now!"
+            android:text="Create a New Survey Form"
             android:textAlignment="center"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textColor="@color/themeBlue"
+            android:layout_height="55dp"
+            android:textColor="@color/white"
+            android:background="@color/lightBlue3"
             android:textSize="12pt"
+            android:textStyle="bold"
             tools:ignore="MissingConstraints" />
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,6 +35,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_alignTop="@+id/craft_feedback_type"
             android:layout_gravity="center"
             android:gravity="center"

@@ -102,7 +102,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
                 } });
 
         } else if (brand.equals("Shaw")) {
-            holder.surveyCompanyIcon.setImageResource(R.drawable.shaw_organisation_logo);
+            holder.surveyCompanyIcon.setImageResource(R.drawable.shaw_logo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View itemView) {
@@ -130,7 +130,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
                 } });
 
         } else if (brand.equals("Filmgarde")) {
-            holder.surveyCompanyIcon.setImageResource(R.drawable.filmgarde2);
+            holder.surveyCompanyIcon.setImageResource(R.drawable.filmgarde_logo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View itemView) {
@@ -158,7 +158,7 @@ public class SurveyAdapterClass extends RecyclerView.Adapter<SurveyAdapterClass.
                 } });
 
         } else if (brand.equals("Cathay")) {
-            holder.surveyCompanyIcon.setImageResource(R.drawable.unnamed);
+            holder.surveyCompanyIcon.setImageResource(R.drawable.cathay_logo);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View itemView) {
