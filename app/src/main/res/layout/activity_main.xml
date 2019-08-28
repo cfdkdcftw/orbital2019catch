@@ -37,8 +37,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:background="@drawable/ic_profile_icon"
-            android:layout_marginLeft="220dp"/>
+            android:layout_marginLeft="180dp"
+            android:background="@drawable/ic_profile_icon" />
 
     </LinearLayout>
 
